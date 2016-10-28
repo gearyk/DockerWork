@@ -1,7 +1,8 @@
 
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import java.io.IOException;
+
+import org.json.JSONException;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,34 +13,55 @@ import com.cit.ie.pageobjects.LoginPagePO;
 import com.cit.ie.selenium.*;
 
 
-public class LoginPageTests {
+public class LoginPageTests extends WebDriverManager {
 
-	//LoginPagePO loginPage;
-	
-	@BeforeMethod
-	public void setup(){
-	 LoginPagePO loginPage=new LoginPagePO();
-	 loginPage.getDriver().get("https://:8443/univmax/jsclient/#/login");
-	 
-	}
-	
-	
-	@SuppressWarnings("static-access")
+
 	@Test
-	public void Test1() throws InterruptedException{
+	private void MyTests1() throws JSONException, IOException {
 		
-		//WebDriver driver = WebDriverManager.getInstance().getDriver();
-		LoginPagePO test1=new LoginPagePO();
-		//test1.getInstance().getDriver();
-		//WebDriver driver=myloginPage.getInstance().getDriver();
-		//Assert.assertTrue(driver.findElement(By.xpath(LoginPagePO.LOGIN_PAGE_TITLE)).isDisplayed());
-		Assert.assertTrue(test1.loginPageTitle().isDisplayed());
-
-		
+		if(threadDriver!=null)
+        {
+            findRemote(threadDriver.get());
+        }
+		LoginPagePO po=new LoginPagePO(getDriver());
+		Assert.assertTrue(po.loginButton().isDisplayed());
 	}
 	
-	@AfterMethod
-	public void tearDown(){
-		WebDriverManager.getInstance().closeDriver();
+	
+	
+	@Test
+	private void Test1() throws JSONException, IOException {
+		
+		if(threadDriver!=null)
+        {
+            findRemote(threadDriver.get());
+        }
+		LoginPagePO po=new LoginPagePO(getDriver());
+		Assert.assertTrue(po.loginButton().isDisplayed());
 	}
+	
+	@Test
+	private void Test2() throws JSONException, IOException {
+		
+		if(threadDriver!=null)
+        {
+            findRemote(threadDriver.get());
+        }
+		LoginPagePO po=new LoginPagePO(getDriver());
+		Assert.assertTrue(po.loginButton().isDisplayed());
+	}
+	
+	@Test
+	private void Test3() throws JSONException, IOException {
+		
+		if(threadDriver!=null)
+        {
+            findRemote(threadDriver.get());
+        }
+		LoginPagePO po=new LoginPagePO(getDriver());
+		Assert.assertTrue(po.loginButton().isDisplayed());
+	}
+	
+	
+	
 }

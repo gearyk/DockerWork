@@ -11,7 +11,7 @@ public class Tester extends RESTClient{
 	
 		RESTClient.username="smc";
 		RESTClient.password="smc";
-		GET("https://x.x.x.x:8443/univmax/restapi/82/sloprovisioning/symmetrix/000196700348");
+		GET("https://x.x.x.x:8443/univmax/restapi/82/sloprovisioning/symmetrix/000196700xxx");
 		System.out.println(responseOutput);
 
 	}
