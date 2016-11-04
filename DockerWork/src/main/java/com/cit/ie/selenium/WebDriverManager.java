@@ -27,6 +27,7 @@ import org.testng.annotations.Parameters;
  * @author gearyk2
  * @description Create an instance of WebDriverManager for each thread
  */
+@SuppressWarnings("deprecation")
 public class WebDriverManager {
 	
 	public String URL, Node;
@@ -82,7 +83,8 @@ public class WebDriverManager {
 	        }
 	    }
 	 
-	 public void findRemote(RemoteWebDriver driver) throws IOException,JSONException {
+	 @SuppressWarnings("resource")
+	public void findRemote(RemoteWebDriver driver) throws IOException,JSONException {
 	        
 		HttpCommandExecutor ce = (HttpCommandExecutor) driver.getCommandExecutor();
         ce.getAddressOfRemoteServer();
