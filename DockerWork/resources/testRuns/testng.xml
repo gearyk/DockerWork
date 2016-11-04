@@ -3,13 +3,13 @@
 	   <test name="TEST1">
     <parameter name ="browser" value="chrome"/>
         <classes>
-            <class name ="grid.MyTests"/>
+            <class name ="login.LoginPageTests"/>
         </classes>
     </test>
      <test name="TEST2">
     <parameter name ="browser" value="chrome"/>
         <classes>
-            <class name ="grid.MyTests2"/>
+            <class name ="login.LoginPageTests"/>
         </classes>
     </test>
 </suite>

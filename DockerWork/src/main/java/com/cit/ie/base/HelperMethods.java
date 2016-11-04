@@ -12,7 +12,8 @@ public class HelperMethods extends WebDriverManager {
 	    public WebDriverWait wait;
 	    
 
-	    public HelperMethods(WebDriver adriver)
+	    @SuppressWarnings("static-access")
+		public HelperMethods(WebDriver adriver)
 	    {
 	        driver=adriver;
 	        wait = new WebDriverWait(this.driver,timeOut);

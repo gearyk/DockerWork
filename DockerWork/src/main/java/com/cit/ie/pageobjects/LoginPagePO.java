@@ -1,10 +1,8 @@
 package com.cit.ie.pageobjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.cit.ie.base.HelperMethods;
@@ -13,7 +11,7 @@ import com.cit.ie.base.HelperMethods;
 
 /**
  * @name LoginPage PageObject
- * @description Page Objects for Login Page
+ * @description Page Objects for login Page
  * @author gearyk2
  */
 public class LoginPagePO extends HelperMethods
@@ -30,7 +28,7 @@ public class LoginPagePO extends HelperMethods
 	public static final String LOGIN_PAGE_TITLE_XPATH = ".//*[@class='login_product_name layout-row']";
 	public static final String USERNAME_FIELD_XPATH = ".//input[@name='uName']";
 	public static final String PASSWORD_FIELD_XPATH = ".//input[@name='pWrd']";
-	public static final String LOGIN_BUTTON_XPATH = ".//*/button[@aria-label='Login']";
+	public static final String LOGIN_BUTTON_XPATH = ".//*/button[@aria-label='login']";
 	public static final String VERSION_NUMBER_XPATH = ".//*/div[text()[contains(.,'Version')]]";
 	public static final String LOGIN_LOGO_XPATH = ".//*[@id='login_logo']";
 
@@ -72,15 +70,7 @@ public class LoginPagePO extends HelperMethods
 //		WebElement element = (new WebDriverWait(getDriver(), 10)).until(ExpectedConditions.elementToBeClickable(By.xpath(LOGIN_BUTTON_XPATH)));
 //		return element;
 //	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 }

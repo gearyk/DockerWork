@@ -92,8 +92,7 @@ public class WebDriverManager {
         String HubIP=ce.getAddressOfRemoteServer().getHost();
         int HubPort=ce.getAddressOfRemoteServer().getPort();
         HttpHost host = new HttpHost(ce.getAddressOfRemoteServer().getHost(), HubPort);
-        @SuppressWarnings("deprecation")
-		DefaultHttpClient client = new DefaultHttpClient();
+        DefaultHttpClient client = new DefaultHttpClient();
         URL testSessionApi = new URL("http://" + HubIP + ":" + HubPort + "/grid/api/testsession?session=" +  driver.getSessionId());
         BasicHttpEntityEnclosingRequest r = new  BasicHttpEntityEnclosingRequest("POST", testSessionApi.toExternalForm());
         HttpResponse response  = client.execute(host,r);
