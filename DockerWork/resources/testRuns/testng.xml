@@ -6,10 +6,4 @@
             <class name ="login.LoginPageTests"/>
         </classes>
     </test>
-     <test name="TEST2">
-    <parameter name ="browser" value="chrome"/>
-        <classes>
-            <class name ="login.LoginPageTests"/>
-        </classes>
-    </test>
 </suite>

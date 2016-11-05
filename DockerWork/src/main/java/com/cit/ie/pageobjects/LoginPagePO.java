@@ -1,8 +1,10 @@
 package com.cit.ie.pageobjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.cit.ie.base.HelperMethods;
@@ -21,7 +23,7 @@ public class LoginPagePO extends HelperMethods
 	     driver = wdriver;
 	     wait = new WebDriverWait(driver, timeOut);
 	     driver.manage().window().maximize();
-	     driver.get("http://myapp.ie");
+	     driver.get("https://10.73.28.71:8443/univmax/jsclient/#/login");
 	    }
 	
 	//Object Locators
@@ -51,10 +53,11 @@ public class LoginPagePO extends HelperMethods
 	@FindBy(xpath=VERSION_NUMBER_XPATH)
 	public WebElement versionNumber;
 	
-//	public WebElement loginPageTitle(){
-//		WebElement element = (new WebDriverWait(getDriver(), 10)).until(ExpectedConditions.elementToBeClickable(By.xpath(LOGIN_PAGE_TITLE_XPATH)));
-//		return element;
-//	}
+	
+	public WebElement loginPage(){
+		WebElement element = (new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(By.xpath(LOGIN_PAGE_TITLE_XPATH)));
+		return element;
+	}
 //	
 //	public WebElement usernameField(){
 //		WebElement element = (new WebDriverWait(getDriver(), 10)).until(ExpectedConditions.elementToBeClickable(By.xpath(USERNAME_FIELD_XPATH)));

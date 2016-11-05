@@ -37,15 +37,17 @@ public class WebDriverManager {
 
     @Parameters("browser")
 	@BeforeTest()
-	public void launchbrowser(String browser) throws MalformedURLException {
+	public void launchbrowser(String browser) throws MalformedURLException, InterruptedException {
 		
     	if (browser.equalsIgnoreCase("chrome")) {
 			System.out.println(" Executing on CHROME");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setBrowserName("chrome");
-			String Node = "http://locahost:4444/wd/hub";
+			String Node = "http://152.62.122.187:4444/wd/hub";
 			threadDriver = new ThreadLocal<RemoteWebDriver>();
 			threadDriver.set(new RemoteWebDriver(new URL(Node), cap));
+			
+			
 		}
 			
 		else {
@@ -83,7 +85,7 @@ public class WebDriverManager {
 	        }
 	    }
 	 
-	 @SuppressWarnings("resource")
+	 //@SuppressWarnings("resource")
 	public void findRemote(RemoteWebDriver driver) throws IOException,JSONException {
 	        
 		HttpCommandExecutor ce = (HttpCommandExecutor) driver.getCommandExecutor();

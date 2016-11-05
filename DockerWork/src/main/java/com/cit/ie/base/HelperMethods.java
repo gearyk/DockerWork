@@ -8,7 +8,7 @@ import com.cit.ie.selenium.WebDriverManager;
 public class HelperMethods extends WebDriverManager {
 
 		public static WebDriver driver;
-	    protected int timeOut = 30;
+	    protected int timeOut = 300;
 	    public WebDriverWait wait;
 	    
 
