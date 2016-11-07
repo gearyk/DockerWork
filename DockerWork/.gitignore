@@ -38,3 +38,4 @@ test-output/
 ###OTHER###
 *test.java
 /target/
+/bin/
