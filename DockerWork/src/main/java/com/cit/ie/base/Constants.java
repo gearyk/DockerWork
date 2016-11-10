@@ -9,15 +9,14 @@ import org.testng.Assert;
 public class Constants extends Assert
 {
 
-	
 	public static final String V3_348 = "000196700348";
-	
+
 	/**
 	 * USER CREDENTIALS
 	 */
 	public static String ADMIN = "smc";
 	public static String MONITOR = "monitor";
-	
+
 	/**
 	 * REST QUERY FILTERS
 	 */
@@ -25,7 +24,7 @@ public class Constants extends Assert
 	public static final String LESS_THAN = "%3c";
 	public static final String LIKE = LESS_THAN+"like"+GREATER_THAN;
 	public static final String SPACE = "%20";
-	
+
 	/**
 	 * REST HTTP STATUS CODES
 	 */ 
@@ -46,7 +45,7 @@ public class Constants extends Assert
 	public static final int CONFLICT = 409;
 	//5XX - server error
 	public static final int INTERNAL_SERVER_ERROR = 500;
-	
+
 	/**
 	 * REST METHODS
 	 */
@@ -54,13 +53,13 @@ public class Constants extends Assert
 	public static final String DELETE = "DELETE";
 	public static final String POST = "POST";
 	public static final String PUT = "PUT";
-	
+
 	/**
 	 * MISC
 	 */
-    public static final String EMPTY_VALUE = "EMPTY";
-    public static final long SYMAPI_NA = 4294967295L;
-    public static final int VOLUME_LENGTH = 5;
-    
+	public static final String EMPTY_VALUE = "EMPTY";
+	public static final long SYMAPI_NA = 4294967295L;
+	public static final int VOLUME_LENGTH = 5;
+
 }
 

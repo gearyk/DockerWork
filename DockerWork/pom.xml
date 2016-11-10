@@ -20,6 +20,12 @@
 			<version>20160810</version>
 		</dependency>
 		<dependency>
+  <groupId>com.paulhammant</groupId>
+  <artifactId>ngwebdriver</artifactId>
+  <version>0.9.6</version>
+  <scope>test</scope>
+</dependency>
+		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>6.9.10</version>

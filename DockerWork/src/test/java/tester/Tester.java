@@ -1,4 +1,4 @@
-package login;
+package tester;
 import com.cit.ie.rest.RESTClient;
 
 /**

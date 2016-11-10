@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite verbose="1" name="Login Suite" parallel="tests" thread-count="5">
+	<test name="TEST1">
+    <parameter name ="browser" value="chrome"/>
+        <classes>
+            <class name ="com.cit.ie.login.LoginPageTests"/>
+        </classes>
+    </test>
+    <test name="TEST2"> 
+    <parameter name="browser" value="chrome"/> 
+    <classes> 
+       <class name ="com.cit.ie.storagegroups.StorageGroupTests"/>
+    </classes> 
+ 	</test> 
+</suite>
+
