@@ -33,6 +33,7 @@ public class LoginPagePO extends HelperMethods
 	public static final String LOGIN_BUTTON_XPATH = ".//*/button[@aria-label='login']";
 	public static final String VERSION_NUMBER_XPATH = ".//*/div[text()[contains(.,'Version')]]";
 	public static final String LOGIN_LOGO_XPATH = ".//*[@id='login_logo']";
+	private boolean isLoaded;
 
 	
 	@FindBy(xpath=LOGIN_PAGE_TITLE_XPATH)
@@ -53,6 +54,9 @@ public class LoginPagePO extends HelperMethods
 	@FindBy(xpath=VERSION_NUMBER_XPATH)
 	public WebElement versionNumber;
 	
+	public void waitForLoginPageObjects(){
+		elWait(loginLogo);
+	}
 	
 	public WebElement loginPage(){
 		WebElement element = (new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(By.xpath(LOGIN_PAGE_TITLE_XPATH)));
