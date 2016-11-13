@@ -22,6 +22,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 
@@ -41,7 +42,7 @@ public class WebDriverManager {
 
 	@Parameters("browser")
 	@BeforeTest()
-	public void launchbrowser(String browser) throws MalformedURLException, InterruptedException {
+	public void launchbrowser(@Optional("Chrome")String browser) throws MalformedURLException, InterruptedException {
 
 		if (browser.equalsIgnoreCase("chrome")) {
 			System.out.println(" Executing on CHROME");

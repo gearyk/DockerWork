@@ -22,7 +22,7 @@ public class HelperMethods extends WebDriverManager {
 
 		wait=new WebDriverWait(driver, 15, 2000);
 		wait.until(ExpectedConditions.visibilityOf(we));
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 	}
 

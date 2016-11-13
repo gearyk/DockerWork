@@ -29,13 +29,9 @@ public class HomeDashboardPO extends HelperMethods
 	public static final String U4V_LOGO_XPATH = "//span[text()[contains(.,'Unisphere for VMAX')]]";
 
 	//SIDEMENUs
-	public static final String STORAGE_SIDEMENU_XPATH=".//*[@id='index-page']/body/div[2]/div[1]/nav/menu/li[2]/div/a";
-	//".//a[@ng-if='item.items']/div[text()='STORAGE']";
-
-	public static final String STORAGE_GROUPS_SIDEMENU_XPATH=".//*[@id='index-page']/body/div[2]/div[1]/nav/menu/li[2]/nav[2]/menu/ul/li[1]/a/div";
-	//".//nav[@ng-if='item.items']/div[text()='STORAGE']/parent::nav/menu/ul/li[@class='emc-menu-subitem-storage_groups']/a/div";
-
-
+	public static final String STORAGE_SIDEMENU_XPATH=".//a[@ng-if='item.items']/div[text()='STORAGE']";
+	public static final String STORAGE_GROUPS_SIDEMENU_XPATH="//nav[@class='ng-scope emc-framework-menu-secondary-sub sub-menu-display']/menu/ul/li[contains(@class,'emc-menu-subitem-storage_groups')]/a/div";
+															   
 	@FindBy(xpath=DELL_EMC_LOGO_XPATH)
 	public WebElement dellEmcLogo;
 
@@ -47,10 +43,6 @@ public class HomeDashboardPO extends HelperMethods
 
 	@FindBy(xpath=STORAGE_GROUPS_SIDEMENU_XPATH)
 	public WebElement storageGroupsSideMenuItem;
-
-
-
-
 
 
 	public void waitForHomeDashboardPageObjects() throws InterruptedException{
@@ -67,6 +59,7 @@ public class HomeDashboardPO extends HelperMethods
 		navigateToSideMenu();
 		storageGroupsSideMenuItem.click();	
 	}
-
+	
+	
 }
 

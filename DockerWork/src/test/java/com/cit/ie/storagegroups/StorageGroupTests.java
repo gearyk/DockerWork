@@ -13,7 +13,7 @@ import com.cit.ie.pageobjects.StorageGroupsPO;
 public class StorageGroupTests extends WebDriverManager{
 
 
-	@Test
+	//@Test
 	private void _001VerifyExistanceOfPageElements() throws JSONException, IOException, InterruptedException {
 
 		if(threadDriver!=null)
@@ -32,6 +32,24 @@ public class StorageGroupTests extends WebDriverManager{
 		Assert.assertTrue(sgpo.deleteStorageGroupButton.isDisplayed());
 		Assert.assertTrue(sgpo.editStorageGroupButton.isDisplayed());
 		Assert.assertTrue(sgpo.storageGroupPageTitle.isDisplayed());
+	}
+	
+	@Test
+	private void _002VerifyExistanceOfPageElements() throws JSONException, IOException, InterruptedException {
+
+		if(threadDriver!=null)
+		{
+			findRemote(threadDriver.get());
+		}
+		LoginPagePO lppo=new LoginPagePO(getDriver());
+		lppo.waitForLoginPageObjects();
+		lppo.doLogin("smc","smc");
+		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
+		hdpo.waitForHomeDashboardPageObjects();
+		hdpo.navigateToStorageGroups1();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		
 	}
 
 
