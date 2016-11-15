@@ -1,5 +1,7 @@
 package com.cit.ie.base;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,10 +21,9 @@ public class HelperMethods extends WebDriverManager {
 	}
 
 	public void elementWait(WebElement we) throws InterruptedException{
-
-		wait=new WebDriverWait(driver, 15, 2000);
+		//wait=new WebDriverWait(driver, 30, 2000);
 		wait.until(ExpectedConditions.visibilityOf(we));
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 
 	}
 

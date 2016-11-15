@@ -55,8 +55,9 @@ public class HomeDashboardPO extends HelperMethods
 	}
 
 	//Navigate to this view
-	public void navigateToStorageGroups(){
+	public void navigateToStorageGroups() throws InterruptedException{
 		navigateToSideMenu();
+		Thread.sleep(1500);
 		storageGroupsSideMenuItem.click();	
 	}
 	
