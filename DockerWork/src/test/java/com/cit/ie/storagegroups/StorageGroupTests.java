@@ -8,11 +8,13 @@ import org.testng.annotations.Test;
 import com.cit.ie.base.WebDriverManager;
 import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
+import com.cit.ie.pageobjects.ProvisionStorageWizardPO;
 import com.cit.ie.pageobjects.StorageGroupsPO;
+import com.cit.ie.rest.RESTClient;
 
 public class StorageGroupTests extends WebDriverManager{
 
-
+	
 	@Test
 	private void _0000VerifyExistanceOfPageElements() throws JSONException, IOException, InterruptedException {
 
@@ -32,9 +34,20 @@ public class StorageGroupTests extends WebDriverManager{
 		Assert.assertTrue(sgpo.deleteStorageGroupButton.isDisplayed());
 		Assert.assertTrue(sgpo.editStorageGroupButton.isDisplayed());
 		Assert.assertTrue(sgpo.storageGroupPageTitle.isDisplayed());
+		Assert.assertTrue(sgpo.moreActionsStorageGroupButton.isDisplayed());
+		Assert.assertTrue(sgpo.searchStorageGroupButton.isDisplayed());
+		Assert.assertTrue(sgpo.filterStorageGroupButton.isDisplayed());
+		Assert.assertTrue(sgpo.viewDetailsStorageGroupButton.isDisplayed());
+		Assert.assertTrue(sgpo.storageGroupHeader.isDisplayed());
+		Assert.assertTrue(sgpo.complianceHeader.isDisplayed());
+		Assert.assertTrue(sgpo.srpHeader.isDisplayed());
+		Assert.assertTrue(sgpo.sloHeader.isDisplayed());
+		Assert.assertTrue(sgpo.capacityHeader.isDisplayed());
+		Assert.assertTrue(sgpo.emulationHeader.isDisplayed());
+		Assert.assertTrue(sgpo.columnFilterButton.isDisplayed());
 	}
 	
-	@Test
+	//@Test
 	private void _00000VerifyWizardButtons() throws JSONException, IOException, InterruptedException {
 
 		if(threadDriver!=null)
@@ -55,36 +68,57 @@ public class StorageGroupTests extends WebDriverManager{
 		Assert.assertTrue(sgpo.storageGroupPageTitle.isDisplayed());
 	}
 	
-	@Test
+	//@Test
 	private void _000VerifyRolesAndPermissions() throws JSONException, IOException, InterruptedException {
 
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
 		}
+		gotoStorageGroupsPage();
+		
+	}
+	
+	@Test
+	private void _001_CREATE_SG_WITH_64CHARS() throws JSONException, IOException, InterruptedException {
+		
+		String _64BitName="012345678901234567890123456789012345678901234567890123456789ABCD";
+		if(threadDriver!=null)
+		{
+			findRemote(threadDriver.get());
+		}
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(_64BitName);
+		pswpo.createSgRunNow.click();
+		
+		
+		//VERIFY THAT GROUP HAS BEEN CREATED
+		RESTClient.GET("https://10.73.28.231:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/"+_64BitName);
+		Assert.assertEquals(RESTClient.responseStatus,200);
+		//CLEANUP
+		RESTClient.DELETE("https://10.73.28.231:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/"+_64BitName);
+		Assert.assertEquals(RESTClient.responseStatus,204);
+		
+		
+	}
+
+	private void gotoStorageGroupsPage() throws InterruptedException {
 		LoginPagePO lppo=new LoginPagePO(getDriver());
 		lppo.waitForLoginPageObjects();
 		lppo.doLogin("smc","smc");
 		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 		hdpo.waitForHomeDashboardPageObjects();
 		hdpo.navigateToStorageGroups();
-		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
-		sgpo.waitForStorageGroupsPageObjects();
 		
 	}
 	
-	@Test
-	private void _001_CREATE_SG_WITH_64CHARS() throws JSONException, IOException, InterruptedException {
-
-		if(threadDriver!=null)
-		{
-			findRemote(threadDriver.get());
-		}
-		
-		
-	}
-	
-	@Test
+	//@Test
 	private void _002_CREATE_EMPTY_SG_WITH_SRP() throws JSONException, IOException, InterruptedException {
 
 		if(threadDriver!=null)

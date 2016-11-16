@@ -15,34 +15,72 @@ public class StorageGroupsPO extends HomeDashboardPO{
 		PageFactory.initElements(driver, this);
 	}
 
-	//Object Locators
+	//LOCATORS
+	//BUTTONS
 	public static final String STORAGE_GROUPS_PAGE_TITLE_XPATH = ".//div[@data-view-id='StorageGroupListView']/div/div[text()='Storage Groups']";
 	public static final String CREATE_STORAGE_GROUP_BUTTON_XPATH = ".//button[@aria-label='create']";
 	public static final String EDIT_STORAGE_GROUP_BUTTON_XPATH=".//button[@aria-label='edit']";
 	public static final String DELETE_STORAGE_GROUP_BUTTON_XPATH=".//button[@aria-label='delete']";
-
-	//Object WebElements
+	public static final String MOREACTIONS_STORAGE_GROUP_BUTTON_XPATH=".//button[@aria-label='more_vert']";
+	public static final String SEARCH_STORAGE_GROUP_BUTTON_XPATH=".//button[@aria-label='search']";
+	public static final String FILTER_STORAGE_GROUP_BUTTON_XPATH=".//button[@aria-label='filter']";
+	public static final String VIEWDETAILS_STORAGE_GROUP_BUTTON_XPATH=".//button[@aria-label='view details']";
+	//COLUMN HEADERS
+	public static final String STORAGEGROUP_HEADER_XPATH=".//span[text()='Storage Group']";
+	public static final String COMPLIANCE_HEADER_XPATH=".//span[text()='Compliance']";
+	public static final String SRP_HEADER_XPATH=".//span[text()='SRP']";
+	public static final String SLO_HEADER_XPATH=".//span[text()='SLO']";
+	public static final String CAPACITY_HEADER_XPATH=".//span[text()='Capacity (GB)']";
+	public static final String EMULATION_HEADER_XPATH=".//span[text()='Emulation']";
+	public static final String COLUMN_FILTER_HEADER_XPATH=".//i[@aria-label='Grid Menu']";
+	
+	
+	//WEB ELEMENTS
+	
+	//BUTTONS/ICONS
 	@FindBy(xpath=STORAGE_GROUPS_PAGE_TITLE_XPATH)
 	public WebElement storageGroupPageTitle;
-
 	@FindBy(xpath=CREATE_STORAGE_GROUP_BUTTON_XPATH)
 	public WebElement createStorageGroupButton;
-
 	@FindBy(xpath=EDIT_STORAGE_GROUP_BUTTON_XPATH)
 	public WebElement editStorageGroupButton;
-
 	@FindBy(xpath=DELETE_STORAGE_GROUP_BUTTON_XPATH)
 	public WebElement deleteStorageGroupButton;
-
-
-
+	@FindBy(xpath=MOREACTIONS_STORAGE_GROUP_BUTTON_XPATH)
+	public WebElement moreActionsStorageGroupButton;
+	@FindBy(xpath=SEARCH_STORAGE_GROUP_BUTTON_XPATH)
+	public WebElement searchStorageGroupButton;
+	@FindBy(xpath=FILTER_STORAGE_GROUP_BUTTON_XPATH)
+	public WebElement filterStorageGroupButton;
+	@FindBy(xpath=VIEWDETAILS_STORAGE_GROUP_BUTTON_XPATH)
+	public WebElement viewDetailsStorageGroupButton;
+	//HEADERS
+	@FindBy(xpath=STORAGEGROUP_HEADER_XPATH)
+	public WebElement storageGroupHeader;
+	@FindBy(xpath=COMPLIANCE_HEADER_XPATH)
+	public WebElement complianceHeader;
+	@FindBy(xpath=SRP_HEADER_XPATH)
+	public WebElement srpHeader;
+	@FindBy(xpath=SLO_HEADER_XPATH)
+	public WebElement sloHeader;
+	@FindBy(xpath=CAPACITY_HEADER_XPATH)
+	public WebElement capacityHeader;
+	@FindBy(xpath=EMULATION_HEADER_XPATH)
+	public WebElement emulationHeader;
+	@FindBy(xpath=COLUMN_FILTER_HEADER_XPATH)
+	public WebElement columnFilterButton;
+	
+	
+	
+	
+	
+	
 
 	//Wait for this page to load
 	public void waitForStorageGroupsPageObjects() throws InterruptedException{
 		try {
 			elementWait(createStorageGroupButton);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			e.getMessage();
 		}
