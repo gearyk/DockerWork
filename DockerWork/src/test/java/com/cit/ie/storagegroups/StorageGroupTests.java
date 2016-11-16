@@ -14,6 +14,7 @@ import com.cit.ie.rest.RESTClient;
 
 public class StorageGroupTests extends WebDriverManager{
 
+	private String baseURL="https://10.73.28.231:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
 	
 	@Test
 	private void _0000VerifyExistanceOfPageElements() throws JSONException, IOException, InterruptedException {
@@ -99,6 +100,7 @@ public class StorageGroupTests extends WebDriverManager{
 		
 		
 		//VERIFY THAT GROUP HAS BEEN CREATED
+		RESTClient.refreshRestDB(baseURL);
 		RESTClient.GET("https://10.73.28.231:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/"+_64BitName);
 		Assert.assertEquals(RESTClient.responseStatus,200);
 		//CLEANUP

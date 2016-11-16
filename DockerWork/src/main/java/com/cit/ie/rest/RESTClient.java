@@ -12,6 +12,8 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.ws.rs.core.Response.Status;
 
+import org.testng.Assert;
+
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -313,5 +315,20 @@ public class RESTClient extends Constants
 		} else {
 			return false;
 		}
+	}
+	
+	/**
+	 * @name refreshRestDB
+	 * @description A simple post to refresh the REST Database
+	 * @param url
+	 * @example https://10.73.28.231:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/
+	 */
+	public static void refreshRestDB(String storageGroupurl) {
+		String json="{\"srpId\": \"None\",\"storageGroupId\": \"000madeup\",\"create_empty_storage_group\": true}";
+		POST(storageGroupurl,json);
+		Assert.assertEquals(responseStatus,201);
+		DELETE(storageGroupurl+"000madeup");
+		Assert.assertEquals(responseStatus,204);
+		
 	}
 }
