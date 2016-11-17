@@ -21,9 +21,9 @@ public class HelperMethods extends WebDriverManager {
 	}
 
 	public void elementWait(WebElement we) throws InterruptedException{
-		//wait=new WebDriverWait(driver, 30, 2000);
+		wait=new WebDriverWait(driver, 30, 2000);
 		wait.until(ExpectedConditions.visibilityOf(we));
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 	}
 

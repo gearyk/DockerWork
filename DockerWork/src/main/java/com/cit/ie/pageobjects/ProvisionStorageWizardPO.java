@@ -23,8 +23,9 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public static final String SRP_LABEL_XPATH = ".//label[text()='Storage Resource Pool']";
 	public static final String SRP_LIST_BOX = ".//md-select[contains(@aria-label,'Storage Resource Pool')]";
 	public static final String CREATE_STORAGE_GROUP_RUN_NOW_BUTTON_XPATH="//section[@wz-title='Create Storage Group(s)']//button[text()='Run Now']";
-	
-
+	public static final String DEFAULT_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='DEFAULT_SRP']";
+	public static final String NONE_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='None']";
+	public static final String SRP2_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='SRP_2']";
 	//WEB ELEMENTS
 	//BUTTONS/ICONS
 	@FindBy(xpath=PROVISION_STORAGE_TITLE_XPATH)
@@ -35,9 +36,14 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public WebElement storageGroupNameTextField;
 	@FindBy(xpath=SRP_LIST_BOX)
 	public WebElement srpListBox;
-	
 	@FindBy(xpath=CREATE_STORAGE_GROUP_RUN_NOW_BUTTON_XPATH)
 	public WebElement createSgRunNow;
+	@FindBy(xpath=DEFAULT_SRP_MENUITEM_XPATH)
+	public WebElement defaultSRP;
+	@FindBy(xpath=NONE_SRP_MENUITEM_XPATH)
+	public WebElement noneSRP;
+	@FindBy(xpath=SRP2_SRP_MENUITEM_XPATH)
+	public WebElement srp2SRP;
 	
 
 }

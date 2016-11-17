@@ -69,7 +69,7 @@ public class StorageGroupTests extends WebDriverManager{
 		Assert.assertTrue(sgpo.storageGroupPageTitle.isDisplayed());
 	}
 	
-	//@Test
+	@Test
 	private void _000VerifyRolesAndPermissions() throws JSONException, IOException, InterruptedException {
 
 		if(threadDriver!=null)
@@ -98,35 +98,52 @@ public class StorageGroupTests extends WebDriverManager{
 		pswpo.storageGroupNameTextField.sendKeys(_64BitName);
 		pswpo.createSgRunNow.click();
 		
-		
 		//VERIFY THAT GROUP HAS BEEN CREATED
 		RESTClient.refreshRestDB(baseURL);
 		RESTClient.GET("https://10.73.28.231:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/"+_64BitName);
+		RESTClient.printResponses();
 		Assert.assertEquals(RESTClient.responseStatus,200);
 		//CLEANUP
 		RESTClient.DELETE("https://10.73.28.231:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/"+_64BitName);
-		Assert.assertEquals(RESTClient.responseStatus,204);
-		
+		RESTClient.printResponses();
+		Assert.assertEquals(RESTClient.responseStatus,204);	
 		
 	}
 
-	private void gotoStorageGroupsPage() throws InterruptedException {
-		LoginPagePO lppo=new LoginPagePO(getDriver());
-		lppo.waitForLoginPageObjects();
-		lppo.doLogin("smc","smc");
-		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
-		hdpo.waitForHomeDashboardPageObjects();
-		hdpo.navigateToStorageGroups();
-		
-	}
 	
-	//@Test
+	
+	@Test
 	private void _002_CREATE_EMPTY_SG_WITH_SRP() throws JSONException, IOException, InterruptedException {
-
-		if(threadDriver!=null)
-		{
-			findRemote(threadDriver.get());
-		}
+			
+			String sgName="000DOCK02";
+			if(threadDriver!=null)
+			{
+				findRemote(threadDriver.get());
+			}
+			gotoStorageGroupsPage();
+			StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+			sgpo.waitForStorageGroupsPageObjects();
+			sgpo.createStorageGroupButton.click();
+			ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+			pswpo.elementWait(pswpo.provisionStorageTitle);
+			pswpo.storageGroupNameTextField.click();
+			pswpo.storageGroupNameTextField.sendKeys(sgName);
+			pswpo.srpListBox.click();
+			pswpo.defaultSRP.click();
+			Thread.sleep(15000);
+			//pswpo.createSgRunNow.click();
+			
+//			//VERIFY THAT GROUP HAS BEEN CREATED
+//			RESTClient.refreshRestDB(baseURL);
+//			RESTClient.GET("https://10.73.28.231:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/"+sgName);
+//			RESTClient.printResponses();
+//			Assert.assertEquals(RESTClient.responseStatus,200);
+//			//CLEANUP
+//			RESTClient.DELETE("https://10.73.28.231:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/"+sgName);
+//			RESTClient.printResponses();
+//			Assert.assertEquals(RESTClient.responseStatus,204);	
+//			
+//		}
 		
 		
 	}
@@ -970,7 +987,15 @@ public class StorageGroupTests extends WebDriverManager{
 
 
 
-	
+	private void gotoStorageGroupsPage() throws InterruptedException {
+		LoginPagePO lppo=new LoginPagePO(getDriver());
+		lppo.waitForLoginPageObjects();
+		lppo.doLogin("smc","smc");
+		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
+		hdpo.waitForHomeDashboardPageObjects();
+		hdpo.navigateToStorageGroups();
+		
+	}
 	
 
 

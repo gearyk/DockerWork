@@ -326,8 +326,10 @@ public class RESTClient extends Constants
 	public static void refreshRestDB(String storageGroupurl) {
 		String json="{\"srpId\": \"None\",\"storageGroupId\": \"000madeup\",\"create_empty_storage_group\": true}";
 		POST(storageGroupurl,json);
-		Assert.assertEquals(responseStatus,201);
+		printResponses();
+		Assert.assertEquals(responseStatus,200);
 		DELETE(storageGroupurl+"000madeup");
+		printResponses();
 		Assert.assertEquals(responseStatus,204);
 		
 	}
