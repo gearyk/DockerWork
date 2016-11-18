@@ -3,6 +3,7 @@ package com.cit.ie.storagegroups;
 import java.io.IOException;
 
 import org.json.JSONException;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.cit.ie.base.WebDriverManager;
@@ -15,7 +16,7 @@ import com.cit.ie.rest.RESTClient;
 public class StorageGroupTests extends WebDriverManager{
 
 	private String baseURL="https://10.73.28.231:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
-	
+	private WebElement el;
 	@Test
 	private void _0000VerifyExistanceOfPageElements() throws JSONException, IOException, InterruptedException {
 
@@ -130,6 +131,10 @@ public class StorageGroupTests extends WebDriverManager{
 			pswpo.storageGroupNameTextField.sendKeys(sgName);
 			pswpo.srpListBox.click();
 			pswpo.defaultSRP.click();
+			pswpo.addStorageGroupButton.click();
+			pswpo.setRowForChildSG(1);
+			pswpo.sloListBoxCSG().click();
+
 			Thread.sleep(15000);
 			//pswpo.createSgRunNow.click();
 			
