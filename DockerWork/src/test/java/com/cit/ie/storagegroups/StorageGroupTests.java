@@ -17,6 +17,8 @@ public class StorageGroupTests extends WebDriverManager{
 
 	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
 	private WebElement el;
+	private String sgName;
+	
 	@Test
 	private void _0000VerifyExistanceOfPageElements() throws JSONException, IOException, InterruptedException {
 
@@ -49,7 +51,7 @@ public class StorageGroupTests extends WebDriverManager{
 		Assert.assertTrue(sgpo.columnFilterButton.isDisplayed());
 	}
 	
-	//@Test
+	@Test
 	private void _00000VerifyWizardButtons() throws JSONException, IOException, InterruptedException {
 
 		if(threadDriver!=null)
@@ -70,7 +72,7 @@ public class StorageGroupTests extends WebDriverManager{
 		Assert.assertTrue(sgpo.storageGroupPageTitle.isDisplayed());
 	}
 	
-	@Test
+	//@Test
 	private void _000VerifyRolesAndPermissions() throws JSONException, IOException, InterruptedException {
 
 		if(threadDriver!=null)
@@ -84,7 +86,7 @@ public class StorageGroupTests extends WebDriverManager{
 	@Test
 	private void _001_CREATE_SG_WITH_64CHARS() throws JSONException, IOException, InterruptedException {
 		
-		String _64BitName="012345678901234567890123456789012345678901234567890123456789ABCD";
+		sgName="012345678901234567890123456789012345678901234567890123456789ABCD";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -96,27 +98,20 @@ public class StorageGroupTests extends WebDriverManager{
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
 		pswpo.elementWait(pswpo.provisionStorageTitle);
 		pswpo.storageGroupNameTextField.click();
-		pswpo.storageGroupNameTextField.sendKeys(_64BitName);
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.createSgRunNow.click();
-		
-		//VERIFY THAT GROUP HAS BEEN CREATED
-		RESTClient.refreshRestDB(baseURL);
-		RESTClient.GET(baseURL+_64BitName);
-		RESTClient.printResponses();
-		Assert.assertEquals(RESTClient.responseStatus,200);
-		//CLEANUP
-		RESTClient.DELETE(baseURL+_64BitName);
-		RESTClient.printResponses();
-		Assert.assertEquals(RESTClient.responseStatus,204);	
+		verifyAndCleanup(sgName);	
 		
 	}
+
+	
 
 	
 	
 	@Test
 	private void _002_CREATE_EMPTY_SG_WITH_SRP() throws JSONException, IOException, InterruptedException {
 			
-			String sgName="000DOCK02";
+			sgName="000DOCK02";
 			if(threadDriver!=null)
 			{
 				findRemote(threadDriver.get());
@@ -136,41 +131,64 @@ public class StorageGroupTests extends WebDriverManager{
 			//pswpo.setRowForChildSG(1);
 			//pswpo.sloListBoxCSG().click();
 			Thread.sleep(5000);
-			//pswpo.createSgRunNow.click();
-			
-//			//VERIFY THAT GROUP HAS BEEN CREATED
-			RESTClient.refreshRestDB(baseURL);
-			RESTClient.GET(baseURL+sgName);
-			RESTClient.printResponses();
-			Assert.assertEquals(RESTClient.responseStatus,200);
-//			//CLEANUP
-			RESTClient.DELETE(baseURL+sgName);
-			RESTClient.printResponses();
-			Assert.assertEquals(RESTClient.responseStatus,204);	
-			
+			verifyAndCleanup(sgName);	
 
-		
-		
 	}
 	
-	//@Test
+	@Test
 	private void _003_CREATE_EMPTY_SG_AND_VOLUME_DETAILS_DEFINED() throws JSONException, IOException, InterruptedException {
 
+		sgName="000DOCK03";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
 		}
-		
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		pswpo.srpListBox.click();
+		pswpo.defaultSRP.click();
+		pswpo.volumeSize.click();
+		pswpo.volumeSize.clear();
+		pswpo.volumeSize.sendKeys("12");
+		pswpo.createSgRunNow.click();
+		Thread.sleep(5000);
+		verifyAndCleanup(sgName);	
 		
 	}
 	
-	//@Test
+	@Test
 	private void _004_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE() throws JSONException, IOException, InterruptedException {
 
+		sgName="000DOCK04";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
 		}
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		pswpo.srpListBox.click();
+		pswpo.noneSRP.click();
+		//SET SLO
+		pswpo.sloListBox.click();
+		pswpo.none.click();
+		//SET WORKLOAD
+		//Leave as Unspecified
+		pswpo.createSgRunNow.click();
+		Thread.sleep(3000);
+		verifyAndCleanup(sgName);	
 		
 		
 	}
@@ -987,11 +1005,6 @@ public class StorageGroupTests extends WebDriverManager{
 		}
 
 
-
-
-
-
-
 	private void gotoStorageGroupsPage() throws InterruptedException {
 		LoginPagePO lppo=new LoginPagePO(getDriver());
 		lppo.waitForLoginPageObjects();
@@ -1000,6 +1013,24 @@ public class StorageGroupTests extends WebDriverManager{
 		hdpo.waitForHomeDashboardPageObjects();
 		hdpo.navigateToStorageGroups();
 		
+	}
+	
+	/**
+	 * @author gearyk2
+	 * @param sgName
+	 * @description verify the response code of the RESTGET for this storage group
+	 * and then call a REST DELETE for the storage group
+	 */
+	private void verifyAndCleanup(String sgName) {
+		//VERIFY THAT GROUP HAS BEEN CREATED
+		RESTClient.refreshRestDB(baseURL);
+		RESTClient.GET(baseURL+sgName);
+		RESTClient.printResponses();
+		Assert.assertEquals(RESTClient.responseStatus,200);
+		//CLEANUP
+		RESTClient.DELETE(baseURL+sgName);
+		RESTClient.printResponses();
+		Assert.assertEquals(RESTClient.responseStatus,204);
 	}
 	
 

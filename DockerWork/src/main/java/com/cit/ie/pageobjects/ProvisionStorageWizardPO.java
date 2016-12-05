@@ -38,7 +38,7 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public static final String SL_GOLD=".//div[text()='Gold']";
 	public static final String SL_SILVER=".//div[text()='Silver']";
 	public static final String SL_BRONZE=".//div[text()='Bronze']";
-	public static final String SL_NONE=".//div[text()='None']";
+	public static final String SL_NONE=".//*[@ng-value='selectedSloInfoObject']/div[text()='None']";
 	//WORKLOAD TYPE
 	public static final String WORKLOAD_LIST_BOX_XPATH="//div[@ng-if='showColumnPolicy.showWorkload']/md-input-container";
 	public static final String WL_OLTP=".//div[text()='OLTP']";
