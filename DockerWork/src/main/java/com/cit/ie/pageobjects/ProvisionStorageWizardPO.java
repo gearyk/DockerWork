@@ -137,8 +137,6 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	//u4v-sg-step[1]//
 	public void setRowForChildSG(int i){
 		childSGRow=Integer.toString(i);
-		System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-		System.out.println(childSGRow);
 	}
 	public static String CSG_SERVICELEVEL_LIST_BOX_XPATH="//u4v-sg-step[]//div[@ng-if='showColumnPolicy.showServiceLevel']/md-input-container";
 	public static String CSG_SL_OPTIMIZED="//u4v-sg-step["+childSGRow+"]//div[text()='Optimized']";
