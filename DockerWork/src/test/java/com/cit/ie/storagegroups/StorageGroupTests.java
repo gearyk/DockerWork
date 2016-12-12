@@ -18,6 +18,15 @@ public class StorageGroupTests extends WebDriverManager{
 	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
 	private WebElement el;
 	private String sgName;
+	/*
+	 * SLO1=OPTIMIZED
+	 * SLO2=DIAMOND
+	 * SLO3=PLATINUM
+	 * SLO4=GOLD
+	 * SLO5=SILVER
+	 * SLO6=BRONZE
+	 * 
+	 */
 	
 	@Test
 	private void _0000VerifyExistanceOfPageElements() throws JSONException, IOException, InterruptedException {
@@ -124,8 +133,7 @@ public class StorageGroupTests extends WebDriverManager{
 			pswpo.elementWait(pswpo.provisionStorageTitle);
 			pswpo.storageGroupNameTextField.click();
 			pswpo.storageGroupNameTextField.sendKeys(sgName);
-			pswpo.srpListBox.click();
-			pswpo.defaultSRP.click();
+			setSrpInformation(pswpo,"default_srp");
 			pswpo.createSgRunNow.click();
 			//pswpo.addStorageGroupButton.click();
 			//pswpo.setRowForChildSG(1);
@@ -151,8 +159,7 @@ public class StorageGroupTests extends WebDriverManager{
 		pswpo.elementWait(pswpo.provisionStorageTitle);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
-		pswpo.srpListBox.click();
-		pswpo.defaultSRP.click();
+		setSrpInformation(pswpo,"GOLD");
 		pswpo.volumeSize.click();
 		pswpo.volumeSize.clear();
 		pswpo.volumeSize.sendKeys("12");
@@ -179,11 +186,8 @@ public class StorageGroupTests extends WebDriverManager{
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
-		pswpo.srpListBox.click();
-		pswpo.noneSRP.click();
-		//SET SLO
-		pswpo.sloListBox.click();
-		pswpo.none.click();
+		setSrpInformation(pswpo,"None");
+		setSloInformation(pswpo, "None");
 		//SET WORKLOAD
 		//Leave as Unspecified
 		pswpo.createSgRunNow.click();
@@ -193,112 +197,303 @@ public class StorageGroupTests extends WebDriverManager{
 		
 	}
 	
-	//@Test
+	@Test
 	private void _005_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE_ALLOCFALSE() throws JSONException, IOException, InterruptedException {
 
+		sgName="000DOCK05";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
 		}
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP AND SLO
+		setSrpInformation(pswpo,"None");
+		setSloInformation(pswpo,"None");
+		//SET WORKLOAD
+		//Leave as Unspecified
+		pswpo.editStorageGroupIcon.click();
+		pswpo.createSgRunNow.click();
+		Thread.sleep(3000);
+		verifyAndCleanup(sgName);	
 		
 		
 	}
 	
-	//@Test
+	@Test
 	private void _006_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE_ALLOCTRUE() throws JSONException, IOException, InterruptedException {
 
+		sgName="000DOCK06";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
 		}
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		pswpo.srpListBox.click();
+		pswpo.noneSRP.click();
+		setSloInformation(pswpo,"None");
+		//SET WORKLOAD
+		//Leave as Unspecified
+		pswpo.editStorageGroupIcon.click();
+		pswpo.allocateCapacityCB.click();
+		pswpo.createSgRunNow.click();
+		Thread.sleep(3000);
+		verifyAndCleanup(sgName);	
 		
 		
 	}
 	
-	//@Test
+	@Test
 	private void _007_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE_ALLOCTRUE_PERSISTRUE() throws JSONException, IOException, InterruptedException {
-
+		
+		sgName="000DOCK07";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
 		}
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"None");
+		setSloInformation(pswpo,"None");
+		//SET WORKLOAD
+		//Leave as Unspecified
+		pswpo.editStorageGroupIcon.click();
+		pswpo.allocateCapacityCB.click();
+		pswpo.persistCapacityCB.click();
+		pswpo.createSgRunNow.click();
+		Thread.sleep(3000);
+		verifyAndCleanup(sgName);	
 		
 		
 	}
 	
-	//@Test
+	@Test
 	private void _008_CREATE_STORAGEGROUP_SRPDEFAULT_SLONONE_WLNONE_1GB() throws JSONException, IOException, InterruptedException {
 
+		sgName="000DOCK08";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
 		}
-		
-		
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"default_srp");
+		//SET SLO
+		setSloInformation(pswpo,"none");
+		//SET WORKLOAD
+		//Leave as Unspecified/NONE
+		//SET VOLUME INFO
+		setVolumeInformation(pswpo,"1","1","GB");
+		pswpo.createSgRunNow.click();
+		Thread.sleep(10000);
+		verifyAndCleanup(sgName);	
 	}
+
+
 	
-	//@Test
+	@Test
 	private void _009_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID2_WLOLTP_1GB() throws JSONException, IOException, InterruptedException {
 
+		sgName="000DOCK09";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
 		}
-		
-		
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"default_srp");
+		//SET SLO
+		setSloInformation(pswpo,"Diamond");
+		//SET WORKLOAD
+		setWorkloadInformation(pswpo,"oltp");
+		//SET VOLUME INFO
+		setVolumeInformation(pswpo,"1","1","GB");
+		pswpo.createSgRunNow.click();
+		Thread.sleep(10000);
+		verifyAndCleanup(sgName);		
 	}
+
 	
-	//@Test
+	@Test
 	private void _010_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID2_WLOLTP_0POINT5GB() throws JSONException, IOException, InterruptedException {
 
+		sgName="000DOCK10";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
 		}
-		
-		
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"default_srp");
+		//SET SLO
+		setSloInformation(pswpo,"Diamond");
+		//SET WORKLOAD
+		setWorkloadInformation(pswpo,"oltp_rep");
+		//SET VOLUME INFO
+		setVolumeInformation(pswpo,"1","0.5","GB");
+		pswpo.createSgRunNow.click();
+		Thread.sleep(10000);
+		verifyAndCleanup(sgName);		
 	}
 	
-	//@Test
+	@Test
 	private void _011_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLDSS_200GB() throws JSONException, IOException, InterruptedException {
 
+		sgName="000DOCK11";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
 		}
-		
-		
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"default_srp");
+		//SET SLO
+		setSloInformation(pswpo,"Platinum");
+		//SET WORKLOAD
+		setWorkloadInformation(pswpo,"dss");
+		//SET VOLUME INFO
+		setVolumeInformation(pswpo,"1","200","GB");
+		pswpo.createSgRunNow.click();
+		Thread.sleep(10000);
+		verifyAndCleanup(sgName);		
 	}
 	
-	//@Test
+	@Test
 	private void _012_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLDSS_0POINT5GB() throws JSONException, IOException, InterruptedException {
-
+		
+		sgName="000DOCK12";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
 		}
-		
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"default_srp");
+		//SET SLO
+		setSloInformation(pswpo,"Platinum");
+		//SET WORKLOAD
+		setWorkloadInformation(pswpo,"dss");
+		//SET VOLUME INFO
+		setVolumeInformation(pswpo,"1","0.5","GB");
+		pswpo.createSgRunNow.click();
+		Thread.sleep(10000);
+		verifyAndCleanup(sgName);	
 		
 	}
 	
-	//@Test
+	@Test
 	private void _013_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLNONE_0POINT5GB() throws JSONException, IOException, InterruptedException {
 
+		sgName="000DOCK13";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
 		}
-		
-		
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"default_srp");
+		//SET SLO
+		setSloInformation(pswpo,"Platinum");
+		//SET WORKLOAD
+		setWorkloadInformation(pswpo,"None");
+		//SET VOLUME INFO
+		setVolumeInformation(pswpo,"1","0.5","GB");
+		pswpo.createSgRunNow.click();
+		Thread.sleep(10000);
+		verifyAndCleanup(sgName);	
+
 	}
 	
-	//@Test
+	@Test
 	private void _014_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLOLTP_500POINT5MB() throws JSONException, IOException, InterruptedException {
 
+		sgName="000DOCK14";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
 		}
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"default_srp");
+		//SET SLO
+		setSloInformation(pswpo,"Platinum");
+		//SET WORKLOAD
+		setWorkloadInformation(pswpo,"oltp");
+		//SET VOLUME INFO
+		setVolumeInformation(pswpo,"1","500.5","MB");
+		pswpo.createSgRunNow.click();
+		Thread.sleep(10000);
+		verifyAndCleanup(sgName);
 		
 		
 	}
@@ -1014,6 +1209,125 @@ public class StorageGroupTests extends WebDriverManager{
 		hdpo.navigateToStorageGroups();
 		
 	}
+	
+	/**
+	 * @author gearyk2
+	 * @param pswpo
+	 * @param slo
+	 */
+	private void setSloInformation(ProvisionStorageWizardPO po, String slo) {
+		po.sloListBox.click();
+		switch(slo.toLowerCase()){
+		case "platinum": 
+			po.platinum.click();
+			break;
+		case "diamond": 
+			po.diamond.click();
+			break;
+		case "gold": 
+			po.gold.click();
+			break;
+		case "silver": 
+			po.silver.click();
+			break;
+		case "bronze": 
+			po.bronze.click();
+			break;
+		case "optimized": 
+			po.optimized.click();
+			break;
+		case "none": 
+			po.none.click();
+			break;
+		default:
+			po.none.click();
+			break;
+		}
+	}
+
+	/**
+	 * @author gearyk2
+	 * @param pswpo
+	 * @param srp
+	 */
+	private void setSrpInformation(ProvisionStorageWizardPO pswpo,String srp) {
+		pswpo.srpListBox.click();
+		switch(srp.toLowerCase()){
+		case "default_srp": 
+			pswpo.defaultSRP.click();
+			break;
+		case "srp_2": 
+			pswpo.srp2SRP.click();
+			break;
+		case "none": 
+			pswpo.noneSRP.click();
+			break;
+		default:
+			pswpo.noneSRP.click();
+			break;
+		}
+
+		
+	}
+
+	/**
+	 * @author gearyk2
+	 * @param pswpo
+	 * @param numberOfVolumes
+	 * @param volumeSize
+	 * @param volumeUnit
+	 */
+	private void setVolumeInformation(ProvisionStorageWizardPO pswpo,String numberOfVolumes, String volumeSize, String volumeUnit) {
+		pswpo.numberOfVolumes.click();
+		pswpo.numberOfVolumes.clear();
+		pswpo.numberOfVolumes.sendKeys(numberOfVolumes);
+		pswpo.volumeSize.click();
+		pswpo.volumeSize.clear();
+		pswpo.volumeSize.sendKeys(volumeSize);
+		pswpo.volumeUnit.click();
+		switch(volumeUnit.toLowerCase()){
+		case "gb": 
+			pswpo.GB.click();
+			break;
+		case "mb": 
+			pswpo.MB.click();
+			break;
+		case "tb": 
+			pswpo.TB.click();
+			break;
+		case "cyl": 
+			pswpo.CYL.click();
+			break;
+		default:
+			pswpo.GB.click();
+			break;
+		}
+		
+	}
+	
+	private void setWorkloadInformation(ProvisionStorageWizardPO pswpo,String workload) {
+		pswpo.worloadListBox.click();
+		switch(workload.toLowerCase()){
+		case "oltp": 
+			pswpo.oltp.click();
+			break;
+		case "oltp_rep": 
+			pswpo.oltp_rep.click();
+			break;
+		case "dss": 
+			pswpo.dss.click();
+			break;
+		case "dss_rep": 
+			pswpo.dss_rep.click();
+			break;
+		case "none": 
+			pswpo.dss_rep.click();
+			break;
+		default:
+			break;
+		}
+	}
+	
 	
 	/**
 	 * @author gearyk2

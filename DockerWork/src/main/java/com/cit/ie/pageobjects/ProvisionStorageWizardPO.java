@@ -23,18 +23,19 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public static final String PROVISION_STORAGE_TITLE_XPATH = "//h2[text()='Provision Storage']";	
 	public static final String STORAGE_GROUP_NAME_LABEL_XPATH = ".//label[text()='Storage Group Name']";
 	public static final String STORAGE_GROUP_NAME_TF = ".//label[text()='Storage Group Name']/following-sibling::input";
-	//STROAGE RESOURCE POOL
+	//STORAGE RESOURCE POOL
 	public static final String SRP_LABEL_XPATH = ".//label[text()='Storage Resource Pool']";
 	public static final String SRP_LIST_BOX = ".//md-select[contains(@aria-label,'Storage Resource Pool')]";
 	public static final String DEFAULT_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='DEFAULT_SRP']";
 	public static final String NONE_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='None']";
 	public static final String SRP2_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='SRP_2']";
+	
 	//STANDALONE STORAGE GROUPS
 	//SERVICE LEVEL
 	public static final String SERVICELEVEL_LIST_BOX_XPATH="//div[@ng-if='showColumnPolicy.showServiceLevel']/md-input-container";
 	public static final String SL_OPTIMIZED=".//div[text()='Optimized']";
 	public static final String SL_DIAMOND=".//div[text()='Diamond']";
-	public static final String SL_PLATINUM=".//div[text()='Plantinum']";
+	public static final String SL_PLATINUM=".//div[text()='Platinum']";
 	public static final String SL_GOLD=".//div[text()='Gold']";
 	public static final String SL_SILVER=".//div[text()='Silver']";
 	public static final String SL_BRONZE=".//div[text()='Bronze']";
@@ -45,21 +46,30 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public static final String WL_OLTP_REP=".//div[text()='OLTP + Rep']";
 	public static final String WL_DSS=".//div[text()='DSS']";
 	public static final String WL_DSS_REP=".//div[text()='DSS + Rep']";
+	public static final String WL_NOT_SPECIFIED=".//div[text()='Not Specified']";
+	
 	//NUMBER OF VOLUMES
 	public static final String VOLUMES_NUM_XPATH="//input[@aria-label='childSgVols']";
 	//VOLUME CAPACITY
 	public static final String VOLUMES_SIZE__XPATH="//input[@aria-label='sgCap']";
 	public static final String VOLUMES_CAPACITY_UNITS_XPATH="//div[@ng-if='showColumnPolicy.showVolsCap']/md-input-container";
-	public static final String UNIT_MB="//div[text()='MB']";
-	public static final String UNIT_GB="//div[text()='GB']";
-	public static final String UNIT_TB="//div[text()='TB']";
-	public static final String UNIT_CYL="//div[text()='Cyl']";
-	
+	public static final String UNIT_MB="//md-option[@ng-repeat='capUnit in sg.volumeCapacityUnits']/div[text()='MB']";
+	public static final String UNIT_GB="//md-option[@ng-repeat='capUnit in sg.volumeCapacityUnits']/div[text()='GB']";
+	public static final String UNIT_TB="//md-option[@ng-repeat='capUnit in sg.volumeCapacityUnits']/div[text()='TB']";
+	public static final String UNIT_CYL="//md-option[@ng-repeat='capUnit in sg.volumeCapacityUnits']/div[text()='Cyl']";
+	//EDIT OPTIONS
+	public static final String EDIT_ICON_XPATH="//button[@aria-label='editSgByName']";
+	public static final String ALLOC_CAPACITY="//md-checkbox[@aria-label='allocCapForVol']";
+		//	+ "/div[1]/div[@class='md-icon']";
+	public static final String PERSIST_CAPACITY="//md-checkbox[@aria-label='persist']";
 	//BUTTONS
 	public static final String CREATE_STORAGE_GROUP_RUN_NOW_BUTTON_XPATH="//section[@wz-title='Create Storage Group(s)']//button[text()='Run Now']";
 	public static final String CANCEL_STORAGE_GROUP_DIALOG_XPATH="//section[@wz-title='Create Storage Group(s)']//span[text()='CANCEL']";
 	public static final String ADD_STORAGE_GROUP_BUTTON_XPATH="//button[@aria-label='Add Storage Group']";
 	public static final String SET_IO_HOST_LIMITS_BUTTON_XPATH=".//button[@aria-label='Set Host I/O Limits']/span[@class='ng-scope']";
+	
+	
+	
 	//WEB ELEMENTS
 	//BUTTONS/ICONS
 	@FindBy(xpath=PROVISION_STORAGE_TITLE_XPATH)
@@ -76,6 +86,9 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public WebElement addStorageGroupButton;
 	@FindBy(xpath=SET_IO_HOST_LIMITS_BUTTON_XPATH)
 	public WebElement setIOHostLimitsButton;
+	@FindBy(xpath=EDIT_ICON_XPATH)
+	public WebElement editStorageGroupIcon;
+	
 	//SRP
 	@FindBy(xpath=SRP_LIST_BOX)
 	public WebElement srpListBox;
@@ -114,6 +127,9 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public WebElement dss;
 	@FindBy(xpath=WL_DSS_REP)
 	public WebElement dss_rep;
+	@FindBy(xpath=WL_NOT_SPECIFIED)
+	public WebElement no_workload;
+	
 	//VOLUMES
 	@FindBy(xpath=VOLUMES_NUM_XPATH)
 	public WebElement numberOfVolumes;
@@ -129,7 +145,11 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public WebElement TB;
 	@FindBy(xpath=UNIT_CYL)
 	public WebElement CYL;
-		
+	//ADVANCED
+	@FindBy(xpath=ALLOC_CAPACITY)
+	public WebElement allocateCapacityCB;
+	@FindBy(xpath=PERSIST_CAPACITY)
+	public WebElement persistCapacityCB;
 	
 	//CASCADED SGs
 	//CASCADED STORAGE GROUPS
