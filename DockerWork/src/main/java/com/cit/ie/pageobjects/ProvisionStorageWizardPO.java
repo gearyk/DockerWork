@@ -118,7 +118,7 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public WebElement none;
 	//WORKLOAD
 	@FindBy(xpath=WORKLOAD_LIST_BOX_XPATH)
-	public WebElement worloadListBox;
+	public WebElement workloadListBox;
 	@FindBy(xpath=WL_OLTP)
 	public WebElement oltp;
 	@FindBy(xpath=WL_OLTP_REP)
@@ -159,28 +159,29 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 		childSGRow=Integer.toString(i);
 	}
 	public static String CSG_SERVICELEVEL_LIST_BOX_XPATH="//u4v-sg-step[]//div[@ng-if='showColumnPolicy.showServiceLevel']/md-input-container";
-	public static String CSG_SL_OPTIMIZED="//u4v-sg-step["+childSGRow+"]//div[text()='Optimized']";
-	public static String CSG_SL_DIAMOND="//u4v-sg-step["+childSGRow+"]//div[text()='Diamond']";
-	public static String CSG_SL_PLATINUM="//u4v-sg-step["+childSGRow+"]//div[text()='Plantinum']";
-	public static String CSG_SL_GOLD="//u4v-sg-step["+childSGRow+"]//div[text()='Gold']";
-	public static String CSG_SL_SILVER="//u4v-sg-step["+childSGRow+"]//div[text()='Silver']";
-	public static String CSG_SL_BRONZE="//u4v-sg-step["+childSGRow+"]//div[text()='Bronze']";
-	public static String CSG_SL_NONE="//u4v-sg-step["+childSGRow+"]//div[text()='None']";
+	public static String CSG_SL_OPTIMIZED=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Optimized']";
+	public static String CSG_SL_DIAMOND=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Diamond']";
+	public static String CSG_SL_PLATINUM=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Platinum']";
+	public static String CSG_SL_GOLD=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Gold']";
+	public static String CSG_SL_SILVER=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Silver']";
+	public static String CSG_SL_BRONZE=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Bronze']";
+	public static String CSG_SL_NONE=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='None']";
 	//WORKLOAD TYPE
-	public static String CSG_WORKLOAD_LIST_BOX_XPATH="//u4v-sg-step["+childSGRow+"]//div[@ng-if='showColumnPolicy.showWorkload']/md-input-container";
-	public static String CSG_WL_OLTP="//u4v-sg-step["+childSGRow+"]//div[text()='OLTP']";
-	public static String CSG_WL_OLTP_REP="//u4v-sg-step["+childSGRow+"]//div[text()='OLTP + Rep']";
-	public static String CSG_WL_DSS="//u4v-sg-step["+childSGRow+"]//div[text()='DSS']";
-	public static String CSG_WL_DSS_REP="//u4v-sg-step["+childSGRow+"]//div[text()='DSS + Rep']";
+	public static String CSG_WORKLOAD_LIST_BOX_XPATH="//u4v-sg-step[]//div[@ng-if='showColumnPolicy.showWorkload']/md-input-container";
+	public static String CSG_WL_OLTP=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='OLTP']";
+	public static String CSG_WL_OLTP_REP=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='OLTP + Rep']";
+	public static String CSG_WL_DSS=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='DSS']";
+	public static String CSG_WL_DSS_REP=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='DSS + Rep']";
+	public static String CSG_WL_NONE=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Not Specified']";
 	//NUMBER OF VOLUMES
-	public static String CSG_VOLUMES_NUM_XPATH="//u4v-sg-step["+childSGRow+"]//input[@aria-label='childSgVols']";
+	public static String CSG_VOLUMES_NUM_XPATH="//u4v-sg-step[]//input[@aria-label='childSgVols']";
 	//VOLUME CAPACITY
-	public static String CSG_VOLUMES_SIZE__XPATH="//u4v-sg-step["+childSGRow+"]//input[@aria-label='sgCap']";
-	public static String CSG_VOLUMES_CAPACITY_UNITS_XPATH="//u4v-sg-step["+childSGRow+"]//div[@ng-if='showColumnPolicy.showVolsCap']/md-input-container";
-	public static String CSG_UNIT_MB="//u4v-sg-step["+childSGRow+"]//div[text()='MB']";
-	public static String CSG_UNIT_GB="//u4v-sg-step["+childSGRow+"]//div[text()='GB']";
-	public static String CSG_UNIT_TB="//u4v-sg-step["+childSGRow+"]//div[text()='TB']";
-	public static String CSG_UNIT_CYL="//u4v-sg-step["+childSGRow+"]//div[text()='Cyl']";
+	public static String CSG_VOLUMES_SIZE__XPATH="//u4v-sg-step[]//input[@aria-label='sgCap']";
+	public static String CSG_VOLUMES_CAPACITY_UNITS_XPATH="//u4v-sg-step[]//div[@ng-if='showColumnPolicy.showVolsCap']/md-input-container";
+	public static String CSG_UNIT_MB="//u4v-sg-step[]//div[text()='MB']";
+	public static String CSG_UNIT_GB="//u4v-sg-step[]//div[text()='GB']";
+	public static String CSG_UNIT_TB="//u4v-sg-step[]//div[text()='TB']";
+	public static String CSG_UNIT_CYL="//u4v-sg-step[]//div[text()='Cyl']";
 	
 	
 	
@@ -212,18 +213,28 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public WebElement noneCSG(){
 		return findByXPath(CSG_SL_NONE);	
 	}
+	
 
-//	//WORKLOAD
-//	@FindBy(xpath=CSG_WORKLOAD_LIST_BOX_XPATH)
-//	public WebElement worloadListBoxCSG;
-//	@FindBy(xpath=CSG_WL_OLTP)
-//	public WebElement oltpCSG;
-//	@FindBy(xpath=CSG_WL_OLTP_REP)
-//	public WebElement oltp_repCSG;
-//	@FindBy(xpath=CSG_WL_DSS)
-//	public WebElement dssCSG;
-//	@FindBy(xpath=CSG_WL_DSS_REP)
-//	public WebElement dss_repCSG;
+	//WORKLOAD
+	public WebElement workloadListBoxCSG(){
+		return findByXPath(CSG_WORKLOAD_LIST_BOX_XPATH);	
+	}
+	public WebElement oltpCSG(){
+		return findByXPath(CSG_WL_OLTP);	
+	}
+	public WebElement oltpRepCSG(){
+		return findByXPath(CSG_WL_OLTP_REP);
+	}
+	public WebElement dssCSG(){
+		return findByXPath(CSG_WL_DSS);	
+	}
+	public WebElement dssRepCSG(){
+		return findByXPath(CSG_WL_DSS_REP);
+	}
+	public WebElement notSpecifiedWLCSG(){
+		return findByXPath(CSG_WL_NONE);	
+	}
+	
 //	//VOLUMES
 //	@FindBy(xpath=CSG_VOLUMES_NUM_XPATH)
 //	public WebElement numberOfVolumesCSG;

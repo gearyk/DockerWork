@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class HelperMethods extends WebDriverManager {
 
 	public static WebDriver driver;
-	protected int timeOut = 300;
+	protected int timeOut = 500;
 	public WebDriverWait wait;
 
 	@SuppressWarnings("static-access")

@@ -590,6 +590,7 @@ public class StorageGroupTests extends WebDriverManager{
 	
 	@Test
 	private void _018_CREATE_STANDALONE_STORAGEGROUP_SRPDEFAULT_SLOOPTIMIZED_WLNONE_1TB() throws JSONException, IOException, InterruptedException {
+		
 		sgName="000DOCK18";
 		if(threadDriver!=null)
 		{
@@ -618,7 +619,8 @@ public class StorageGroupTests extends WebDriverManager{
 	
 	@Test
 	private void _019_CREATE_STANDALONE_STORAGEGROUP_SRPDEFAULT_SLOOPTIMIZED_WLNONE_0POINT5TB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK18";
+		
+		sgName="000DOCK19";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -645,7 +647,8 @@ public class StorageGroupTests extends WebDriverManager{
 		}
 	@Test
 	private void _020_CREATE_STANDALONE_STORAGEGROUP_SRPDEFAULT_SLOOPTIMIZED_WLNONE_1GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK18";
+		
+		sgName="000DOCK20";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -673,7 +676,8 @@ public class StorageGroupTests extends WebDriverManager{
 	
 	@Test
 	private void _021_CREATE_STANDALONE_STORAGEGROUP_SRPDEFAULT_SLOOPTIMIZED_WLNONE_1GB_ALLOCT() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK18";
+		
+		sgName="000DOCK21";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -700,12 +704,55 @@ public class StorageGroupTests extends WebDriverManager{
 		Thread.sleep(10000);
 		verifyAndCleanup(sgName);
 		}
-	//@Test
+	
+	@Test
 	private void _022_CREATE_CASCADED_STORAGEGROUP_SRPDEFAULT_2SLOS_2WLS_1GB_ALLOCT() throws JSONException, IOException, InterruptedException {
+		
+		sgName="000DOCK22";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
+		}
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		pswpo.addStorageGroupButton.click();
+		pswpo.setRowForChildSG(1);
+		//SET SLO ON ROW 1
+		pswpo.sloListBoxCSG().click();
+		Thread.sleep(500);
+		pswpo.diamondCSG().click();
+		Thread.sleep(500);
+		//SET WL ON ROW 1
+		pswpo.workloadListBoxCSG().click();
+		Thread.sleep(500);
+		pswpo.notSpecifiedWLCSG().click();
+		Thread.sleep(500);
+		
+		pswpo.setRowForChildSG(2);
+		//SET SLO ON ROW 2
+		pswpo.sloListBoxCSG().click();
+		Thread.sleep(500);
+		pswpo.diamondCSG().click();
+		Thread.sleep(500);
+		//SET WL ON ROW 2
+		pswpo.workloadListBoxCSG().click();
+		Thread.sleep(500);
+		pswpo.oltpCSG().click();
+		Thread.sleep(500);
+		
+		//SET VOLUME INFO
+//		setVolumeInformation(pswpo,"1","1","GB");
+//		pswpo.editStorageGroupIcon.click();
+//		pswpo.allocateCapacityCB.click();
+		//pswpo.createSgRunNow.click();
+		Thread.sleep(15000);
+		verifyAndCleanup(sgName);	
 		}
 	//@Test
 	private void _023_CREATE_CASCADED_STORAGEGROUP_CHILDSG_NAME_ALREADYTAKEN() throws JSONException, IOException, InterruptedException {
@@ -1455,7 +1502,7 @@ public class StorageGroupTests extends WebDriverManager{
 	}
 	
 	private void setWorkloadInformation(ProvisionStorageWizardPO pswpo,String workload) {
-		pswpo.worloadListBox.click();
+		pswpo.workloadListBox.click();
 		switch(workload.toLowerCase()){
 		case "oltp": 
 			pswpo.oltp.click();
