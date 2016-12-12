@@ -33,12 +33,12 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	//STANDALONE STORAGE GROUPS
 	//SERVICE LEVEL
 	public static final String SERVICELEVEL_LIST_BOX_XPATH="//div[@ng-if='showColumnPolicy.showServiceLevel']/md-input-container";
-	public static final String SL_OPTIMIZED=".//div[text()='Optimized']";
-	public static final String SL_DIAMOND=".//div[text()='Diamond']";
-	public static final String SL_PLATINUM=".//div[text()='Platinum']";
-	public static final String SL_GOLD=".//div[text()='Gold']";
-	public static final String SL_SILVER=".//div[text()='Silver']";
-	public static final String SL_BRONZE=".//div[text()='Bronze']";
+	public static final String SL_OPTIMIZED=".//md-option/div[text()='Optimized']";
+	public static final String SL_DIAMOND=".//md-option/div[text()='Diamond']";
+	public static final String SL_PLATINUM=".//md-option/div[text()='Platinum']";
+	public static final String SL_GOLD=".//md-option/div[text()='Gold']";
+	public static final String SL_SILVER=".//md-option/div[text()='Silver']";
+	public static final String SL_BRONZE=".//md-option/div[text()='Bronze']";
 	public static final String SL_NONE=".//*[@ng-value='selectedSloInfoObject']/div[text()='None']";
 	//WORKLOAD TYPE
 	public static final String WORKLOAD_LIST_BOX_XPATH="//div[@ng-if='showColumnPolicy.showWorkload']/md-input-container";
@@ -46,7 +46,7 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public static final String WL_OLTP_REP=".//div[text()='OLTP + Rep']";
 	public static final String WL_DSS=".//div[text()='DSS']";
 	public static final String WL_DSS_REP=".//div[text()='DSS + Rep']";
-	public static final String WL_NOT_SPECIFIED=".//div[text()='Not Specified']";
+	public static final String WL_NOT_SPECIFIED=".//md-option/div[text()='Not Specified']";
 	
 	//NUMBER OF VOLUMES
 	public static final String VOLUMES_NUM_XPATH="//input[@aria-label='childSgVols']";
