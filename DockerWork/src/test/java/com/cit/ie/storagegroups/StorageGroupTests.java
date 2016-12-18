@@ -1194,6 +1194,85 @@ public class StorageGroupTests extends WebDriverManager{
 		Thread.sleep(5000);
 		verifyAndCleanup(sgName);
 	}
+	
+	@Test
+	private void _044_EDIT_STORAGEGROUPSTANDALONE_CHANGESRP_FROM_DEFINED_TO_NONE() throws JSONException, IOException, InterruptedException {
+		sgName="000DOCK44";
+		if(threadDriver!=null)
+		{
+			findRemote(threadDriver.get());
+		}
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"srp_2");
+		pswpo.createSgRunNow.click();
+		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
+		returnToStorageGroupsPage();
+		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.sgRow(sgName).click();
+		Thread.sleep(5000);
+		sgpo.moreActionsStorageGroupButton.click();
+		Thread.sleep(1500);
+		sgpo.changeSRPButton.click();
+		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+		Thread.sleep(1500);
+		changeSRPInformation("None");
+		Thread.sleep(5000);
+		verifyAndCleanup(sgName);
+	}
+	
+	@Test
+	private void _045_EDIT_STORAGEGROUPSTANDALONE_CHANGESRP_ON_CHILD_SG() throws JSONException, IOException, InterruptedException {
+	
+	sgName="000DOCK45";
+	if(threadDriver!=null)
+	{
+		findRemote(threadDriver.get());
+	}
+	gotoStorageGroupsPage();
+	StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+	sgpo.waitForStorageGroupsPageObjects();
+	sgpo.createStorageGroupButton.click();
+	ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+	pswpo.elementWait(pswpo.provisionStorageTitle);
+	pswpo.storageGroupNameTextField.click();
+	pswpo.storageGroupNameTextField.sendKeys(sgName);
+	pswpo.addStorageGroupButton.click();
+	pswpo.setRowForChildSG(1);
+	pswpo.createSgRunNow.click();
+	pswpo.waitForElementToDisappear(Constants.RETRIEVING);
+	returnToStorageGroupsPage();
+	pswpo.waitForElementToDisappear(Constants.RETRIEVING);
+	sgpo.waitForStorageGroupsPageObjects();
+	sgpo.sgRow(sgName).click();
+	Thread.sleep(2000);
+	sgpo.moreActionsStorageGroupButton.click();
+	Thread.sleep(1500);
+	sgpo.changeSRPButton.click();
+	sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+	ChangeSrpPO cspo=new ChangeSrpPO(getDriver());
+	cspo.waitForElementToDisappear(Constants.RETRIEVING);
+	Thread.sleep(1500);
+	cspo.csgSrpListBox.click();
+	Thread.sleep(1500);
+	cspo.csgSrp2Button.click();
+	Thread.sleep(1500);
+	cspo.runNowButton.click();
+	cspo.waitForElementToDisappear(Constants.RETRIEVING);
+	Assert.assertTrue(cspo.changeSRPSuccessMessage.isDisplayed());
+	Thread.sleep(5000);
+	verifyAndCleanup(sgName);	
+	verifyAndCleanup(sgName+"_1");	
+	verifyAndCleanup(sgName+"_2");	
+	}
 
 	//@Test
 	private void _051_SET_IOLIMITS_MB_SEC() throws JSONException, IOException, InterruptedException {
@@ -1786,6 +1865,9 @@ public class StorageGroupTests extends WebDriverManager{
 		Thread.sleep(1500);
 		cspo.srpListBox.click();
 		Thread.sleep(1500);
+		cspo.defaultSrpButton.click();
+		Thread.sleep(2500);
+		cspo.srpListBox.click();
 		switch(srp.toLowerCase()){
 		case "srp_2": 
 			cspo.srp2Button.click();

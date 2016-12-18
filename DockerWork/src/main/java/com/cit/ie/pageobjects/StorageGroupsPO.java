@@ -36,6 +36,7 @@ public class StorageGroupsPO extends HomeDashboardPO{
 	public static final String COLUMN_FILTER_HEADER_XPATH=".//i[@aria-label='Grid Menu']";
 	//SELECT ROW
 	public static final String ROW_WITG_SG_NAME="//div[text()='']/child::div";
+	public static final String ROW_WITG_SG_NAME_COMPLIANCE="//div[text()='']/child::div";
 	//MOREACTIONS
 	public static final String CHANGE_SRP_XPATH=".//button[@aria-label='Change SRP']";
 	public static final String SET_IO_HOST_LIMITS_XPATH=".//button[@aria-label='Set Host I/O Limits']";
@@ -81,6 +82,10 @@ public class StorageGroupsPO extends HomeDashboardPO{
 	
 	public WebElement sgRow(String sgname){
 		return findByXPath(ROW_WITG_SG_NAME,sgname);	
+	}
+	
+	public WebElement sgRowCompliance(String sgname){
+		return findByXPath(ROW_WITG_SG_NAME_COMPLIANCE,sgname);	
 	}
 	
 	/**
