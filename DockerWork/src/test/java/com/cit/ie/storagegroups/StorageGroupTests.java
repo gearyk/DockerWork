@@ -724,56 +724,143 @@ public class StorageGroupTests extends WebDriverManager{
 		pswpo.addStorageGroupButton.click();
 		pswpo.setRowForChildSG(1);
 		//SET SLO ON ROW 1
-		pswpo.sloListBoxCSG().click();
-		Thread.sleep(500);
-		pswpo.diamondCSG().click();
-		Thread.sleep(500);
-		//SET WL ON ROW 1
-		pswpo.workloadListBoxCSG().click();
-		Thread.sleep(500);
-		pswpo.notSpecifiedWLCSG().click();
-		Thread.sleep(500);
-		
-		pswpo.setRowForChildSG(2);
+		setCSGRowInformation(pswpo,"Optimized","None","MB","4","6");
 		//SET SLO ON ROW 2
-		pswpo.sloListBoxCSG().click();
-		Thread.sleep(500);
-		pswpo.diamondCSG().click();
-		Thread.sleep(500);
-		//SET WL ON ROW 2
-		pswpo.workloadListBoxCSG().click();
-		Thread.sleep(500);
-		pswpo.oltpCSG().click();
-		Thread.sleep(500);
-		
-		//SET VOLUME INFO
-//		setVolumeInformation(pswpo,"1","1","GB");
-//		pswpo.editStorageGroupIcon.click();
-//		pswpo.allocateCapacityCB.click();
-		//pswpo.createSgRunNow.click();
-		Thread.sleep(15000);
+		pswpo.setRowForChildSG(2);
+		setCSGRowInformation(pswpo,"Diamond","OLTP","MB","4","6");
+		pswpo.editStorageGroupIcon.click();
+		pswpo.allocateCapacityCB.click();
+		pswpo.createSgRunNow.click();
+		Thread.sleep(30000);
 		verifyAndCleanup(sgName);	
+		verifyAndCleanup(sgName+"_1");	
+		verifyAndCleanup(sgName+"_2");	
 		}
-	//@Test
+
+	
+	
+	@Test
 	private void _023_CREATE_CASCADED_STORAGEGROUP_CHILDSG_NAME_ALREADYTAKEN() throws JSONException, IOException, InterruptedException {
+		sgName="000DOCK23";
+		String sgNameTaken="000DOCK23_1";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
 		}
-	//@Test
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		//CREATE STANDALONE SG
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgNameTaken);
+		setSrpInformation(pswpo,"default_srp");
+		pswpo.createSgRunNow.click();
+		Thread.sleep(10000);
+		//CREATE CASCADED SG WITH CHILD NAME TAKEN
+		sgpo.createStorageGroupButton.click();
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		pswpo.addStorageGroupButton.click();
+		pswpo.setRowForChildSG(1);
+		//SET SLO ON ROW 1
+		setCSGRowInformation(pswpo,"Optimized","None","MB","4","6");
+		//SET SLO ON ROW 2
+		pswpo.setRowForChildSG(2);
+		setCSGRowInformation(pswpo,"Diamond","OLTP","MB","4","6");
+		pswpo.editStorageGroupIcon.click();
+		pswpo.allocateCapacityCB.click();
+		pswpo.createSgRunNow.click();
+		Thread.sleep(150000);
+		Assert.assertTrue(pswpo.errorSGAlreadyExists.isDisplayed());
+		verifyAndCleanup(sgNameTaken);
+		verifyAndCleanup(sgName);
+		}
+	
+	@Test
 	private void _024_CREATE_CASCADED_STORAGEGROUP_SRPDEFAULT_4SLOS_MULTIPLEVOLS() throws JSONException, IOException, InterruptedException {
+		sgName="000DOCK24";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
 		}
-	//@Test
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		pswpo.addStorageGroupButton.click();
+		pswpo.addStorageGroupButton.click();
+		pswpo.addStorageGroupButton.click();
+		//SET SLO ON ROW 1
+		pswpo.setRowForChildSG(1);
+		setCSGRowInformation(pswpo,"Optimized","None","MB","4","6");
+		//SET SLO ON ROW 2
+		pswpo.setRowForChildSG(2);
+		setCSGRowInformation(pswpo,"Diamond","OLTP","GB","1","1");
+		//SET SLO ON ROW 3
+		pswpo.setRowForChildSG(3);
+		setCSGRowInformation(pswpo,"Gold","OLTP_REP","CYL","2","100");
+		//SET SLO ON ROW 4
+		pswpo.setRowForChildSG(4);
+		setCSGRowInformation(pswpo,"Bronze","DSS","MB","4","20");
+		pswpo.createSgRunNow.click();
+		Thread.sleep(30000);
+		verifyAndCleanup(sgName);	
+		verifyAndCleanup(sgName+"_1");	
+		verifyAndCleanup(sgName+"_2");	
+		verifyAndCleanup(sgName+"_3");	
+		verifyAndCleanup(sgName+"_4");	
+		
+		}
+	
+	@Test
 	private void _025_CREATE_CASCADED_STORAGEGROUP_SRPDEFAULT_5WORKLOADS() throws JSONException, IOException, InterruptedException {
+		sgName="000DOCK25";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
+		}
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		pswpo.addStorageGroupButton.click();
+		pswpo.addStorageGroupButton.click();
+		pswpo.addStorageGroupButton.click();
+		pswpo.addStorageGroupButton.click();
+		//SET SLO ON ROW 1
+		pswpo.setRowForChildSG(1);
+		setCSGRowInformation(pswpo,"Optimized","None","MB","4","6");
+		//SET SLO ON ROW 2
+		pswpo.setRowForChildSG(2);
+		setCSGRowInformation(pswpo,"Diamond","OLTP","GB","1","1");
+		//SET SLO ON ROW 3
+		pswpo.setRowForChildSG(3);
+		setCSGRowInformation(pswpo,"Gold","OLTP_REP","CYL","2","100");
+		//SET SLO ON ROW 4
+		pswpo.setRowForChildSG(4);
+		setCSGRowInformation(pswpo,"Bronze","DSS","MB","4","20");
+		//SET SLO ON ROW 4
+		pswpo.setRowForChildSG(4);
+		setCSGRowInformation(pswpo,"Bronze","DSS_REP","MB","5","20");
+		pswpo.createSgRunNow.click();
+		Thread.sleep(30000);
+		verifyAndCleanup(sgName);	
+		verifyAndCleanup(sgName+"_1");	
+		verifyAndCleanup(sgName+"_2");	
+		verifyAndCleanup(sgName+"_3");	
+		verifyAndCleanup(sgName+"_4");	
 		}
 	//@Test
 	private void _026_CREATE_STORAGEGROUP_SRPDEFAULT_4_DIFF_SLO_WL_COMBINATIONS() throws JSONException, IOException, InterruptedException {
@@ -1524,6 +1611,100 @@ public class StorageGroupTests extends WebDriverManager{
 		}
 	}
 	
+	/**
+	 * @author gearyk2
+	 * @param pswpo
+	 * @param workload
+	 * @param volumeUnit
+	 * @param volumeNumber
+	 * @param volumeCapacity
+	 * @throws InterruptedException
+	 */
+	private void setCSGRowInformation(ProvisionStorageWizardPO pswpo, String slo, String workload, String volumeUnit, String volumeNumber, String volumeCapacity) throws InterruptedException {
+		pswpo.sloListBoxCSG().click();
+		Thread.sleep(500);
+		switch(slo.toLowerCase()){
+		case "platinum": 
+			pswpo.platinumCSG().click();
+			break;
+		case "diamond": 
+			pswpo.diamondCSG().click();
+			break;
+		case "gold": 
+			pswpo.goldCSG().click();
+			break;
+		case "silver": 
+			pswpo.silverCSG().click();
+			break;
+		case "bronze": 
+			pswpo.bronzeCSG().click();
+			break;
+		case "optimized": 
+			pswpo.optimizedCSG().click();
+			break;
+		case "none": 
+			pswpo.noSloCSG().click();
+			break;
+		default:
+			pswpo.noSloCSG().click();
+			break;
+		}
+		Thread.sleep(500);
+		pswpo.workloadListBoxCSG().click();
+		Thread.sleep(500);
+		switch(workload.toLowerCase()){
+		case "oltp": 
+			pswpo.oltpCSG().click();
+			break;
+		case "oltp_rep": 
+			pswpo.oltpRepCSG().click();
+			break;
+		case "dss": 
+			pswpo.dssCSG().click();
+			break;
+		case "dss_rep": 
+			pswpo.dssRepCSG().click();
+			break;
+		case "none": 
+			pswpo.notSpecifiedWLCSG().click();
+			break;
+		default:
+			break;
+		}
+		Thread.sleep(500);
+		//SET VOLUME INFO ON ROW
+		pswpo.numberOfVoumesCSG().click();
+		Thread.sleep(500);
+		pswpo.numberOfVoumesCSG().clear();
+		Thread.sleep(500);
+		pswpo.numberOfVoumesCSG().sendKeys(volumeNumber);
+		Thread.sleep(500);
+		pswpo.volumeUnitDropdownCSG().click();
+		Thread.sleep(500);
+		switch(volumeUnit.toLowerCase()){
+		case "gb": 
+			pswpo.csgGB.click();
+			break;
+		case "mb": 
+			pswpo.csgMB.click();
+			break;
+		case "tb": 
+			pswpo.csgTB.click();
+			break;
+		case "cyl": 
+			pswpo.csgCYL.click();
+			break;
+		default:
+			pswpo.csgGB.click();
+			break;
+		}
+		Thread.sleep(500);
+		pswpo.volumeCapacityCSG().click();
+		Thread.sleep(500);
+		pswpo.volumeCapacityCSG().clear();
+		pswpo.volumeCapacityCSG().sendKeys(volumeCapacity);
+		Thread.sleep(500);
+	}
 	
 	/**
 	 * @author gearyk2

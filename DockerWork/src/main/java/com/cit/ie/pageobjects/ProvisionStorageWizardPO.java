@@ -68,6 +68,8 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public static final String ADD_STORAGE_GROUP_BUTTON_XPATH="//button[@aria-label='Add Storage Group']";
 	public static final String SET_IO_HOST_LIMITS_BUTTON_XPATH=".//button[@aria-label='Set Host I/O Limits']/span[@class='ng-scope']";
 	
+	//ERRORS
+	public static final String SG_ALREADY_EXISTS="//p[text()=\"Error in Creating Storage Group '000DOCK23_1': Cannot use the specified name because it's already in use\"]";
 	
 	
 	//WEB ELEMENTS
@@ -176,14 +178,15 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	//NUMBER OF VOLUMES
 	public static String CSG_VOLUMES_NUM_XPATH="//u4v-sg-step[]//input[@aria-label='childSgVols']";
 	//VOLUME CAPACITY
-	public static String CSG_VOLUMES_SIZE__XPATH="//u4v-sg-step[]//input[@aria-label='sgCap']";
+	public static String CSG_VOLUMES_CAPACITY_XPATH="//u4v-sg-step[]//input[@aria-label='sgCap']";
+	
 	public static String CSG_VOLUMES_CAPACITY_UNITS_XPATH="//u4v-sg-step[]//div[@ng-if='showColumnPolicy.showVolsCap']/md-input-container";
-	public static String CSG_UNIT_MB="//u4v-sg-step[]//div[text()='MB']";
-	public static String CSG_UNIT_GB="//u4v-sg-step[]//div[text()='GB']";
-	public static String CSG_UNIT_TB="//u4v-sg-step[]//div[text()='TB']";
-	public static String CSG_UNIT_CYL="//u4v-sg-step[]//div[text()='Cyl']";
+	public static String CSG_UNIT_MB="//div[@class='md-select-menu-container md-active md-clickable']//div[text()='MB']";
+	public static String CSG_UNIT_GB=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='GB']";
+	public static String CSG_UNIT_TB=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='TB']";
+	public static String CSG_UNIT_CYL=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Cyl']";
 	
-	
+	public static String CSG_MB="test";
 	
 	//WEB ELEMENTS
 	//BUTTONS/ICONS
@@ -210,7 +213,7 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public WebElement bronzeCSG(){
 		return findByXPath(CSG_SL_BRONZE);
 	}
-	public WebElement noneCSG(){
+	public WebElement noSloCSG(){
 		return findByXPath(CSG_SL_NONE);	
 	}
 	
@@ -235,22 +238,30 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 		return findByXPath(CSG_WL_NONE);	
 	}
 	
-//	//VOLUMES
-//	@FindBy(xpath=CSG_VOLUMES_NUM_XPATH)
-//	public WebElement numberOfVolumesCSG;
-//	@FindBy(xpath=CSG_VOLUMES_SIZE__XPATH)
-//	public WebElement volumeSizeCSG;
-//	@FindBy(xpath=CSG_VOLUMES_CAPACITY_UNITS_XPATH)
-//	public WebElement volumeUnitCSG;
-//	@FindBy(xpath=CSG_UNIT_MB)
-//	public WebElement csgMB;
-//	@FindBy(xpath=CSG_UNIT_GB)
-//	public WebElement csgGB;
-//	@FindBy(xpath=CSG_UNIT_TB)
-//	public WebElement csgTB;
-//	@FindBy(xpath=CSG_UNIT_CYL)
-//	public WebElement csgCYL;
+	//VOLUMES
+	public WebElement numberOfVoumesCSG(){
+		return findByXPath(CSG_VOLUMES_NUM_XPATH);	
+	}
+	public WebElement volumeCapacityCSG(){
+		return findByXPath(CSG_VOLUMES_CAPACITY_XPATH);	
+	}
+	public WebElement volumeUnitDropdownCSG(){
+		return findByXPath(CSG_VOLUMES_CAPACITY_UNITS_XPATH);	
+	}
+	
+	@FindBy(xpath="//div[@class='md-select-menu-container md-active md-clickable']//div[text()='MB']")
+	public WebElement csgMB;
+	@FindBy(xpath=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='GB']")
+	public WebElement csgGB;
+	@FindBy(xpath=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='TB']")
+	public WebElement csgTB;
+	@FindBy(xpath=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Cyl']")
+	public WebElement csgCYL;
 
+	
+	//ERRORS
+	@FindBy(xpath=SG_ALREADY_EXISTS)
+	public WebElement errorSGAlreadyExists;
 	/**
 	 * @author gearyk2
 	 * @param xpath
