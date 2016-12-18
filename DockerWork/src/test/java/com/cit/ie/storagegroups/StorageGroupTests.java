@@ -6,12 +6,15 @@ import org.json.JSONException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import com.cit.ie.base.HelperMethods;
 import com.cit.ie.base.WebDriverManager;
 import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
 import com.cit.ie.pageobjects.ProvisionStorageWizardPO;
 import com.cit.ie.pageobjects.StorageGroupsPO;
 import com.cit.ie.rest.RESTClient;
+import com.sun.jna.platform.win32.NTSecApi.PLSA_FOREST_TRUST_INFORMATION;
 
 public class StorageGroupTests extends WebDriverManager{
 
@@ -861,118 +864,258 @@ public class StorageGroupTests extends WebDriverManager{
 		verifyAndCleanup(sgName+"_2");	
 		verifyAndCleanup(sgName+"_3");	
 		verifyAndCleanup(sgName+"_4");	
+		verifyAndCleanup(sgName+"_5");	
 		}
 	//@Test
 	private void _026_CREATE_STORAGEGROUP_SRPDEFAULT_4_DIFF_SLO_WL_COMBINATIONS() throws JSONException, IOException, InterruptedException {
+		
+		sgName="000DOCK26";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
 		}
-	//@Test
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		pswpo.addStorageGroupButton.click();
+		pswpo.addStorageGroupButton.click();
+		pswpo.addStorageGroupButton.click();
+		pswpo.addStorageGroupButton.click();
+		//SET SLO ON ROW 1
+		pswpo.setRowForChildSG(1);
+		setCSGRowInformation(pswpo,"Optimized","None","MB","4","6");
+		//SET SLO ON ROW 2
+		pswpo.setRowForChildSG(2);
+		setCSGRowInformation(pswpo,"Diamond","OLTP","GB","1","1");
+		//SET SLO ON ROW 3
+		pswpo.setRowForChildSG(3);
+		setCSGRowInformation(pswpo,"Gold","OLTP_REP","CYL","2","100");
+		//SET SLO ON ROW 4
+		pswpo.setRowForChildSG(4);
+		setCSGRowInformation(pswpo,"Silver","DSS","MB","4","20");
+		//SET SLO ON ROW 4
+		pswpo.setRowForChildSG(4);
+		setCSGRowInformation(pswpo,"Bronze","DSS_REP","MB","5","20");
+		pswpo.createSgRunNow.click();
+		Thread.sleep(30000);
+		verifyAndCleanup(sgName);	
+		verifyAndCleanup(sgName+"_1");	
+		verifyAndCleanup(sgName+"_2");	
+		verifyAndCleanup(sgName+"_3");	
+		verifyAndCleanup(sgName+"_4");	
+		verifyAndCleanup(sgName+"_5");	
+		}
+	
+	@Test
 	private void _027_CREATE_STORAGEGROUP_OVERPROVISION() throws JSONException, IOException, InterruptedException {
+		sgName="000DOCK28";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
 		}
-	//@Test
-	private void _028_CREATE_STORAGEGROUP_NEGATIVE_SYMID() throws JSONException, IOException, InterruptedException {
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"default_srp");
+		//SET SLO
+		setSloInformation(pswpo,"none");
+		//SET WORKLOAD
+		//Leave as Unspecified/NONE
+		//SET VOLUME INFO
+		setVolumeInformation(pswpo,"1","999999","MB");
+		pswpo.createSgRunNow.click();
+		Thread.sleep(10000);
+		verifyAndCleanup(sgName);
+		}
+	
+	@Test
+	private void _028_CREATE_STORAGEGROUP_NEGATIVE_VERIFY_RUN_NOW_IS_GREYED_OUT() throws JSONException, IOException, InterruptedException {
+		sgName="000DOCK28";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
 		}
-	//@Test
-	private void _029_CREATE_STORAGEGROUP_NEGATIVE_NOSGNAME() throws JSONException, IOException, InterruptedException {
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		//NO INFORMATION PASSED TO TEST
+		Assert.assertFalse(pswpo.createSgRunNow.isEnabled(), "Run Now Button is Greyed out");
+	}
+	
+	@Test
+	private void _029_CREATE_STORAGEGROUP_NEGATIVE_CANNOT_MOVE_TO_NEXT_PAGE_WITH_INVALID_DATA() throws JSONException, IOException, InterruptedException {
+		sgName="000DOCK29";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
 		}
-	//@Test
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		//NO INFORMATION PASSED TO TEST
+		Assert.assertFalse(pswpo.nextPageButton.isEnabled(), "Next Page Button is Greyed out");
+	}	
+	
+	
+	@Test
 	private void _030_CREATE_STORAGEGROUP_NEGATIVE_SGID_GREATERTHAN64_SPECIALCHARS() throws JSONException, IOException, InterruptedException {
+		String sg64="012345678901234567890123456789012345678901234567890123456789ABCD";
+		String sgMoreThan64="012345678901234567890123456789012345678901234567890123456789ABCD";
+		String sgSpecial="sg$£%";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
 		}
-	//@Test
-	private void _031_CREATE_STORAGEGROUP_NEGATIVE_SYMID() throws JSONException, IOException, InterruptedException {
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sg64);
+		Thread.sleep(2500);
+		Assert.assertTrue(pswpo.createSgRunNow.isEnabled(), "Run Now Button is Greyed in");
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.clear();
+		pswpo.storageGroupNameTextField.sendKeys(sgMoreThan64);
+		Thread.sleep(2500);
+		Assert.assertTrue(pswpo.createSgRunNow.isEnabled(), "Run Now Button is Greyed in");
+		String x=pswpo.storageGroupNameTextField.getText();
+		Assert.assertTrue(pswpo.storageGroupNameTextField.getAttribute("value").length()==64, "Max length is 64");
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.clear();
+		pswpo.storageGroupNameTextField.sendKeys(sgSpecial);
+		Thread.sleep(2500);
+		Assert.assertTrue(pswpo.createSgRunNow.isEnabled(), "Run Now Button is Greyed in");
+		Assert.assertTrue(pswpo.storageGroupNameTextField.getAttribute("value").length()==2, "Length is two, special chars not included");
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.clear();
+		pswpo.storageGroupNameTextField.sendKeys(sg64);
+		Thread.sleep(500);
+		Assert.assertTrue(pswpo.createSgRunNow.isEnabled(), "Run Now Button is Greyed in");
+		
+		}
+	
+	@Test
+	private void _038_CREATE_STORAGEGROUP_NEGATIVE_SRPNONE_SLOPLATINUM() throws Exception {
+		sgName="000DOCK38";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
 		}
-	//@Test
-	private void _032_CREATE_STORAGEGROUP_NEGATIVE_NOTEMPTY() throws JSONException, IOException, InterruptedException {
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"None");
+		//SET SLO
+		pswpo.sloListBox.click();
+		Thread.sleep(3000);
+		Assert.assertTrue(HelperMethods.assertElementNotPresent(threadDriver.get(), ProvisionStorageWizardPO.SL_PLATINUM));
+	}
+	
+	@Test
+	private void _039_CREATE_STORAGEGROUP_NEGATIVE_SRPNONE_SLOSILVER() throws Exception {
+		sgName="000DOCK39";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
 		}
-	//@Test
-	private void _033_CREATE_STORAGEGROUP_NEGATIVE_MISSING_MANDATORY() throws JSONException, IOException, InterruptedException {
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"None");
+		//SET SLO
+		pswpo.sloListBox.click();
+		Thread.sleep(3000);
+		Assert.assertTrue(HelperMethods.assertElementNotPresent(threadDriver.get(), ProvisionStorageWizardPO.SL_SILVER));
+	}
+	
+	@Test
+	private void _040_CREATE_STORAGEGROUP_NEGATIVE_SRPOPTIMIZED_WLOLTP() throws Exception {
+		sgName="000DOCK40";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
 		}
-	//@Test
-	private void _034_CREATE_STORAGEGROUP_NEGATIVE_INVALIDSLO() throws JSONException, IOException, InterruptedException {
-		if(threadDriver!=null)
-			{
-			findRemote(threadDriver.get());
-			}	
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"None");
+		//SET SLO
+		setSloInformation(pswpo, "Optimized");
+		//SET WL
+		pswpo.workloadListBox.click();
+		Thread.sleep(3000);
+		Assert.assertTrue(HelperMethods.assertElementNotPresent(threadDriver.get(), ProvisionStorageWizardPO.WL_DSS));
 		}
-	//@Test
-	private void _035_CREATE_STORAGEGROUP_NEGATIVE_INVALIDWL() throws JSONException, IOException, InterruptedException {
-		if(threadDriver!=null)
-			{
-			findRemote(threadDriver.get());
-			}	
-		}
-	//@Test
-	private void _036_CREATE_STORAGEGROUP_NEGATIVE_INVALIDSRP() throws JSONException, IOException, InterruptedException {
-		if(threadDriver!=null)
-			{
-			findRemote(threadDriver.get());
-			}	
-		}
-	//@Test
-	private void _037_CREATE_STORAGEGROUP_NEGATIVE_INVALID_UNIT() throws JSONException, IOException, InterruptedException {
-		if(threadDriver!=null)
-			{
-			findRemote(threadDriver.get());
-			}	
-		}
-	//@Test
-	private void _038_CREATE_STORAGEGROUP_NEGATIVE_SRPNONE_SLOBRONZE() throws JSONException, IOException, InterruptedException {
-		if(threadDriver!=null)
-			{
-			findRemote(threadDriver.get());
-			}	
-		}
-	//@Test
-	private void _039_CREATE_STORAGEGROUP_NEGATIVE_SRPNONE_SLOBRONZE() throws JSONException, IOException, InterruptedException {
-		if(threadDriver!=null)
-			{
-			findRemote(threadDriver.get());
-			}	
-		}
-	//@Test
-	private void _040_CREATE_STORAGEGROUP_NEGATIVE_SRPOPTIMIZED_WLOLTP() throws JSONException, IOException, InterruptedException {
-		if(threadDriver!=null)
-			{
-			findRemote(threadDriver.get());
-			}	
-		}
-	//@Test
+	
+	@Test
 	private void _041_CREATE_STANDALONE_STORAGEGROUP_NEGATIVE_ALLOCFALSE_PERSISTTRUE() throws JSONException, IOException, InterruptedException {
+		sgName="000DOCK41";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
+		}
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"None");
+		setSloInformation(pswpo,"None");
+		//SET WORKLOAD
+		//Leave as Unspecified
+		pswpo.editStorageGroupIcon.click();
+		Thread.sleep(500);
+		pswpo.persistCapacityCB.click();
+		Assert.assertFalse(pswpo.persistCapacityCB.isSelected());
+		pswpo.allocateCapacityCB.click();
+		Thread.sleep(500);
+		Assert.assertTrue(pswpo.persistCapacityCB.isEnabled());
+		pswpo.persistCapacityCB.click();
+		Thread.sleep(500);
+		
+		
 		}
 	//@Test
 	private void _042_EDIT_STORAGEGROUPSTANDALONE_REMOVEVOLUME() throws JSONException, IOException, InterruptedException {

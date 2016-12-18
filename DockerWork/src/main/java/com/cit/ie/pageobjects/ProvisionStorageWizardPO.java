@@ -65,6 +65,7 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	//BUTTONS
 	public static final String CREATE_STORAGE_GROUP_RUN_NOW_BUTTON_XPATH="//section[@wz-title='Create Storage Group(s)']//button[text()='Run Now']";
 	public static final String CANCEL_STORAGE_GROUP_DIALOG_XPATH="//section[@wz-title='Create Storage Group(s)']//span[text()='CANCEL']";
+	public static final String NEXT_PAGE_BUTTON_XPATH="//section[@wz-title='Create Storage Group(s)']//button[@aria-label='NEXT']";
 	public static final String ADD_STORAGE_GROUP_BUTTON_XPATH="//button[@aria-label='Add Storage Group']";
 	public static final String SET_IO_HOST_LIMITS_BUTTON_XPATH=".//button[@aria-label='Set Host I/O Limits']/span[@class='ng-scope']";
 	
@@ -90,6 +91,9 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public WebElement setIOHostLimitsButton;
 	@FindBy(xpath=EDIT_ICON_XPATH)
 	public WebElement editStorageGroupIcon;
+	@FindBy(xpath=NEXT_PAGE_BUTTON_XPATH)
+	public WebElement nextPageButton;
+	
 	
 	//SRP
 	@FindBy(xpath=SRP_LIST_BOX)

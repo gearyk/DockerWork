@@ -1,7 +1,9 @@
 package com.cit.ie.base;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,6 +28,15 @@ public class HelperMethods extends WebDriverManager {
 		Thread.sleep(5000);
 
 	}
+	
+	public static boolean assertElementNotPresent (WebDriver driver, String text) throws Exception {
+		List<WebElement> els = driver.findElements(By.xpath(text));
+		  if (els.isEmpty() == false) {
+		    throw new Exception (text + " (element is present)");
+		  }
+		System.out.println("Element is not present");
+		return true;
+		}
 
 
 }
