@@ -7,8 +7,10 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.cit.ie.base.Constants;
 import com.cit.ie.base.HelperMethods;
 import com.cit.ie.base.WebDriverManager;
+import com.cit.ie.pageobjects.ChangeSrpPO;
 import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
 import com.cit.ie.pageobjects.ProvisionStorageWizardPO;
@@ -316,7 +318,7 @@ public class StorageGroupTests extends WebDriverManager{
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","1","GB");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);	
 	}
 
@@ -347,7 +349,7 @@ public class StorageGroupTests extends WebDriverManager{
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","1","GB");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);		
 	}
 
@@ -377,7 +379,7 @@ public class StorageGroupTests extends WebDriverManager{
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","0.5","GB");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);		
 	}
 	
@@ -406,7 +408,7 @@ public class StorageGroupTests extends WebDriverManager{
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","200","GB");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);		
 	}
 	
@@ -435,7 +437,7 @@ public class StorageGroupTests extends WebDriverManager{
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","0.5","GB");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);	
 		
 	}
@@ -465,7 +467,7 @@ public class StorageGroupTests extends WebDriverManager{
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","0.5","GB");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);	
 
 	}
@@ -495,7 +497,7 @@ public class StorageGroupTests extends WebDriverManager{
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","500.5","MB");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);
 		
 		
@@ -526,7 +528,7 @@ public class StorageGroupTests extends WebDriverManager{
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","20000","MB");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);
 		
 		
@@ -557,7 +559,7 @@ public class StorageGroupTests extends WebDriverManager{
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","150","Cyl");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);
 		}
 	
@@ -586,7 +588,7 @@ public class StorageGroupTests extends WebDriverManager{
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","99999","Cyl");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);
 		
 		}
@@ -616,7 +618,7 @@ public class StorageGroupTests extends WebDriverManager{
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","1","TB");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);
 		}
 	
@@ -645,7 +647,7 @@ public class StorageGroupTests extends WebDriverManager{
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","0.5","TB");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);
 		}
 	@Test
@@ -673,7 +675,7 @@ public class StorageGroupTests extends WebDriverManager{
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","1","GB");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);
 		}
 	
@@ -704,7 +706,7 @@ public class StorageGroupTests extends WebDriverManager{
 		pswpo.editStorageGroupIcon.click();
 		pswpo.allocateCapacityCB.click();
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);
 		}
 	
@@ -761,7 +763,7 @@ public class StorageGroupTests extends WebDriverManager{
 		pswpo.storageGroupNameTextField.sendKeys(sgNameTaken);
 		setSrpInformation(pswpo,"default_srp");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		//CREATE CASCADED SG WITH CHILD NAME TAKEN
 		sgpo.createStorageGroupButton.click();
 		pswpo.elementWait(pswpo.provisionStorageTitle);
@@ -935,7 +937,7 @@ public class StorageGroupTests extends WebDriverManager{
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","999999","MB");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(10000);
+		Thread.sleep(20000);
 		verifyAndCleanup(sgName);
 		}
 	
@@ -1117,69 +1119,81 @@ public class StorageGroupTests extends WebDriverManager{
 		
 		
 		}
-	//@Test
-	private void _042_EDIT_STORAGEGROUPSTANDALONE_REMOVEVOLUME() throws JSONException, IOException, InterruptedException {
+	
+	@Test
+	private void _042_EDIT_STORAGEGROUPSTANDALONE_CHANGESRP() throws JSONException, IOException, InterruptedException {
+		sgName="000DOCK42";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
 		}
-	//@Test
-	private void _043_EDIT_STORAGEGROUPSTANDALONE_ADDVOLUME() throws JSONException, IOException, InterruptedException {
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"default_srp");
+		//SET SLO
+		setSloInformation(pswpo,"Optimized");
+		//SET WORKLOAD
+		setWorkloadInformation(pswpo,"None");
+		//SET VOLUME INFO
+		setVolumeInformation(pswpo,"1","1","GB");
+		pswpo.createSgRunNow.click();
+		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
+		returnToStorageGroupsPage();
+		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.sgRow(sgName).click();
+		Thread.sleep(5000);
+		sgpo.moreActionsStorageGroupButton.click();
+		Thread.sleep(1500);
+		sgpo.changeSRPButton.click();
+		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+		Thread.sleep(1500);
+		changeSRPInformation("SRP_2");
+		Thread.sleep(5000);
+		verifyAndCleanup(sgName);
+	}
+
+	
+	@Test
+	private void _043_EDIT_STORAGEGROUPSTANDALONE_CHANGESRP_ON_EMPTYSG() throws JSONException, IOException, InterruptedException {
+		sgName="000DOCK43";
 		if(threadDriver!=null)
-			{
+		{
 			findRemote(threadDriver.get());
-			}	
 		}
-	//@Test
-	private void _044_EDIT_STORAGEGROUPSTANDALONE_ADDVOLUME() throws JSONException, IOException, InterruptedException {
-		if(threadDriver!=null)
-			{
-			findRemote(threadDriver.get());
-			}	
-		}
-	//@Test
-	private void _045_EDIT_ADD_AND_REMOVE_VOLS_FROM_CASCADED_STORAGEGROUP_DIFF_SLO() throws JSONException, IOException, InterruptedException {
-		if(threadDriver!=null)
-			{
-			findRemote(threadDriver.get());
-			}	
-		}
-	//@Test
-	private void _046_EDIT_ADD_AND_REMOVE_VOLS_FROM_CASCADED_STORAGEGROUP_DIFF_WORKLOADS() throws JSONException, IOException, InterruptedException {
-		if(threadDriver!=null)
-			{
-			findRemote(threadDriver.get());
-			}	
-		}
-	//@Test
-	private void _047_EDIT_ADD_AND_REMOVE_VOLS_FROM_CASCADED_STORAGEGROUP_NONFAST() throws JSONException, IOException, InterruptedException {
-		if(threadDriver!=null)
-			{
-			findRemote(threadDriver.get());
-			}	
-		}
-	//@Test
-	private void _048_EDIT_ADD_VOLUMES_TO_TWO_SGS_ONE_FAST_ONE_NONFAST() throws JSONException, IOException, InterruptedException {
-		if(threadDriver!=null)
-			{
-			findRemote(threadDriver.get());
-			}	
-		}
-	//@Test
-	private void _049_ADD_VOLUMESTONONFASTSG_MOVEVOLUMETO_TOFASTSG() throws JSONException, IOException, InterruptedException {
-		if(threadDriver!=null)
-			{
-			findRemote(threadDriver.get());
-			}	
-		}
-	//@Test
-	private void _050_ADD_VOLUMESTOFASTSG_MOVEVOLUMETO_DIFFERENTFASTSG() throws JSONException, IOException, InterruptedException {
-		if(threadDriver!=null)
-			{
-			findRemote(threadDriver.get());
-			}	
-		}
+		gotoStorageGroupsPage();
+		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.createStorageGroupButton.click();
+		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		pswpo.elementWait(pswpo.provisionStorageTitle);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		//SET SRP
+		setSrpInformation(pswpo,"srp_2");
+		pswpo.createSgRunNow.click();
+		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
+		returnToStorageGroupsPage();
+		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
+		sgpo.waitForStorageGroupsPageObjects();
+		sgpo.sgRow(sgName).click();
+		Thread.sleep(5000);
+		sgpo.moreActionsStorageGroupButton.click();
+		Thread.sleep(1500);
+		sgpo.changeSRPButton.click();
+		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+		Thread.sleep(1500);
+		changeSRPInformation("default_srp");
+		Thread.sleep(5000);
+		verifyAndCleanup(sgName);
+	}
 
 	//@Test
 	private void _051_SET_IOLIMITS_MB_SEC() throws JSONException, IOException, InterruptedException {
@@ -1634,6 +1648,13 @@ public class StorageGroupTests extends WebDriverManager{
 		
 	}
 	
+	private void returnToStorageGroupsPage() throws InterruptedException {
+		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
+		hdpo.waitForHomeDashboardPageObjects();
+		hdpo.navigateToStorageGroups();
+		
+	}
+	
 	/**
 	 * @author gearyk2
 	 * @param pswpo
@@ -1756,6 +1777,36 @@ public class StorageGroupTests extends WebDriverManager{
 	
 	/**
 	 * @author gearyk2
+	 * @param srp
+	 * @throws InterruptedException
+	 */
+	private void changeSRPInformation(String srp) throws InterruptedException {
+		ChangeSrpPO cspo=new ChangeSrpPO(getDriver());
+		cspo.waitForElementToDisappear(Constants.RETRIEVING);
+		Thread.sleep(1500);
+		cspo.srpListBox.click();
+		Thread.sleep(1500);
+		switch(srp.toLowerCase()){
+		case "srp_2": 
+			cspo.srp2Button.click();
+			break;
+		case "default_srp": 
+			cspo.defaultSrpButton.click();
+			break;
+		case "none": 
+			cspo.noneSrpButton.click();
+			break;
+		default:
+			cspo.noneSrpButton.click();
+			break;
+		}
+		cspo.runNowButton.click();
+		cspo.waitForElementToDisappear(Constants.RETRIEVING);
+		Assert.assertTrue(cspo.changeSRPSuccessMessage.isDisplayed());
+	}
+	
+	/**
+	 * @author gearyk2
 	 * @param pswpo
 	 * @param workload
 	 * @param volumeUnit
@@ -1866,6 +1917,7 @@ public class StorageGroupTests extends WebDriverManager{
 		RESTClient.printResponses();
 		Assert.assertEquals(RESTClient.responseStatus,204);
 	}
+	
 	
 
 

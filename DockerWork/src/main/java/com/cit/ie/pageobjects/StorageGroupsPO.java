@@ -1,5 +1,6 @@
 package com.cit.ie.pageobjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,7 +34,11 @@ public class StorageGroupsPO extends HomeDashboardPO{
 	public static final String CAPACITY_HEADER_XPATH=".//span[text()='Capacity (GB)']";
 	public static final String EMULATION_HEADER_XPATH=".//span[text()='Emulation']";
 	public static final String COLUMN_FILTER_HEADER_XPATH=".//i[@aria-label='Grid Menu']";
-	
+	//SELECT ROW
+	public static final String ROW_WITG_SG_NAME="//div[text()='']/child::div";
+	//MOREACTIONS
+	public static final String CHANGE_SRP_XPATH=".//button[@aria-label='Change SRP']";
+	public static final String SET_IO_HOST_LIMITS_XPATH=".//button[@aria-label='Set Host I/O Limits']";
 	
 	//WEB ELEMENTS
 	
@@ -54,6 +59,10 @@ public class StorageGroupsPO extends HomeDashboardPO{
 	public WebElement filterStorageGroupButton;
 	@FindBy(xpath=VIEWDETAILS_STORAGE_GROUP_BUTTON_XPATH)
 	public WebElement viewDetailsStorageGroupButton;
+	@FindBy(xpath=CHANGE_SRP_XPATH)
+	public WebElement changeSRPButton;
+	@FindBy(xpath=SET_IO_HOST_LIMITS_XPATH)
+	public WebElement setIOLimitsButton;
 	//HEADERS
 	@FindBy(xpath=STORAGEGROUP_HEADER_XPATH)
 	public WebElement storageGroupHeader;
@@ -70,9 +79,20 @@ public class StorageGroupsPO extends HomeDashboardPO{
 	@FindBy(xpath=COLUMN_FILTER_HEADER_XPATH)
 	public WebElement columnFilterButton;
 	
+	public WebElement sgRow(String sgname){
+		return findByXPath(ROW_WITG_SG_NAME,sgname);	
+	}
 	
-	
-	
+	/**
+	 * @author gearyk2
+	 * @param xpath
+	 * @return web element
+	 * @description specialized findByXpath for clicking on Rows
+	 */
+	public static WebElement findByXPath(String xpath,String sgname){
+		WebElement element = driver.findElement(By.xpath(xpath.replace("//div[text()='","//div[text()='"+sgname)));
+		return element;
+	}
 	
 	
 

@@ -62,6 +62,8 @@ public class Constants extends Assert
 	public static final int VOLUME_LENGTH = 5;
 	
 	public static final String BASE_REST_URL="/univmax/restapi/sloprovisioning/symmetrix/";
+	
+	public static final String RETRIEVING ="//div[@aria-hidden='false']//div[text()='Retrieving data']";
 
 }
 

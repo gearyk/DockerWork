@@ -71,7 +71,7 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	
 	//ERRORS
 	public static final String SG_ALREADY_EXISTS="//p[text()=\"Error in Creating Storage Group '000DOCK23_1': Cannot use the specified name because it's already in use\"]";
-	
+	public static final String RETRIEVING ="//div[@aria-hidden='false']//div[text()='Retrieving data']";
 	
 	//WEB ELEMENTS
 	//BUTTONS/ICONS
@@ -93,7 +93,8 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public WebElement editStorageGroupIcon;
 	@FindBy(xpath=NEXT_PAGE_BUTTON_XPATH)
 	public WebElement nextPageButton;
-	
+	@FindBy(xpath=RETRIEVING)
+	public WebElement retrievingData;
 	
 	//SRP
 	@FindBy(xpath=SRP_LIST_BOX)
@@ -266,6 +267,7 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	//ERRORS
 	@FindBy(xpath=SG_ALREADY_EXISTS)
 	public WebElement errorSGAlreadyExists;
+	
 	/**
 	 * @author gearyk2
 	 * @param xpath
