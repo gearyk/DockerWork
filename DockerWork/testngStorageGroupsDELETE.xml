@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite verbose="1" name="SG Suite" parallel="methods" thread-count="3">
-	   <test name="TEST1">
-    <parameter name ="browser" value="chrome"/>
+<suite verbose="1" name="SG DELETE Suite">
+<test name="deleteTests">
+	 <parameter name ="browser" value="chrome"/>
+    	<groups>
+     	 	<run>
+     		 <include name="delete" />
+     	 	</run>
+  	 	</groups>
         <classes>
             <class name ="com.cit.ie.storagegroups.StorageGroupTests"/>
         </classes>

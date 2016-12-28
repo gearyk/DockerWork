@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite verbose="1" name="Login Suite" parallel="tests" thread-count="5">
+<suite verbose="1" name="Login Suite" parallel="methods" thread-count="5">
 	<test name="TEST1">
-    <parameter name ="browser" value="chrome"/>
+    <!-->parameter name ="browser" value="chrome"/-->
         <classes>
             <class name ="com.cit.ie.login.LoginPageTests"/>
         </classes>
     </test>
-    <test name="TEST2"> 
+    <!-->test name="TEST2"> 
     <parameter name="browser" value="chrome"/> 
     <classes> 
-       <class name ="com.cit.ie.storagegroups.StorageGroupTests"/>
+       <class name ="com.cit.ie.login.LoginPageTests"/>
     </classes> 
- 	</test> 
+ 	</test--> 
 </suite>
 

@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HelperMethods extends WebDriverManager {
@@ -15,18 +18,37 @@ public class HelperMethods extends WebDriverManager {
 	protected int timeOut = 500;
 	public WebDriverWait wait;
 
+	//@SuppressWarnings("static-access")
 	@SuppressWarnings("static-access")
 	public HelperMethods(WebDriver adriver)
 	{
 		driver=adriver;
-		wait = new WebDriverWait(this.driver,timeOut);
+		//wait = new WebDriverWait(this.driver,timeOut);
+		new WebDriverWait(driver, timeOut).until((ExpectedCondition<Boolean>) wd ->
+        ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
 	}
 
-	public void elementWait(WebElement we) throws InterruptedException{
-		wait=new WebDriverWait(driver, 30, 2000);
-		wait.until(ExpectedConditions.visibilityOf(we));
-		Thread.sleep(5000);
+	public void waitForElementVisiblity(String xpath) throws InterruptedException{
+		wait=new WebDriverWait(driver, 50, 4000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+		System.out.println("Element is visible");
+		Thread.sleep(3000);
+	
 
+	}
+	
+	public void waitForElementClickability(String xpath) throws InterruptedException{
+		wait=new WebDriverWait(driver, 60, 4000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+		System.out.println("Element is clickable");
+		Thread.sleep(3000);
+
+	}
+	
+	
+	public void waitForLoad() {
+	    new WebDriverWait(driver, 30).until((ExpectedCondition<Boolean>) wd ->
+	            ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
 	}
 	
 	public void waitForElementToDisappear(String text) throws InterruptedException{
@@ -36,9 +58,8 @@ public class HelperMethods extends WebDriverManager {
 
 	}
 	
-	public static void haltTest() throws InterruptedException{
+	public void haltTest() throws InterruptedException{
 		driver.close();
-		driver.quit();
 		Thread.sleep(1000);
 	}
 	

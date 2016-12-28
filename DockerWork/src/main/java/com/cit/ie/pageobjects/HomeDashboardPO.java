@@ -46,11 +46,12 @@ public class HomeDashboardPO extends HelperMethods
 
 
 	public void waitForHomeDashboardPageObjects() throws InterruptedException{
-		elementWait(u4vLogo);
+		waitForElementVisiblity(U4V_LOGO_XPATH);
 	}
 
 	//Navigate to this view
-	public void navigateToSideMenu(){
+	public void navigateToSideMenu() throws InterruptedException{
+		Thread.sleep(3000);
 		storageSideMenuItem.click();
 	}
 

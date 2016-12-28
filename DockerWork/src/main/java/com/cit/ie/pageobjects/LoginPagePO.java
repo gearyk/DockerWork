@@ -18,7 +18,7 @@ import com.cit.ie.base.HelperMethods;
  */
 public class LoginPagePO extends HelperMethods
 {
-	public LoginPagePO(WebDriver wdriver) {
+	public LoginPagePO(WebDriver wdriver) throws InterruptedException {
 		super(wdriver);
 		driver = wdriver;
 		wait = new WebDriverWait(driver, timeOut);
@@ -61,11 +61,11 @@ public class LoginPagePO extends HelperMethods
 	public WebElement errorLoggingIn;
 
 	public void waitForLoginPageObjects() throws InterruptedException{
-		elementWait(loginLogo);
+		waitForElementVisiblity(LOGIN_LOGO_XPATH);
 	}
 
 	public WebElement loginPage(){
-		WebElement element = (new WebDriverWait(driver, 30)).until(ExpectedConditions.elementToBeClickable(By.xpath(LOGIN_PAGE_TITLE_XPATH)));
+		WebElement element = (new WebDriverWait(driver, 60)).until(ExpectedConditions.elementToBeClickable(By.xpath(LOGIN_PAGE_TITLE_XPATH)));
 		return element;
 	}
 	//	

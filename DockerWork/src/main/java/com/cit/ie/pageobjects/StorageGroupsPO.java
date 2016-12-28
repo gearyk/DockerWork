@@ -41,6 +41,10 @@ public class StorageGroupsPO extends HomeDashboardPO{
 	public static final String CHANGE_SRP_XPATH=".//button[@aria-label='Change SRP']";
 	public static final String SET_IO_HOST_LIMITS_XPATH=".//button[@aria-label='Set Host I/O Limits']";
 	
+	//POPUPS
+	public static final String DELETE_STORAGE_GROUP_POPUP_OK_BUTTON_XPATH="//button[@aria-label='OK Button']";
+	public static final String SUCCESS_STORAGE_GROUP_DELETED_XPATH="//p[text()='Storage Group(s) Successfully deleted']";
+	public static final String ACKNOWLEDGE_SUCCESS_STORAGE_GROUP_DELETED_XPATH="//button[@aria-label='OK']";
 	//WEB ELEMENTS
 	
 	//BUTTONS/ICONS
@@ -79,6 +83,12 @@ public class StorageGroupsPO extends HomeDashboardPO{
 	public WebElement emulationHeader;
 	@FindBy(xpath=COLUMN_FILTER_HEADER_XPATH)
 	public WebElement columnFilterButton;
+	@FindBy(xpath=DELETE_STORAGE_GROUP_POPUP_OK_BUTTON_XPATH)
+	public WebElement deleteSGPopupOKButton;
+	@FindBy(xpath=SUCCESS_STORAGE_GROUP_DELETED_XPATH)
+	public WebElement successStorageGroupDeleted;
+	@FindBy(xpath=ACKNOWLEDGE_SUCCESS_STORAGE_GROUP_DELETED_XPATH)
+	public WebElement acknowledgeSGDeletedButton;
 	
 	public WebElement sgRow(String sgname){
 		return findByXPath(ROW_WITG_SG_NAME,sgname);	
@@ -104,7 +114,7 @@ public class StorageGroupsPO extends HomeDashboardPO{
 	//Wait for this page to load
 	public void waitForStorageGroupsPageObjects() throws InterruptedException{
 		try {
-			elementWait(createStorageGroupButton);
+			waitForElementClickability(CREATE_STORAGE_GROUP_BUTTON_XPATH);
 		} catch (Exception e) {
 			e.printStackTrace();
 			e.getMessage();
