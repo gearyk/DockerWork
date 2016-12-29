@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.cit.ie.base.Constants;
+
 public class StorageGroupsPO extends HomeDashboardPO{
 
 	public StorageGroupsPO(WebDriver wdriver) {
@@ -114,7 +116,9 @@ public class StorageGroupsPO extends HomeDashboardPO{
 	//Wait for this page to load
 	public void waitForStorageGroupsPageObjects() throws InterruptedException{
 		try {
+			waitForElementToDisappear(Constants.RETRIEVING);
 			waitForElementClickability(CREATE_STORAGE_GROUP_BUTTON_XPATH);
+			waitForLoad();
 		} catch (Exception e) {
 			e.printStackTrace();
 			e.getMessage();

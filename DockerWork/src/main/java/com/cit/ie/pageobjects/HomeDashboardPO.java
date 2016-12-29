@@ -60,6 +60,7 @@ public class HomeDashboardPO extends HelperMethods
 		navigateToSideMenu();
 		Thread.sleep(1500);
 		storageGroupsSideMenuItem.click();	
+		Thread.sleep(5000);
 	}
 	
 	

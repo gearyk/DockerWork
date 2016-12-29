@@ -14,6 +14,8 @@ import org.json.JSONObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.HttpCommandExecutor;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -132,6 +134,19 @@ public class WebDriverManager {
 			threadDriver.set(new RemoteWebDriver(new URL(Node), cap));
 			long id = Thread.currentThread().getId();
 			System.out.println("TestRunning. Thread id is: " + id);		
+		}
+		
+		if (browser.equalsIgnoreCase("firefox")) {
+			System.out.println(" Executing on FIREFOX");
+			DesiredCapabilities cap = DesiredCapabilities.firefox();
+			cap.setBrowserName("firefox");
+			cap.setCapability(FirefoxDriver.MARIONETTE, false); 
+			//cap.setCapability(FirefoxDriver.PROFILE, new FirefoxProfile()); 
+			String Node = "http://152.62.122.187:4444/wd/hub";
+			threadDriver = new ThreadLocal<RemoteWebDriver>();
+			threadDriver.set(new RemoteWebDriver(new URL(Node), cap));
+			long id = Thread.currentThread().getId();
+			System.out.println("TestRunning. Thread id is: " + id);	
 		}
 
 		else {
