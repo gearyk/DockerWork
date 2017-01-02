@@ -19,7 +19,6 @@ public class HelperMethods extends WebDriverManager {
 	public WebDriverWait wait;
 
 	//@SuppressWarnings("static-access")
-	@SuppressWarnings("static-access")
 	public HelperMethods(WebDriver adriver)
 	{
 		driver=adriver;
@@ -52,7 +51,7 @@ public class HelperMethods extends WebDriverManager {
 	}
 	
 	public void waitForElementToDisappear(String text) throws InterruptedException{
-		wait=new WebDriverWait(driver, 120, 4000);
+		wait=new WebDriverWait(driver, 180, 4000);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(text)));
 		Thread.sleep(3500);
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite verbose="1" name="Login Suite" parallel="tests" thread-count="5">
+<suite verbose="1" name="Login Suite Chrome and FF" parallel="tests" thread-count="3">
 	<test name="TEST1">
     <parameter name ="browser" value="chrome"/>
         <classes>
@@ -19,5 +19,23 @@
             <class name ="com.cit.ie.login.L3"/>
         </classes>
     </test>
+    	<!-->test name="TEST4">
+    <parameter name ="browser" value="firefox"/>
+        <classes>
+            <class name ="com.cit.ie.login.L1"/>
+        </classes>
+    </test>
+    <test name="TEST5">
+    <parameter name ="browser" value="firefox"/>
+        <classes>
+            <class name ="com.cit.ie.login.L2"/>
+        </classes>
+    </test>
+    <test name="TEST6">
+   <parameter name ="browser" value="firefox"/>
+        <classes>
+            <class name ="com.cit.ie.login.L3"/>
+        </classes>
+    </test-->
 </suite>
 

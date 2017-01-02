@@ -38,7 +38,7 @@ public class StorageGroupTests extends WebDriverManager{
 	 */
 	
 	@Test
-	private void _001_B_VerifyExistanceOfPageElements() throws JSONException, IOException, InterruptedException {
+	private void _000_B_VERIFY_EXISTANCE_OF_PAGE_ELEMENTS() throws JSONException, IOException, InterruptedException {
 
 		if(threadDriver!=null)
 		{
@@ -70,7 +70,7 @@ public class StorageGroupTests extends WebDriverManager{
 	}
 	
 	@Test
-	private void _001_A_VerifyWizardButtons() throws JSONException, IOException, InterruptedException {
+	private void _000_A_VERIFY_WIZARD_BUTTONS() throws JSONException, IOException, InterruptedException {
 
 		if(threadDriver!=null)
 		{
@@ -88,17 +88,6 @@ public class StorageGroupTests extends WebDriverManager{
 		Assert.assertTrue(sgpo.deleteStorageGroupButton.isDisplayed());
 		Assert.assertTrue(sgpo.editStorageGroupButton.isDisplayed());
 		Assert.assertTrue(sgpo.storageGroupPageTitle.isDisplayed());
-	}
-	
-	//@Test
-	private void _000VerifyRolesAndPermissions() throws JSONException, IOException, InterruptedException {
-
-		if(threadDriver!=null)
-		{
-			findRemote(threadDriver.get());
-		}
-		gotoStorageGroupsPage();
-		
 	}
 	
 	

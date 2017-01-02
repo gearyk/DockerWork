@@ -16,6 +16,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.HttpCommandExecutor;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -138,10 +139,12 @@ public class WebDriverManager {
 		
 		if (browser.equalsIgnoreCase("firefox")) {
 			System.out.println(" Executing on FIREFOX");
+			//System.setProperty(" webdriver.gecko.driver","C:\\geckodriver.exe");
 			DesiredCapabilities cap = DesiredCapabilities.firefox();
 			cap.setBrowserName("firefox");
-			cap.setCapability(FirefoxDriver.MARIONETTE, false); 
-			//cap.setCapability(FirefoxDriver.PROFILE, new FirefoxProfile()); 
+			cap.setCapability("marionette", false); 
+			cap.setCapability(FirefoxDriver.PROFILE, new FirefoxProfile()); 
+			cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 			String Node = "http://152.62.122.187:4444/wd/hub";
 			threadDriver = new ThreadLocal<RemoteWebDriver>();
 			threadDriver.set(new RemoteWebDriver(new URL(Node), cap));

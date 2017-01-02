@@ -27,7 +27,9 @@ public class LoginPageTests extends WebDriverManager {
 //			System.out.println("Test1 about to find remote");
 //			findRemote(threadDriver.get());
 //		}
+
 		getDriver().get("https://10.73.28.71:8443/univmax/jsclient/#/login");
+		System.out.println("x5555xxx");
 		LoginPagePO po=PageFactory.initElements(getDriver(),LoginPagePO.class);
 		po.waitForLoginPageObjects();
 		Assert.assertTrue(po.loginLogo.isDisplayed());
