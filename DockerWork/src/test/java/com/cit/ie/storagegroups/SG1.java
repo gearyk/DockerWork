@@ -3,22 +3,17 @@ package com.cit.ie.storagegroups;
 import java.io.IOException;
 
 import org.json.JSONException;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.cit.ie.base.HelperMethods;
 import com.cit.ie.base.WebDriverManager;
 import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
 import com.cit.ie.pageobjects.StorageGroupsPO;
 
 public class SG1 extends WebDriverManager{
-
-	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
-	private WebElement el;
-	private String sgName;
+	
 	/*
 	 * SLO1=OPTIMIZED
 	 * SLO2=DIAMOND

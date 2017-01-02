@@ -60,10 +60,9 @@ public class Constants extends Assert
 	public static final String EMPTY_VALUE = "EMPTY";
 	public static final long SYMAPI_NA = 4294967295L;
 	public static final int VOLUME_LENGTH = 5;
-	
 	public static final String BASE_REST_URL="/univmax/restapi/sloprovisioning/symmetrix/";
-	
 	public static final String RETRIEVING ="//div[@aria-hidden='false']//div[text()='Retrieving data']";
+	public static final String BAD_LOGIN_XPATH=".//*/span[text()='Error Logging In']";
 
 }
 

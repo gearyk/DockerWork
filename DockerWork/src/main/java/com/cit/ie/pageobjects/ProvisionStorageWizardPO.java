@@ -5,13 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ProvisionStorageWizardPO extends StorageGroupsPO{
+public class ProvisionStorageWizardPO extends StorageGroupsPO {
 
 	public ProvisionStorageWizardPO(WebDriver wdriver) {
-
 		super(wdriver);
 		driver = wdriver;
 		wait = new WebDriverWait(driver, timeOut);
@@ -29,7 +27,6 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public static final String DEFAULT_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='DEFAULT_SRP']";
 	public static final String NONE_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='None']";
 	public static final String SRP2_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='SRP_2']";
-	
 	//STANDALONE STORAGE GROUPS
 	//SERVICE LEVEL
 	public static final String SERVICELEVEL_LIST_BOX_XPATH="//div[@ng-if='showColumnPolicy.showServiceLevel']/md-input-container";
@@ -47,7 +44,6 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public static final String WL_DSS=".//div[text()='DSS']";
 	public static final String WL_DSS_REP=".//div[text()='DSS + Rep']";
 	public static final String WL_NOT_SPECIFIED=".//md-option/div[text()='Not Specified']";
-	
 	//NUMBER OF VOLUMES
 	public static final String VOLUMES_NUM_XPATH="//input[@aria-label='childSgVols']";
 	//VOLUME CAPACITY
@@ -68,7 +64,6 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public static final String NEXT_PAGE_BUTTON_XPATH="//section[@wz-title='Create Storage Group(s)']//button[@aria-label='NEXT']";
 	public static final String ADD_STORAGE_GROUP_BUTTON_XPATH="//button[@aria-label='Add Storage Group']";
 	public static final String SET_IO_HOST_LIMITS_BUTTON_XPATH=".//button[@aria-label='Set Host I/O Limits']/span[@class='ng-scope']";
-	
 	//ERRORS
 	public static final String SG_ALREADY_EXISTS="//p[text()=\"Error in Creating Storage Group '000DOCK23_1': Cannot use the specified name because it's already in use\"]";
 	public static final String RETRIEVING ="//div[@aria-hidden='false']//div[text()='Retrieving data']";
@@ -95,11 +90,9 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public WebElement nextPageButton;
 	@FindBy(xpath=RETRIEVING)
 	public WebElement retrievingData;
-	
 	//SRP
 	@FindBy(xpath=SRP_LIST_BOX)
 	public WebElement srpListBox;
-	
 	@FindBy(xpath=DEFAULT_SRP_MENUITEM_XPATH)
 	public WebElement defaultSRP;
 	@FindBy(xpath=NONE_SRP_MENUITEM_XPATH)
@@ -136,7 +129,6 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public WebElement dss_rep;
 	@FindBy(xpath=WL_NOT_SPECIFIED)
 	public WebElement no_workload;
-	
 	//VOLUMES
 	@FindBy(xpath=VOLUMES_NUM_XPATH)
 	public WebElement numberOfVolumes;
@@ -156,12 +148,10 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	@FindBy(xpath=ALLOC_CAPACITY)
 	public WebElement allocateCapacityCB;
 	@FindBy(xpath=PERSIST_CAPACITY)
-	public WebElement persistCapacityCB;
+	public WebElement persistCapacityCB;	
 	
-	//CASCADED SGs
-	//CASCADED STORAGE GROUPS
+	//*******************************  CASCADED STORAGE GROUPS ***********************************
 	//SERVICE LEVEL
-	//u4v-sg-step[1]//
 	public void setRowForChildSG(int i){
 		childSGRow=Integer.toString(i);
 	}
@@ -184,13 +174,11 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public static String CSG_VOLUMES_NUM_XPATH="//u4v-sg-step[]//input[@aria-label='childSgVols']";
 	//VOLUME CAPACITY
 	public static String CSG_VOLUMES_CAPACITY_XPATH="//u4v-sg-step[]//input[@aria-label='sgCap']";
-	
 	public static String CSG_VOLUMES_CAPACITY_UNITS_XPATH="//u4v-sg-step[]//div[@ng-if='showColumnPolicy.showVolsCap']/md-input-container";
 	public static String CSG_UNIT_MB="//div[@class='md-select-menu-container md-active md-clickable']//div[text()='MB']";
 	public static String CSG_UNIT_GB=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='GB']";
 	public static String CSG_UNIT_TB=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='TB']";
-	public static String CSG_UNIT_CYL=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Cyl']";
-	
+	public static String CSG_UNIT_CYL=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Cyl']";	
 	public static String CSG_MB="test";
 	
 	//WEB ELEMENTS
@@ -221,8 +209,6 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public WebElement noSloCSG(){
 		return findByXPath(CSG_SL_NONE);	
 	}
-	
-
 	//WORKLOAD
 	public WebElement workloadListBoxCSG(){
 		return findByXPath(CSG_WORKLOAD_LIST_BOX_XPATH);	
@@ -241,8 +227,7 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	}
 	public WebElement notSpecifiedWLCSG(){
 		return findByXPath(CSG_WL_NONE);	
-	}
-	
+	}	
 	//VOLUMES
 	public WebElement numberOfVoumesCSG(){
 		return findByXPath(CSG_VOLUMES_NUM_XPATH);	
@@ -262,8 +247,6 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO{
 	public WebElement csgTB;
 	@FindBy(xpath=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Cyl']")
 	public WebElement csgCYL;
-
-	
 	//ERRORS
 	@FindBy(xpath=SG_ALREADY_EXISTS)
 	public WebElement errorSGAlreadyExists;

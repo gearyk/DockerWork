@@ -6,9 +6,8 @@ import java.io.IOException;
 import org.json.JSONException;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
 import com.cit.ie.base.WebDriverManager;
 import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
@@ -22,12 +21,11 @@ public class LoginPageTests extends WebDriverManager {
 		long id = Thread.currentThread().getId();
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Test1. Thread id is: " + id+ " :: thread driver get = "+threadDriver.get());
-//		if(threadDriver!=null)
-//		{ 
-//			System.out.println("Test1 about to find remote");
-//			findRemote(threadDriver.get());
-//		}
-
+		if(threadDriver!=null)
+		{ 
+			System.out.println("Test1 about to find remote");
+			findRemote(threadDriver.get());
+		}
 		getDriver().get("https://10.73.28.71:8443/univmax/jsclient/#/login");
 		System.out.println("x5555xxx");
 		LoginPagePO po=PageFactory.initElements(getDriver(),LoginPagePO.class);
@@ -47,11 +45,11 @@ public class LoginPageTests extends WebDriverManager {
 		long id = Thread.currentThread().getId();
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Test2. Thread id is: " + id+ " :: thread driver get = "+threadDriver.get());
-//		if(threadDriver.get()!=null)
-//		{ 
-//			System.out.println("Test2 about to find remote");
-//			findRemote(threadDriver.get());
-//		}
+		if(threadDriver.get()!=null)
+		{ 
+			System.out.println("Test2 about to find remote");
+			findRemote(threadDriver.get());
+		}
 		getDriver().get("https://10.73.28.71:8443/univmax/jsclient/#/login");
 		LoginPagePO po=PageFactory.initElements(getDriver(),LoginPagePO.class);
 		po.waitForLoginPageObjects();
@@ -61,16 +59,17 @@ public class LoginPageTests extends WebDriverManager {
 		Assert.assertTrue(hdpo.u4vLogo.isDisplayed());
 	}
 
+	@SuppressWarnings("static-access")
 	@Test
 	private void _003LoginWithIncorrectCaseOnUsernameNEG() throws JSONException, IOException, InterruptedException {
 		long id = Thread.currentThread().getId();
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Test3. Thread id is: " + id + " :: thread driver get = "+threadDriver.get());
-//		if(threadDriver.get()!=null)
-//		{ 
-//			System.out.println("Test3 about to find remote");
-//			findRemote(threadDriver.get());
-//		}
+		if(threadDriver.get()!=null)
+		{ 
+			System.out.println("Test3 about to find remote");
+			findRemote(threadDriver.get());
+		}
 		getDriver().get("https://10.73.28.71:8443/univmax/jsclient/#/login");
 		LoginPagePO po=PageFactory.initElements(getDriver(),LoginPagePO.class);
 		po.waitForLoginPageObjects();
@@ -81,7 +80,8 @@ public class LoginPageTests extends WebDriverManager {
 	
 	
 
-	//@Test
+	@Test
+	@SuppressWarnings({ "static-access" })
 	private void _004LoginWithIncorrectCaseOnPasswordNEG() throws JSONException, IOException, InterruptedException {
 		
 		long id = Thread.currentThread().getId();
@@ -95,7 +95,8 @@ public class LoginPageTests extends WebDriverManager {
 		Assert.assertTrue(po.errorLoggingIn.getText().contains("Error Logging In"));
 	}
 
-	//@Test
+	@Test
+	@SuppressWarnings({ "static-access" })
 	private void _005LoginWithIncorrectUsernameNEG() throws JSONException, IOException, InterruptedException {
 		
 		long id = Thread.currentThread().getId();
@@ -110,7 +111,7 @@ public class LoginPageTests extends WebDriverManager {
 	}
 
 	//@Test
-	@SuppressWarnings("static-access")
+	@SuppressWarnings({ "static-access" })
 	private void _006LoginWithIncorrectPasswordNEG() throws JSONException, IOException, InterruptedException {
 		
 		long id = Thread.currentThread().getId();

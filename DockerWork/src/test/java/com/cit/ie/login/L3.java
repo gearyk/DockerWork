@@ -8,11 +8,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.cit.ie.base.WebDriverManager;
-import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
 
 public class L3 extends WebDriverManager {
 	
+	@SuppressWarnings("static-access")
 	@Test
 	private void _003LoginWithIncorrectCaseOnUsernameNEG() throws JSONException, IOException, InterruptedException {
 		long id = Thread.currentThread().getId();

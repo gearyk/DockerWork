@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ChangeSrpPO extends StorageGroupsPO {
 	
 	public ChangeSrpPO(WebDriver wdriver) {
-
 		super(wdriver);
 		driver = wdriver;
 		wait = new WebDriverWait(driver, timeOut);
@@ -23,11 +22,11 @@ public class ChangeSrpPO extends StorageGroupsPO {
 	public static final String NONE_SRP_XPATH="//md-option[@ng-value='selectedSrpInfoObject']/div[text()='None']";
 	public static final String RUN_NOW_BUTTON_XPATH="//md-menu-bar[@ok-click='okClick()']";
 	public static final String SUCCESS_MSG_XPATH=".//p[text()='Successfully Changed SRP']";
-	
 	public static final String CSG_FIRST_ROW_LISTBOX_SRP_XPATH=".//u4v-sg-step[1]/div/div/div[2]/md-input-container/md-select";
 	public static final String CSG_SRP_2_XPATH="//div[@aria-hidden='false']//div[text()='SRP_2']";
 	public static final String CSG_DEFAULT_SRP_XPATH="//div[@aria-hidden='false']//div[text()='DEFAULT_SRP']";
 	public static final String CSG_NONE_SRP_XPATH="//div[@aria-hidden='false']//div[text()='None']";
+	
 	//WEBELEMENTS
 	@FindBy(xpath=SRP_LISTBOX_XPATH)
 	public WebElement srpListBox;

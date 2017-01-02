@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.cit.ie.base.Constants;
 
-public class StorageGroupsPO extends HomeDashboardPO{
+public class StorageGroupsPO extends HomeDashboardPO {
 
 	public StorageGroupsPO(WebDriver wdriver) {
 		super(wdriver);
@@ -42,13 +42,11 @@ public class StorageGroupsPO extends HomeDashboardPO{
 	//MOREACTIONS
 	public static final String CHANGE_SRP_XPATH=".//button[@aria-label='Change SRP']";
 	public static final String SET_IO_HOST_LIMITS_XPATH=".//button[@aria-label='Set Host I/O Limits']";
-	
 	//POPUPS
 	public static final String DELETE_STORAGE_GROUP_POPUP_OK_BUTTON_XPATH="//button[@aria-label='OK Button']";
 	public static final String SUCCESS_STORAGE_GROUP_DELETED_XPATH="//p[text()='Storage Group(s) Successfully deleted']";
 	public static final String ACKNOWLEDGE_SUCCESS_STORAGE_GROUP_DELETED_XPATH="//button[@aria-label='OK']";
 	//WEB ELEMENTS
-	
 	//BUTTONS/ICONS
 	@FindBy(xpath=STORAGE_GROUPS_PAGE_TITLE_XPATH)
 	public WebElement storageGroupPageTitle;
@@ -110,8 +108,6 @@ public class StorageGroupsPO extends HomeDashboardPO{
 		WebElement element = driver.findElement(By.xpath(xpath.replace("//div[text()='","//div[text()='"+sgname)));
 		return element;
 	}
-	
-	
 
 	//Wait for this page to load
 	public void waitForStorageGroupsPageObjects() throws InterruptedException{
