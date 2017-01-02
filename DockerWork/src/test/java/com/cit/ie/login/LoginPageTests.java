@@ -83,7 +83,6 @@ public class LoginPageTests extends WebDriverManager {
 	@Test
 	@SuppressWarnings({ "static-access" })
 	private void _004LoginWithIncorrectCaseOnPasswordNEG() throws JSONException, IOException, InterruptedException {
-		
 		long id = Thread.currentThread().getId();
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Test4. Thread id is: " + id);
@@ -98,7 +97,6 @@ public class LoginPageTests extends WebDriverManager {
 	@Test
 	@SuppressWarnings({ "static-access" })
 	private void _005LoginWithIncorrectUsernameNEG() throws JSONException, IOException, InterruptedException {
-		
 		long id = Thread.currentThread().getId();
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Test5. Thread id is: " + id);
@@ -112,8 +110,7 @@ public class LoginPageTests extends WebDriverManager {
 
 	//@Test
 	@SuppressWarnings({ "static-access" })
-	private void _006LoginWithIncorrectPasswordNEG() throws JSONException, IOException, InterruptedException {
-		
+	private void _006LoginWithIncorrectPasswordNEG() throws JSONException, IOException, InterruptedException {	
 		long id = Thread.currentThread().getId();
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Test6. Thread id is: " + id);
