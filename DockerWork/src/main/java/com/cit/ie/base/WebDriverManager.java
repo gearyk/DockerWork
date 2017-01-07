@@ -34,14 +34,14 @@ public class WebDriverManager {
 
 	protected ThreadLocal<RemoteWebDriver> threadDriver = null;
 
-	@Parameters("browser")
+	@Parameters({"browser","hubIP"})
 	@BeforeMethod()
-	public void launchbrowser(@Optional("Chrome")String browser) throws MalformedURLException, InterruptedException {
+	public void launchbrowser(@Optional("firefox")String browser,@Optional("10.73.28.229")String hubIP) throws MalformedURLException, InterruptedException {
 		if (browser.equalsIgnoreCase("chrome")) {
 			System.out.println(" Executing on CHROME");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setBrowserName("chrome");
-			String Node = "http://152.62.122.187:4444/wd/hub";
+			String Node = hubIP+":4444/wd/hub";
 			threadDriver = new ThreadLocal<RemoteWebDriver>();
 			threadDriver.set(new RemoteWebDriver(new URL(Node), cap));
 			long id = Thread.currentThread().getId();

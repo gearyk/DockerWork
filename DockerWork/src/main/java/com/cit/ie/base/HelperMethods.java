@@ -15,6 +15,7 @@ public class HelperMethods extends WebDriverManager {
 	public static WebDriver driver;
 	protected int timeOut = 500;
 	public WebDriverWait wait;
+	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
 
 	//@SuppressWarnings("static-access")
 	public HelperMethods(WebDriver adriver){
@@ -63,6 +64,7 @@ public class HelperMethods extends WebDriverManager {
 		System.out.println("Element is not present");
 		return true;
 	}
+	
 
 
 }

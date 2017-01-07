@@ -3,6 +3,7 @@
 <suite verbose="1" name="Login Suite FireFox" parallel="methods" thread-count="3">
 	<test name="TEST1">
     <parameter name ="browser" value="firefox"/>
+    <parameter name ="hubIP" value="10.73.28.229"/>
         <classes>
             <class name ="com.cit.ie.login.LoginPageTests"/>
         </classes>

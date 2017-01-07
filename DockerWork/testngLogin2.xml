@@ -3,22 +3,25 @@
 <suite verbose="1" name="Login Suite Chrome and FF" parallel="tests" thread-count="3">
 	<test name="TEST1">
     <parameter name ="browser" value="chrome"/>
+    <parameter name ="hubIP" value="10.73.28.229"/>
         <classes>
             <class name ="com.cit.ie.login.L1"/>
         </classes>
     </test>
-    <test name="TEST2">
-    <parameter name ="browser" value="chrome"/>
+    <!-->test name="TEST2">
+    <parameter name ="browser" value="firefox"/>
+    <parameter name ="hubIP" value="10.73.28.229"/>
         <classes>
             <class name ="com.cit.ie.login.L2"/>
         </classes>
     </test>
     <test name="TEST3">
-   <parameter name ="browser" value="chrome"/>
+   <parameter name ="browser" value="firefox"/>
+   <parameter name ="hubIP" value="10.73.28.229"/>
         <classes>
             <class name ="com.cit.ie.login.L3"/>
         </classes>
-    </test>
+    </test-->
     	<!-->test name="TEST4">
     <parameter name ="browser" value="firefox"/>
         <classes>
