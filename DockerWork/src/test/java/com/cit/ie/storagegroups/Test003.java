@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.cit.ie.base.Constants;
+import com.cit.ie.base.HelperMethods;
 import com.cit.ie.base.WebDriverManager;
 import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
@@ -16,13 +17,14 @@ import com.cit.ie.rest.RESTClient;
 
 @SuppressWarnings("static-access")
 public class Test003 extends WebDriverManager{
-
+	
 	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
 	private String sgName;
 	
 
-	@Test
+	@Test(priority=1)
 	private void _003_CREATE_EMPTY_SG_AND_VOLUME_DETAILS_DEFINED() throws JSONException, IOException, InterruptedException {
+		HelperMethods.printTimeStart("Test003");
 		sgName="000DOCK03";
 		if(threadDriver!=null)
 		{
@@ -44,6 +46,7 @@ public class Test003 extends WebDriverManager{
 		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
 		Thread.sleep(5000);
 		verifyAndCleanup(sgName);
+		HelperMethods.printTimeFinish("TEST003");
 	}
 	
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************

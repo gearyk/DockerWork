@@ -21,7 +21,7 @@ public class Test008 extends WebDriverManager{
 	private String sgName;
 	
 
-	@Test
+	@Test(priority=2)
 	private void _008_CREATE_STORAGEGROUP_SRPDEFAULT_SLONONE_WLNONE_1GB() throws JSONException, IOException, InterruptedException {
 		sgName="000DOCK08";
 		if(threadDriver!=null)

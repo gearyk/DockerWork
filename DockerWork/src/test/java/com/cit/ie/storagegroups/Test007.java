@@ -22,7 +22,7 @@ public class Test007 extends WebDriverManager{
 	private String sgName;
 	
 
-	@Test
+	@Test(priority=2)
 	private void _007_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE_ALLOCTRUE_PERSISTRUE() throws JSONException, IOException, InterruptedException {
 		sgName="000DOCK07";
 		if(threadDriver!=null)

@@ -1,5 +1,7 @@
 package com.cit.ie.base;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -63,6 +65,20 @@ public class HelperMethods extends WebDriverManager {
 		}
 		System.out.println("Element is not present");
 		return true;
+	}
+	
+	public static void printTimeStart(String test){
+		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		System.out.println("*************************************************");
+		System.out.println(test +" starting at : " +timeStamp);
+		System.out.println("*************************************************");
+	}
+	
+	public static void printTimeFinish(String test){
+		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		System.out.println("*************************************************");
+		System.out.println(test +" has finished at : " +timeStamp);
+		System.out.println("*************************************************");
 	}
 	
 

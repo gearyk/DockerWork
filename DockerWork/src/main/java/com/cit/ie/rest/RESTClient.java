@@ -4,6 +4,7 @@ import java.net.URI;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
+import java.util.UUID;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -14,11 +15,10 @@ import javax.ws.rs.core.Response.Status;
 
 import org.testng.Assert;
 
+import com.cit.ie.base.Constants;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
-import com.cit.ie.base.Constants;
-import com.cit.ie.rest.TrustAllX509TrustManager;
 
 /**
  * @author gearyk2
@@ -324,11 +324,12 @@ public class RESTClient extends Constants
 	 * @example https://10.73.28.231:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/
 	 */
 	public static void refreshRestDB(String storageGroupurl) {
-		String json="{\"srpId\": \"None\",\"storageGroupId\": \"000madeup\",\"create_empty_storage_group\": true}";
+		String rand=UUID.randomUUID().toString().replaceAll("-", "").substring(0, 6);
+		String json="{\"srpId\": \"None\",\"storageGroupId\": \"0madeup"+rand+"\",\"create_empty_storage_group\": true}";
 		POST(storageGroupurl,json);
 		printResponses();
 		Assert.assertEquals(responseStatus,200);
-		DELETE(storageGroupurl+"000madeup");
+		DELETE(storageGroupurl+"0madeup"+rand);
 		printResponses();
 		Assert.assertEquals(responseStatus,204);
 		

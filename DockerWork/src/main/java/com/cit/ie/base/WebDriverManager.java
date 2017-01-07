@@ -41,7 +41,7 @@ public class WebDriverManager {
 			System.out.println(" Executing on CHROME");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setBrowserName("chrome");
-			String Node = hubIP+":4444/wd/hub";
+			String Node = "http://"+hubIP+":4444/wd/hub";
 			threadDriver = new ThreadLocal<RemoteWebDriver>();
 			threadDriver.set(new RemoteWebDriver(new URL(Node), cap));
 			long id = Thread.currentThread().getId();
@@ -56,7 +56,7 @@ public class WebDriverManager {
 			cap.setCapability("marionette", false); 
 			cap.setCapability(FirefoxDriver.PROFILE, new FirefoxProfile()); 
 			cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-			String Node = "http://152.62.122.187:4444/wd/hub";
+			String Node = "http://"+hubIP+":4444/wd/hub";
 			threadDriver = new ThreadLocal<RemoteWebDriver>();
 			threadDriver.set(new RemoteWebDriver(new URL(Node), cap));
 			long id = Thread.currentThread().getId();

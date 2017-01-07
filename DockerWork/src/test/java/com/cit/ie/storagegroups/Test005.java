@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.cit.ie.base.Constants;
+import com.cit.ie.base.HelperMethods;
 import com.cit.ie.base.WebDriverManager;
 import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
@@ -21,8 +22,9 @@ public class Test005 extends WebDriverManager{
 	private String sgName;
 	
 
-	@Test
+	@Test(priority=1)
 	private void _005_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE_ALLOCFALSE() throws JSONException, IOException, InterruptedException {
+		HelperMethods.printTimeStart("Test003");
 		sgName="000DOCK05";
 		if(threadDriver!=null)
 		{
@@ -45,6 +47,7 @@ public class Test005 extends WebDriverManager{
 		pswpo.createSgRunNow.click();
 		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
 		verifyAndCleanup(sgName);
+		HelperMethods.printTimeFinish("TEST005");
 	}
 	
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
