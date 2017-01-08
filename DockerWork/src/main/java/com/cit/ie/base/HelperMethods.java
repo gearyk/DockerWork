@@ -28,14 +28,14 @@ public class HelperMethods extends WebDriverManager {
 	}
 
 	public void waitForElementVisiblity(String xpath) throws InterruptedException{
-		wait=new WebDriverWait(driver, 60, 4000);
+		wait=new WebDriverWait(driver, 120, 4000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 		System.out.println("Element is visible");
 		Thread.sleep(8000);
 	}
 
 	public void waitForElementClickability(String xpath) throws InterruptedException{
-		wait=new WebDriverWait(driver, 60, 4000);
+		wait=new WebDriverWait(driver, 120, 4000);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 		System.out.println("Element is clickable");
 		Thread.sleep(8000);

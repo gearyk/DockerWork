@@ -20,6 +20,7 @@ public class Test001 extends WebDriverManager{
 	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
 	private String sgName;
 	
+	@SuppressWarnings("static-access")
 	@Test(priority=1)
 	private void _001_CREATE_SG_WITH_64CHARS() throws JSONException, IOException, InterruptedException {
 		HelperMethods.printTimeStart("Test001");

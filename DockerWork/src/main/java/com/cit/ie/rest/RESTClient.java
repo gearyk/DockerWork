@@ -4,6 +4,7 @@ import java.net.URI;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.net.ssl.HostnameVerifier;
@@ -16,6 +17,8 @@ import javax.ws.rs.core.Response.Status;
 import org.testng.Assert;
 
 import com.cit.ie.base.Constants;
+import com.codesnippets4all.json.parsers.JSONParser;
+import com.codesnippets4all.json.parsers.JsonParserFactory;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -35,6 +38,7 @@ public class RESTClient extends Constants
 	public static String previousCall;
 	public static String url;
 	public static String param;
+	public static String parsed, value = null;
    
 	/**
 	 * @name GETString
@@ -333,5 +337,66 @@ public class RESTClient extends Constants
 		printResponses();
 		Assert.assertEquals(responseStatus,204);
 		
+	}
+	
+	
+	/**
+	 * Turn any json into readable format. i.e storageGroup=exampleSg
+	 * @param json
+	 */
+	public static String getReadableString(String json) {
+		if(json.contains("[]")) {
+			 json = json.replace("[]", "[EMPTY]");
+		}
+		if(json.contains("\":\"\"")) {
+			json = json.replace("\":\"\"", "\":\"EMPTY\"");
+		}
+        try {
+		parsed = json.replace("[", "");
+		parsed = parsed.replace("]", "");
+		parsed = parsed.replace("{", "");
+		parsed = parsed.replace("}", "");
+		parsed = parsed.replace("\":\"", "=");
+		parsed = parsed.replace("\",\"", " ");
+		parsed = parsed.replace(",\"", " ");
+		parsed = parsed.replace("\":", "=");
+		parsed = parsed.replace("\"", "");
+		
+        return parsed;
+        } catch (com.codesnippets4all.json.exceptions.JSONParsingException e) {
+        	e.printStackTrace();
+        	return null;
+        }
+	}
+	
+	/**
+	 * @name getReadableString
+	 * @description Parses a GET or GETLIST JSON string from the standard JSON format, ie."num_of_masking_views": 0
+	 * 				to a custom format ie. num_of_masking_views=0 so that it can more easily be used for other methods and for
+	 * 				verification.
+	 * @param json, key
+	 * @return parsed
+	 */
+	public static String getReadableString(String json, String key) {
+		if(json.contains("[]")) {
+			 json = json.replace("[]", "[EMPTY]");
+		}
+		if(json.contains("\":\"\"")) {
+			json = json.replace("\":\"\"", "\":\"EMPTY\"");
+		}
+		JsonParserFactory factory = JsonParserFactory.getInstance();
+        JSONParser parser = factory.newJsonParser();
+        try {
+		Map<?, ?> jsonMap = parser.parseJson(json); 
+		parsed = jsonMap.get(key).toString();
+		parsed = parsed.replace("[", "");
+		parsed = parsed.replace("]", "");
+		parsed = parsed.replace("{", "");
+		parsed = parsed.replace("}", "");
+        return parsed;
+        } catch (com.codesnippets4all.json.exceptions.JSONParsingException e) {
+        	e.printStackTrace();
+        	return null;
+        }
 	}
 }

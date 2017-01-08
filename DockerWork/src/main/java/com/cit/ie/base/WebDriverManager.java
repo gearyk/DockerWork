@@ -37,6 +37,7 @@ public class WebDriverManager {
 	@Parameters({"browser","hubIP"})
 	@BeforeMethod()
 	public void launchbrowser(@Optional("firefox")String browser,@Optional("10.73.28.229")String hubIP) throws MalformedURLException, InterruptedException {
+		System.out.println("BEFORE METHOD CALLED");	
 		if (browser.equalsIgnoreCase("chrome")) {
 			System.out.println(" Executing on CHROME");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
@@ -50,7 +51,6 @@ public class WebDriverManager {
 
 		if (browser.equalsIgnoreCase("firefox")) {
 			System.out.println(" Executing on FIREFOX");
-			//System.setProperty(" webdriver.gecko.driver","C:\\geckodriver.exe");
 			DesiredCapabilities cap = DesiredCapabilities.firefox();
 			cap.setBrowserName("firefox");
 			cap.setCapability("marionette", false); 
@@ -76,6 +76,7 @@ public class WebDriverManager {
 
 	@AfterMethod
 	public void closeBrowser() {
+		System.out.println("BEFORE METHOD CALLED");	
 		getDriver().quit();
 
 	}
