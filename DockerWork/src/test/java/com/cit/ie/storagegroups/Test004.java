@@ -24,7 +24,7 @@ public class Test004 extends WebDriverManager{
 
 	@Test(priority=1)
 	private void _004_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE() throws JSONException, IOException, InterruptedException {
-		HelperMethods.printTimeStart("Test003");
+		HelperMethods.printTimeStart("Test004");
 		sgName="000DOCK04";
 		if(threadDriver!=null)
 		{
