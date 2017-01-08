@@ -1,5 +1,6 @@
 package com.cit.ie.storagegroups;
 
+
 import java.io.IOException;
 
 import org.json.JSONException;
@@ -15,14 +16,17 @@ import com.cit.ie.pageobjects.StorageGroupsPO;
 import com.cit.ie.rest.RESTClient;
 
 @SuppressWarnings("static-access")
-public class Test010 extends WebDriverManager{
+public class Test023 extends WebDriverManager{
 
 	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
 	private String sgName;	
 
+
+
 	@Test
-	private void _010_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID2_WLOLTP_0POINT5GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK10";
+	private void _023_CREATE_CASCADED_STORAGEGROUP_CHILDSG_NAME_ALREADYTAKEN() throws JSONException, IOException, InterruptedException {
+		sgName="000DOCK23";
+		String sgNameTaken="000DOCK23_1";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -32,22 +36,33 @@ public class Test010 extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
+		//CREATE STANDALONE SG
+		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgNameTaken);
+		setSrpInformation(pswpo,"default_srp");
+		pswpo.createSgRunNow.click();
+		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+		//CREATE CASCADED SG WITH CHILD NAME TAKEN
+		sgpo.createStorageGroupButton.click();
 		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
-		//SET SRP
-		setSrpInformation(pswpo,"default_srp");
-		//SET SLO
-		setSloInformation(pswpo,"Diamond");
-		//SET WORKLOAD
-		setWorkloadInformation(pswpo,"oltp_rep");
-		//SET VOLUME INFO
-		setVolumeInformation(pswpo,"1","0.5","GB");
+		pswpo.addStorageGroupButton.click();
+		pswpo.setRowForChildSG(1);
+		//SET SLO ON ROW 1
+		setCSGRowInformation(pswpo,"Optimized","None","MB","4","6");
+		//SET SLO ON ROW 2
+		pswpo.setRowForChildSG(2);
+		setCSGRowInformation(pswpo,"Diamond","OLTP","MB","4","6");
+		pswpo.editStorageGroupIcon.click();
+		pswpo.allocateCapacityCB.click();
 		pswpo.createSgRunNow.click();
-		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+		Thread.sleep(30000);
+		Assert.assertTrue(pswpo.errorSGAlreadyExists.isDisplayed());
+		verifyAndCleanup(sgNameTaken);
 		verifyAndCleanup(sgName);
 	}
-	
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 
 			/**
@@ -222,7 +237,107 @@ public class Test010 extends WebDriverManager{
 				Thread.sleep(1500);
 			}
 			
+			/**
+			 * @author gearyk2
+			 * @param pswpo
+			 * @param workload
+			 * @param volumeUnit
+			 * @param volumeNumber
+			 * @param volumeCapacity
+			 * @throws InterruptedException
+			 */
+			private void setCSGRowInformation(ProvisionStorageWizardPO pswpo, String slo, String workload, String volumeUnit, String volumeNumber, String volumeCapacity) throws InterruptedException {
+				pswpo.sloListBoxCSG().click();
+				Thread.sleep(1500);
+				switch(slo.toLowerCase()){
+				case "platinum":
+					pswpo.platinumCSG().click();
+					break;
+				case "diamond":
+					pswpo.diamondCSG().click();
+					break;
+				case "gold":
+					pswpo.goldCSG().click();
+					break;
+				case "silver":
+					pswpo.silverCSG().click();
+					break;
+				case "bronze":
+					pswpo.bronzeCSG().click();
+					break;
+				case "optimized":
+					pswpo.optimizedCSG().click();
+					break;
+				case "none":
+					pswpo.noSloCSG().click();
+					break;
+				default:
+					pswpo.noSloCSG().click();
+					break;
+				}
+				Thread.sleep(1500);
+				pswpo.workloadListBoxCSG().click();
+				Thread.sleep(1500);
+				switch(workload.toLowerCase()){
+				case "oltp":
+					pswpo.oltpCSG().click();
+					break;
+				case "oltp_rep":
+					pswpo.oltpRepCSG().click();
+					break;
+				case "dss":
+					pswpo.dssCSG().click();
+					break;
+				case "dss_rep":
+					pswpo.dssRepCSG().click();
+					break;
+				case "none":
+					pswpo.notSpecifiedWLCSG().click();
+					break;
+				default:
+					break;
+				}
+				Thread.sleep(1500);
+				//SET VOLUME INFO ON ROW
+				pswpo.numberOfVoumesCSG().click();
+				Thread.sleep(1500);
+				pswpo.numberOfVoumesCSG().clear();
+				Thread.sleep(1500);
+				pswpo.numberOfVoumesCSG().sendKeys(volumeNumber);
+				Thread.sleep(1500);
+				pswpo.volumeUnitDropdownCSG().click();
+				Thread.sleep(1500);
+				switch(volumeUnit.toLowerCase()){
+				case "gb":
+					pswpo.csgGB.click();
+					break;
+				case "mb":
+					pswpo.csgMB.click();
+					break;
+				case "tb":
+					pswpo.csgTB.click();
+					break;
+				case "cyl":
+					pswpo.csgCYL.click();
+					break;
+				default:
+					pswpo.csgGB.click();
+					break;
+				}
+				Thread.sleep(1500);
+				pswpo.volumeCapacityCSG().click();
+				Thread.sleep(1500);
+				pswpo.volumeCapacityCSG().clear();
+				Thread.sleep(1500);
+				pswpo.volumeCapacityCSG().sendKeys(volumeCapacity);
+				Thread.sleep(1500);
+			}
+			
 }
+
+
+
+
 
 
 

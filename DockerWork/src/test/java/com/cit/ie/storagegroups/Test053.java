@@ -1,5 +1,6 @@
 package com.cit.ie.storagegroups;
 
+
 import java.io.IOException;
 
 import org.json.JSONException;
@@ -8,6 +9,7 @@ import org.testng.annotations.Test;
 
 import com.cit.ie.base.Constants;
 import com.cit.ie.base.WebDriverManager;
+import com.cit.ie.pageobjects.ChangeSrpPO;
 import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
 import com.cit.ie.pageobjects.ProvisionStorageWizardPO;
@@ -15,14 +17,15 @@ import com.cit.ie.pageobjects.StorageGroupsPO;
 import com.cit.ie.rest.RESTClient;
 
 @SuppressWarnings("static-access")
-public class Test010 extends WebDriverManager{
+public class Test053 extends WebDriverManager{
 
 	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
 	private String sgName;	
 
+
 	@Test
-	private void _010_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID2_WLOLTP_0POINT5GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK10";
+	private void _053_DELETE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLOLTP_500POINT5MB() throws JSONException, IOException, InterruptedException {
+		sgName="000DOCK53";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -38,16 +41,20 @@ public class Test010 extends WebDriverManager{
 		//SET SRP
 		setSrpInformation(pswpo,"default_srp");
 		//SET SLO
-		setSloInformation(pswpo,"Diamond");
+		setSloInformation(pswpo,"Platinum");
 		//SET WORKLOAD
-		setWorkloadInformation(pswpo,"oltp_rep");
+		setWorkloadInformation(pswpo,"oltp");
 		//SET VOLUME INFO
-		setVolumeInformation(pswpo,"1","0.5","GB");
+		setVolumeInformation(pswpo,"1","500.5","MB");
 		pswpo.createSgRunNow.click();
-		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
-		verifyAndCleanup(sgName);
+		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
+		returnToStorageGroupsPage();
+		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
+		//DELETE THE GROUP
+		deleteStorageGroup(sgpo,sgName);
+		Thread.sleep(5000);
+
 	}
-	
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 
 			/**
@@ -222,9 +229,170 @@ public class Test010 extends WebDriverManager{
 				Thread.sleep(1500);
 			}
 			
+			/**
+			 * @author gearyk2
+			 * @param pswpo
+			 * @param workload
+			 * @param volumeUnit
+			 * @param volumeNumber
+			 * @param volumeCapacity
+			 * @throws InterruptedException
+			 */
+			private void setCSGRowInformation(ProvisionStorageWizardPO pswpo, String slo, String workload, String volumeUnit, String volumeNumber, String volumeCapacity) throws InterruptedException {
+				pswpo.sloListBoxCSG().click();
+				Thread.sleep(1500);
+				switch(slo.toLowerCase()){
+				case "platinum":
+					pswpo.platinumCSG().click();
+					break;
+				case "diamond":
+					pswpo.diamondCSG().click();
+					break;
+				case "gold":
+					pswpo.goldCSG().click();
+					break;
+				case "silver":
+					pswpo.silverCSG().click();
+					break;
+				case "bronze":
+					pswpo.bronzeCSG().click();
+					break;
+				case "optimized":
+					pswpo.optimizedCSG().click();
+					break;
+				case "none":
+					pswpo.noSloCSG().click();
+					break;
+				default:
+					pswpo.noSloCSG().click();
+					break;
+				}
+				Thread.sleep(1500);
+				pswpo.workloadListBoxCSG().click();
+				Thread.sleep(1500);
+				switch(workload.toLowerCase()){
+				case "oltp":
+					pswpo.oltpCSG().click();
+					break;
+				case "oltp_rep":
+					pswpo.oltpRepCSG().click();
+					break;
+				case "dss":
+					pswpo.dssCSG().click();
+					break;
+				case "dss_rep":
+					pswpo.dssRepCSG().click();
+					break;
+				case "none":
+					pswpo.notSpecifiedWLCSG().click();
+					break;
+				default:
+					break;
+				}
+				Thread.sleep(1500);
+				//SET VOLUME INFO ON ROW
+				pswpo.numberOfVoumesCSG().click();
+				Thread.sleep(1500);
+				pswpo.numberOfVoumesCSG().clear();
+				Thread.sleep(1500);
+				pswpo.numberOfVoumesCSG().sendKeys(volumeNumber);
+				Thread.sleep(1500);
+				pswpo.volumeUnitDropdownCSG().click();
+				Thread.sleep(1500);
+				switch(volumeUnit.toLowerCase()){
+				case "gb":
+					pswpo.csgGB.click();
+					break;
+				case "mb":
+					pswpo.csgMB.click();
+					break;
+				case "tb":
+					pswpo.csgTB.click();
+					break;
+				case "cyl":
+					pswpo.csgCYL.click();
+					break;
+				default:
+					pswpo.csgGB.click();
+					break;
+				}
+				Thread.sleep(1500);
+				pswpo.volumeCapacityCSG().click();
+				Thread.sleep(1500);
+				pswpo.volumeCapacityCSG().clear();
+				Thread.sleep(1500);
+				pswpo.volumeCapacityCSG().sendKeys(volumeCapacity);
+				Thread.sleep(1500);
+			}
+			
+
+			/**
+			 * @author gearyk2
+			 * @description Navigate to Storage Groups Page
+			 * @throws InterruptedException
+			 */
+			private void returnToStorageGroupsPage() throws InterruptedException {
+				HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
+				hdpo.waitForHomeDashboardPageObjects();
+				hdpo.navigateToStorageGroups();
+			}
+			/**
+			 * @author gearyk2
+			 * @param srp
+			 * @throws InterruptedException
+			 */
+			private void changeSRPInformation(String srp) throws InterruptedException {
+				ChangeSrpPO cspo=new ChangeSrpPO(getDriver());
+				cspo.waitForElementToDisappear(Constants.RETRIEVING);
+				Thread.sleep(1500);
+				cspo.srpListBox.click();
+				Thread.sleep(1500);
+				cspo.defaultSrpButton.click();
+				Thread.sleep(2500);
+				cspo.srpListBox.click();
+				switch(srp.toLowerCase()){
+				case "srp_2":
+					cspo.srp2Button.click();
+					break;
+				case "default_srp":
+					cspo.defaultSrpButton.click();
+					break;
+				case "none":
+					cspo.noneSrpButton.click();
+					break;
+				default:
+					cspo.noneSrpButton.click();
+					break;
+				}
+				Thread.sleep(1500);
+				cspo.runNowButton.click();
+				cspo.waitForElementToDisappear(Constants.RETRIEVING);
+				Thread.sleep(1500);
+				Assert.assertTrue(cspo.changeSRPSuccessMessage.isDisplayed());
+			}
+			
+			/**
+			 * @author gearyk2
+			 * @param sgpo
+			 * @param sgame
+			 * @throws InterruptedException
+			 */
+			private void deleteStorageGroup(StorageGroupsPO sgpo, String sgname) throws InterruptedException {
+				Thread.sleep(5000);
+				System.out.println("DELETING : "+sgname);
+				sgpo.sgRow(sgname).click();
+				Thread.sleep(5000);
+				sgpo.deleteStorageGroupButton.click();
+				Thread.sleep(5000);
+				sgpo.deleteSGPopupOKButton.click();
+				sgpo.waitForElementToDisappear(sgpo.DELETE_STORAGE_GROUP_POPUP_OK_BUTTON_XPATH);
+				Thread.sleep(5000);
+				Assert.assertTrue(sgpo.successStorageGroupDeleted.isDisplayed());
+				Thread.sleep(5000);
+				sgpo.acknowledgeSGDeletedButton.click();
+				Thread.sleep(3000);
+			}
+			
+			
+			
 }
-
-
-
-
-

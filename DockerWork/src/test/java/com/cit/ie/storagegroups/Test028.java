@@ -1,12 +1,12 @@
 package com.cit.ie.storagegroups;
 
+
 import java.io.IOException;
 
 import org.json.JSONException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.cit.ie.base.Constants;
 import com.cit.ie.base.WebDriverManager;
 import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
@@ -15,14 +15,16 @@ import com.cit.ie.pageobjects.StorageGroupsPO;
 import com.cit.ie.rest.RESTClient;
 
 @SuppressWarnings("static-access")
-public class Test010 extends WebDriverManager{
+public class Test028 extends WebDriverManager{
 
 	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
 	private String sgName;	
 
+
+
 	@Test
-	private void _010_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID2_WLOLTP_0POINT5GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK10";
+	private void _028_CREATE_STORAGEGROUP_NEGATIVE_VERIFY_RUN_NOW_IS_GREYED_OUT() throws JSONException, IOException, InterruptedException {
+		sgName="000DOCK28";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -33,21 +35,9 @@ public class Test010 extends WebDriverManager{
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
 		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
-		pswpo.storageGroupNameTextField.click();
-		pswpo.storageGroupNameTextField.sendKeys(sgName);
-		//SET SRP
-		setSrpInformation(pswpo,"default_srp");
-		//SET SLO
-		setSloInformation(pswpo,"Diamond");
-		//SET WORKLOAD
-		setWorkloadInformation(pswpo,"oltp_rep");
-		//SET VOLUME INFO
-		setVolumeInformation(pswpo,"1","0.5","GB");
-		pswpo.createSgRunNow.click();
-		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
-		verifyAndCleanup(sgName);
+		//NO INFORMATION PASSED TO TEST
+		Assert.assertFalse(pswpo.createSgRunNow.isEnabled(), "Run Now Button is Greyed out");
 	}
-	
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 
 			/**
@@ -223,6 +213,11 @@ public class Test010 extends WebDriverManager{
 			}
 			
 }
+
+
+
+
+
 
 
 

@@ -1003,7 +1003,7 @@ public class StorageGroupTests extends WebDriverManager{
 	}
 
 	@Test
-	private void _040_CREATE_STORAGEGROUP_NEGATIVE_SRPOPTIMIZED_WLOLTP() throws Exception {
+	private void _040_CREATE_STORAGEGROUP_NEGATIVE_SLOOPTIMIZED_WLOLTP() throws Exception {
 		sgName="000DOCK40";
 		if(threadDriver!=null)
 		{
@@ -1018,7 +1018,7 @@ public class StorageGroupTests extends WebDriverManager{
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
-		setSrpInformation(pswpo,"None");
+		//setSrpInformation(pswpo,"None");
 		//SET SLO
 		setSloInformation(pswpo, "Optimized");
 		//SET WL
