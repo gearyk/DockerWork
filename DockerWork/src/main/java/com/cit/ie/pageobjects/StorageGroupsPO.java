@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.cit.ie.base.Constants;
 
 public class StorageGroupsPO extends HomeDashboardPO {
-
+	private WebDriver driver;
 	public StorageGroupsPO(WebDriver wdriver) {
 		super(wdriver);
 		driver = wdriver;
@@ -104,7 +104,7 @@ public class StorageGroupsPO extends HomeDashboardPO {
 	 * @return web element
 	 * @description specialized findByXpath for clicking on Rows
 	 */
-	public static WebElement findByXPath(String xpath,String sgname){
+	public WebElement findByXPath(String xpath,String sgname){
 		WebElement element = driver.findElement(By.xpath(xpath.replace("//div[text()='","//div[text()='"+sgname)));
 		return element;
 	}

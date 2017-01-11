@@ -40,6 +40,7 @@ public class Test006 extends WebDriverManager{
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
 		pswpo.srpListBox.click();
+		Thread.sleep(2000);
 		pswpo.noneSRP.click();
 		setSloInformation(pswpo,"None");
 		//SET WORKLOAD
@@ -48,7 +49,7 @@ public class Test006 extends WebDriverManager{
 		pswpo.allocateCapacityCB.click();
 		pswpo.createSgRunNow.click();
 		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
-		verifyAndCleanup(sgName);
+		pswpo.verifyAndCleanup(sgName);
 		HelperMethods.printTimeFinish("TEST006");
 	}
 	
@@ -96,27 +97,7 @@ public class Test006 extends WebDriverManager{
 				}
 				Thread.sleep(3000);
 			}
-			
-			/**
-			 * @author gearyk2
-			 * @param sgName
-			 * @throws InterruptedException
-			 * @description verify the response code of the RESTGET for this storage group
-			 * and then call a REST DELETE for the storage group
-			 */
-			private void verifyAndCleanup(String sgName) throws InterruptedException {
-				//VERIFY THAT GROUP HAS BEEN CREATED
-				RESTClient.refreshRestDB(baseURL);
-				RESTClient.GET(baseURL+sgName);
-				RESTClient.printResponses();
-				Assert.assertEquals(RESTClient.responseStatus,200);
-				//CLEANUP
-				RESTClient.DELETE(baseURL+sgName);
-				RESTClient.printResponses();
-				Assert.assertEquals(RESTClient.responseStatus,204);
-				Thread.sleep(1000);
-			}
-			
+	
 			/**
 			 * @author gearyk2
 			 * @param pswpo

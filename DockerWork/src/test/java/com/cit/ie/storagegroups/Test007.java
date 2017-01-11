@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.cit.ie.base.Constants;
+import com.cit.ie.base.HelperMethods;
 import com.cit.ie.base.WebDriverManager;
 import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
@@ -24,6 +25,7 @@ public class Test007 extends WebDriverManager{
 
 	@Test(priority=2)
 	private void _007_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE_ALLOCTRUE_PERSISTRUE() throws JSONException, IOException, InterruptedException {
+		HelperMethods.printTimeStart("Test007");
 		sgName="000DOCK07";
 		if(threadDriver!=null)
 		{
@@ -47,7 +49,8 @@ public class Test007 extends WebDriverManager{
 		pswpo.persistCapacityCB.click();
 		pswpo.createSgRunNow.click();
 		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
-		verifyAndCleanup(sgName);
+		pswpo.verifyAndCleanup(sgName);
+		HelperMethods.printTimeFinish("TEST007");
 	}
 	
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
@@ -95,25 +98,7 @@ public class Test007 extends WebDriverManager{
 				Thread.sleep(3000);
 			}
 			
-			/**
-			 * @author gearyk2
-			 * @param sgName
-			 * @throws InterruptedException
-			 * @description verify the response code of the RESTGET for this storage group
-			 * and then call a REST DELETE for the storage group
-			 */
-			private void verifyAndCleanup(String sgName) throws InterruptedException {
-				//VERIFY THAT GROUP HAS BEEN CREATED
-				RESTClient.refreshRestDB(baseURL);
-				RESTClient.GET(baseURL+sgName);
-				RESTClient.printResponses();
-				Assert.assertEquals(RESTClient.responseStatus,200);
-				//CLEANUP
-				RESTClient.DELETE(baseURL+sgName);
-				RESTClient.printResponses();
-				Assert.assertEquals(RESTClient.responseStatus,204);
-				Thread.sleep(1000);
-			}
+
 			
 			/**
 			 * @author gearyk2

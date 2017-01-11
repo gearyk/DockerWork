@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProvisionStorageWizardPO extends StorageGroupsPO {
-
+	private WebDriver driver;
 	public ProvisionStorageWizardPO(WebDriver wdriver) {
 		super(wdriver);
 		driver = wdriver;
@@ -16,7 +16,7 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO {
 		PageFactory.initElements(driver, this);
 	}
 
-	private static String childSGRow;
+	private String childSGRow;
 	//LOCATORS
 	public static final String PROVISION_STORAGE_TITLE_XPATH = "//h2[text()='Provision Storage']";	
 	public static final String STORAGE_GROUP_NAME_LABEL_XPATH = ".//label[text()='Storage Group Name']";
@@ -153,7 +153,13 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO {
 	//*******************************  CASCADED STORAGE GROUPS ***********************************
 	//SERVICE LEVEL
 	public void setRowForChildSG(int i){
+		System.out.println("**************");
 		childSGRow=Integer.toString(i);
+		System.out.println("setting to row " +i);
+		System.out.println("setting to row " +childSGRow);
+		long id = Thread.currentThread().getId();
+		System.out.println("setting row. Thread id is: " + id);	
+		
 	}
 	public static String CSG_SERVICELEVEL_LIST_BOX_XPATH="//u4v-sg-step[]//div[@ng-if='showColumnPolicy.showServiceLevel']/md-input-container";
 	public static String CSG_SL_OPTIMIZED=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Optimized']";
@@ -257,7 +263,7 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO {
 	 * @return web element
 	 * @description specialized findByXpath for Child Storage Group rows
 	 */
-	public static WebElement findByXPath(String xpath){
+	public WebElement findByXPath(String xpath){
 		WebElement element = driver.findElement(By.xpath(xpath.replace("//u4v-sg-step[","//u4v-sg-step["+childSGRow)));
 		return element;
 	}

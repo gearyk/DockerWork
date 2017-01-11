@@ -58,7 +58,7 @@ public class Test039 extends WebDriverManager{
 		Assert.assertTrue(siolpo.hostIOlabel.isDisplayed());
 		Assert.assertTrue(siolpo.hostMBlabel.isDisplayed());
 		Thread.sleep(5000);
-		verifyAndCleanup(sgName);
+		pswpo.verifyAndCleanup(sgName);
 	}
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 
@@ -103,26 +103,6 @@ public class Test039 extends WebDriverManager{
 					break;
 				}
 				Thread.sleep(3000);
-			}
-			
-			/**
-			 * @author gearyk2
-			 * @param sgName
-			 * @throws InterruptedException
-			 * @description verify the response code of the RESTGET for this storage group
-			 * and then call a REST DELETE for the storage group
-			 */
-			private void verifyAndCleanup(String sgName) throws InterruptedException {
-				//VERIFY THAT GROUP HAS BEEN CREATED
-				RESTClient.refreshRestDB(baseURL);
-				RESTClient.GET(baseURL+sgName);
-				RESTClient.printResponses();
-				Assert.assertEquals(RESTClient.responseStatus,200);
-				//CLEANUP
-				RESTClient.DELETE(baseURL+sgName);
-				RESTClient.printResponses();
-				Assert.assertEquals(RESTClient.responseStatus,204);
-				Thread.sleep(1000);
 			}
 			
 			/**

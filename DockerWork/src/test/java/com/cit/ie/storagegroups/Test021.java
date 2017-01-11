@@ -18,7 +18,7 @@ import com.cit.ie.rest.RESTClient;
 @SuppressWarnings("static-access")
 public class Test021 extends WebDriverManager{
 
-	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
+	
 	private String sgName;	
 
 
@@ -49,8 +49,9 @@ public class Test021 extends WebDriverManager{
 		pswpo.editStorageGroupIcon.click();
 		pswpo.allocateCapacityCB.click();
 		pswpo.createSgRunNow.click();
-		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
-		verifyAndCleanup(sgName);
+		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
+		Thread.sleep(3000);
+		pswpo.verifyAndCleanup(sgName);
 	}
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 
@@ -95,26 +96,6 @@ public class Test021 extends WebDriverManager{
 					break;
 				}
 				Thread.sleep(3000);
-			}
-			
-			/**
-			 * @author gearyk2
-			 * @param sgName
-			 * @throws InterruptedException
-			 * @description verify the response code of the RESTGET for this storage group
-			 * and then call a REST DELETE for the storage group
-			 */
-			private void verifyAndCleanup(String sgName) throws InterruptedException {
-				//VERIFY THAT GROUP HAS BEEN CREATED
-				RESTClient.refreshRestDB(baseURL);
-				RESTClient.GET(baseURL+sgName);
-				RESTClient.printResponses();
-				Assert.assertEquals(RESTClient.responseStatus,200);
-				//CLEANUP
-				RESTClient.DELETE(baseURL+sgName);
-				RESTClient.printResponses();
-				Assert.assertEquals(RESTClient.responseStatus,204);
-				Thread.sleep(1000);
 			}
 			
 			/**

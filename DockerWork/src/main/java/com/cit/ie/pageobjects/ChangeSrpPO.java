@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ChangeSrpPO extends StorageGroupsPO {
-	
+	private WebDriver driver;
 	public ChangeSrpPO(WebDriver wdriver) {
 		super(wdriver);
 		driver = wdriver;

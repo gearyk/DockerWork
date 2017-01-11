@@ -24,7 +24,7 @@ public class LoginPagePO extends HelperMethods
 		driver.manage().window().maximize();
 		driver.get("https://10.73.28.71:8443/univmax/jsclient/#/login");
 		PageFactory.initElements(driver, this);
-		System.out.println("Initialise LoginPO");
+		//System.out.println("Initialise LoginPO");
 	}
 
 	//LOCATORS

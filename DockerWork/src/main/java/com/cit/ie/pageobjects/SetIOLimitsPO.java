@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SetIOLimitsPO extends StorageGroupsPO{
-
+	private WebDriver driver;
 	public SetIOLimitsPO(WebDriver wdriver) {
 
 		super(wdriver);

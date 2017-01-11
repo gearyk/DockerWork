@@ -18,7 +18,9 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.HttpCommandExecutor;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -33,11 +35,11 @@ import org.testng.annotations.Parameters;
 public class WebDriverManager {
 
 	protected ThreadLocal<RemoteWebDriver> threadDriver = null;
+	//public ThreadLocal<WebDriver> driver=null;
 
 	@Parameters({"browser","hubIP"})
-	@BeforeMethod()
+	@BeforeClass()
 	public void launchbrowser(@Optional("firefox")String browser,@Optional("10.73.28.229")String hubIP) throws MalformedURLException, InterruptedException {
-		System.out.println("BEFORE METHOD CALLED");	
 		if (browser.equalsIgnoreCase("chrome")) {
 			System.out.println(" Executing on CHROME");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
@@ -70,16 +72,35 @@ public class WebDriverManager {
 		}
 	}
 
-	public WebDriver getDriver(){
-		return threadDriver.get();
-	}
+	 public WebDriver getDriver()
+	    {
+//	        System.out.println(threadDriver);
+//	        if(threadDriver==null)
+//	        {
+//	            System.out.println("returning driver");
+//	            //return driver.get();
+//	        }
+//	        else
+//	        {
+	            //System.out.println("returning thread driver");
+	            return threadDriver.get();
+//	        }
+	    }
 
-	@AfterMethod
-	public void closeBrowser() {
-		System.out.println("BEFORE METHOD CALLED");	
-		getDriver().quit();
-
-	}
+	 @AfterClass
+	    public void closeBrowser() {
+	        if(threadDriver!=null)
+	        {	
+	        	System.out.println("Entering close broswer: ");	
+	            getDriver().quit();
+	            long id = Thread.currentThread().getId();
+	            System.out.println("Webdriver quit for thread: " + id);	
+	        }
+	        else
+	        {
+	           //driver.get().quit();
+	        }
+	 }
 
 	@SuppressWarnings("resource")
 	public void findRemote(RemoteWebDriver driver) throws IOException,JSONException {

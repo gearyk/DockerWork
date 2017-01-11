@@ -7,6 +7,7 @@ import org.json.JSONException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.cit.ie.base.Constants;
 import com.cit.ie.base.WebDriverManager;
 import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
@@ -17,7 +18,6 @@ import com.cit.ie.rest.RESTClient;
 @SuppressWarnings("static-access")
 public class Test026 extends WebDriverManager{
 
-	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
 	private String sgName;	
 
 
@@ -57,13 +57,14 @@ public class Test026 extends WebDriverManager{
 		pswpo.setRowForChildSG(4);
 		setCSGRowInformation(pswpo,"Bronze","DSS_REP","MB","5","20");
 		pswpo.createSgRunNow.click();
-		Thread.sleep(30000);
-		verifyAndCleanup(sgName);
-		verifyAndCleanup(sgName+"_1");
-		verifyAndCleanup(sgName+"_2");
-		verifyAndCleanup(sgName+"_3");
-		verifyAndCleanup(sgName+"_4");
-		verifyAndCleanup(sgName+"_5");
+		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
+		Thread.sleep(3000);
+		pswpo.verifyAndCleanup(sgName);
+		pswpo.verifyAndCleanup(sgName+"_1");
+		pswpo.verifyAndCleanup(sgName+"_2");
+		pswpo.verifyAndCleanup(sgName+"_3");
+		pswpo.verifyAndCleanup(sgName+"_4");
+		pswpo.verifyAndCleanup(sgName+"_5");
 	}
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 
@@ -108,26 +109,6 @@ public class Test026 extends WebDriverManager{
 					break;
 				}
 				Thread.sleep(3000);
-			}
-			
-			/**
-			 * @author gearyk2
-			 * @param sgName
-			 * @throws InterruptedException
-			 * @description verify the response code of the RESTGET for this storage group
-			 * and then call a REST DELETE for the storage group
-			 */
-			private void verifyAndCleanup(String sgName) throws InterruptedException {
-				//VERIFY THAT GROUP HAS BEEN CREATED
-				RESTClient.refreshRestDB(baseURL);
-				RESTClient.GET(baseURL+sgName);
-				RESTClient.printResponses();
-				Assert.assertEquals(RESTClient.responseStatus,200);
-				//CLEANUP
-				RESTClient.DELETE(baseURL+sgName);
-				RESTClient.printResponses();
-				Assert.assertEquals(RESTClient.responseStatus,204);
-				Thread.sleep(1000);
 			}
 			
 			/**

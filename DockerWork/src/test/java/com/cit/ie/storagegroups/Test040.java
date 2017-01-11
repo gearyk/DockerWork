@@ -27,7 +27,7 @@ public class Test040 extends WebDriverManager{
 	@Test
 	private void _040_DELETE_SG_WITH_64CHARS() throws JSONException, IOException, InterruptedException {
 		//CREATE THE GROUP
-		sgName="0000DOCK040";
+		sgName="000DOCK040";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -90,26 +90,6 @@ public class Test040 extends WebDriverManager{
 					break;
 				}
 				Thread.sleep(3000);
-			}
-			
-			/**
-			 * @author gearyk2
-			 * @param sgName
-			 * @throws InterruptedException
-			 * @description verify the response code of the RESTGET for this storage group
-			 * and then call a REST DELETE for the storage group
-			 */
-			private void verifyAndCleanup(String sgName) throws InterruptedException {
-				//VERIFY THAT GROUP HAS BEEN CREATED
-				RESTClient.refreshRestDB(baseURL);
-				RESTClient.GET(baseURL+sgName);
-				RESTClient.printResponses();
-				Assert.assertEquals(RESTClient.responseStatus,200);
-				//CLEANUP
-				RESTClient.DELETE(baseURL+sgName);
-				RESTClient.printResponses();
-				Assert.assertEquals(RESTClient.responseStatus,204);
-				Thread.sleep(1000);
 			}
 			
 			/**

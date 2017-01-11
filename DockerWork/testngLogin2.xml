@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite verbose="1" name="Login Suite Chrome and FF" parallel="tests" thread-count="3">
 	<test name="TEST1">
-    <parameter name ="browser" value="chrome"/>
+    <parameter name ="browser" value="firefox"/>
     <parameter name ="hubIP" value="10.73.28.229"/>
         <classes>
             <class name ="com.cit.ie.login.L1"/>

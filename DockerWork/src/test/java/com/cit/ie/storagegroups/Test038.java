@@ -62,9 +62,9 @@ public class Test038 extends WebDriverManager{
 		Assert.assertTrue(cspo.csgSrp2Button.isDisplayed());
 		Assert.assertTrue(cspo.csgDeafultSRPButton.isDisplayed());
 		Thread.sleep(5000);
-		verifyAndCleanup(sgName);
-		verifyAndCleanup(sgName+"_1");
-		verifyAndCleanup(sgName+"_2");
+		pswpo.verifyAndCleanup(sgName);
+		pswpo.verifyAndCleanup(sgName+"_1");
+		pswpo.verifyAndCleanup(sgName+"_2");
 	}
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 
@@ -109,26 +109,6 @@ public class Test038 extends WebDriverManager{
 					break;
 				}
 				Thread.sleep(3000);
-			}
-			
-			/**
-			 * @author gearyk2
-			 * @param sgName
-			 * @throws InterruptedException
-			 * @description verify the response code of the RESTGET for this storage group
-			 * and then call a REST DELETE for the storage group
-			 */
-			private void verifyAndCleanup(String sgName) throws InterruptedException {
-				//VERIFY THAT GROUP HAS BEEN CREATED
-				RESTClient.refreshRestDB(baseURL);
-				RESTClient.GET(baseURL+sgName);
-				RESTClient.printResponses();
-				Assert.assertEquals(RESTClient.responseStatus,200);
-				//CLEANUP
-				RESTClient.DELETE(baseURL+sgName);
-				RESTClient.printResponses();
-				Assert.assertEquals(RESTClient.responseStatus,204);
-				Thread.sleep(1000);
 			}
 			
 			/**

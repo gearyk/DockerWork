@@ -11,10 +11,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import com.cit.ie.rest.RESTClient;
 
 public class HelperMethods extends WebDriverManager {
 
-	public static WebDriver driver;
+	public WebDriver driver;
 	protected int timeOut = 500;
 	public WebDriverWait wait;
 	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
@@ -30,14 +33,14 @@ public class HelperMethods extends WebDriverManager {
 	public void waitForElementVisiblity(String xpath) throws InterruptedException{
 		wait=new WebDriverWait(driver, 120, 4000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-		System.out.println("Element is visible");
+		//System.out.println("Element is visible");
 		Thread.sleep(8000);
 	}
 
 	public void waitForElementClickability(String xpath) throws InterruptedException{
 		wait=new WebDriverWait(driver, 120, 4000);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
-		System.out.println("Element is clickable");
+		//System.out.println("Element is clickable");
 		Thread.sleep(8000);
 	}
 
@@ -48,7 +51,7 @@ public class HelperMethods extends WebDriverManager {
 	}
 
 	public void waitForElementToDisappear(String text) throws InterruptedException{
-		wait=new WebDriverWait(driver, 180, 4000);
+		wait=new WebDriverWait(driver, 300, 4000);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(text)));
 		Thread.sleep(3500);
 	}
@@ -63,7 +66,7 @@ public class HelperMethods extends WebDriverManager {
 		if (els.isEmpty() == false) {
 			throw new Exception (text + " (element is present)");
 		}
-		System.out.println("Element is not present");
+		//System.out.println("Element is not present");
 		return true;
 	}
 	
@@ -79,6 +82,26 @@ public class HelperMethods extends WebDriverManager {
 		System.out.println("*************************************************");
 		System.out.println(test +" has finished at : " +timeStamp);
 		System.out.println("*************************************************");
+	}
+	
+	/**
+	 * @author gearyk2
+	 * @param sgName
+	 * @throws InterruptedException
+	 * @description verify the response code of the RESTGET for this storage group
+	 * and then call a REST DELETE for the storage group
+	 */
+	public void verifyAndCleanup(String sgName) throws InterruptedException {
+		//VERIFY THAT GROUP HAS BEEN CREATED
+		RESTClient.refreshRestDB(baseURL);
+		RESTClient.GET(baseURL+sgName);
+		//RESTClient.printResponses();
+		Assert.assertEquals(RESTClient.responseStatus,200);
+		//CLEANUP
+		RESTClient.DELETE(baseURL+sgName);
+		//RESTClient.printResponses();
+		Assert.assertEquals(RESTClient.responseStatus,204);
+		Thread.sleep(2000);
 	}
 	
 
