@@ -14,7 +14,6 @@ import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
 import com.cit.ie.pageobjects.ProvisionStorageWizardPO;
 import com.cit.ie.pageobjects.StorageGroupsPO;
-import com.cit.ie.rest.RESTClient;
 
 @SuppressWarnings("static-access")
 public class Test058 extends WebDriverManager{
@@ -81,7 +80,7 @@ public class Test058 extends WebDriverManager{
 			 */
 			private void setSrpInformation(ProvisionStorageWizardPO pswpo,String srp) throws InterruptedException {
 				pswpo.srpListBox.click();
-				Thread.sleep(2000);
+				Thread.sleep(4000);
 				switch(srp.toLowerCase()){
 				case "default_srp":
 					pswpo.defaultSRP.click();

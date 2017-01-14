@@ -1,11 +1,16 @@
 package com.cit.ie.base;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -50,10 +55,21 @@ public class HelperMethods extends WebDriverManager {
 		((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
 	}
 
-	public void waitForElementToDisappear(String text) throws InterruptedException{
-		wait=new WebDriverWait(driver, 300, 4000);
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(text)));
-		Thread.sleep(3500);
+	public void waitForElementToDisappear(String text) {
+		try {
+			wait=new WebDriverWait(driver, 300, 4000);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(text)));
+			Thread.sleep(3500);
+		} catch (InterruptedException e) {
+			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE); 
+			try {
+				FileUtils.copyFile(scrFile, new File("/fail/testScreenShot.jpg"));
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		}
 	}
 
 	public void haltTest() throws InterruptedException{
@@ -102,6 +118,10 @@ public class HelperMethods extends WebDriverManager {
 		//RESTClient.printResponses();
 		Assert.assertEquals(RESTClient.responseStatus,204);
 		Thread.sleep(2000);
+	}
+	
+	public void getScreenshot(){
+		
 	}
 	
 

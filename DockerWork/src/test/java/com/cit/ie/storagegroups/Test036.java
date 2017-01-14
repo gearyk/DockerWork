@@ -14,7 +14,6 @@ import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
 import com.cit.ie.pageobjects.ProvisionStorageWizardPO;
 import com.cit.ie.pageobjects.StorageGroupsPO;
-import com.cit.ie.rest.RESTClient;
 
 @SuppressWarnings("static-access")
 public class Test036 extends WebDriverManager{
@@ -320,8 +319,9 @@ public class Test036 extends WebDriverManager{
 			 * @author gearyk2
 			 * @param srp
 			 * @throws InterruptedException
+			 * @throws IOException 
 			 */
-			private void changeSRPInformation(String srp) throws InterruptedException {
+			private void changeSRPInformation(String srp) throws InterruptedException, IOException {
 				ChangeSrpPO cspo=new ChangeSrpPO(getDriver());
 				cspo.waitForElementToDisappear(Constants.RETRIEVING);
 				Thread.sleep(1500);

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite verbose="1" name="SG Suite" parallel="tests" thread-count="9">
+<suite verbose="1" name="SG Suite" parallel="tests" thread-count="10">
 	<test name="TEST0">
    		<parameter name ="browser" value="firefox"/>
     	<parameter name ="hubIP" value="10.73.29.47"/>
@@ -69,27 +69,6 @@
     	<parameter name ="hubIP" value="10.73.29.47"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test009"/>
-        	</classes>
-    </test>
-     <test name="TEST10">
-   		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.47"/>
-        	<classes>
-            	<class name ="com.cit.ie.storagegroups.Test010"/>
-        	</classes>
-    </test>
-    <test name="TEST11">
-   		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.47"/>
-        	<classes>
-            	<class name ="com.cit.ie.storagegroups.Test011"/>
-        	</classes>
-    </test>
-    <test name="TEST12">
-   		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.47"/>
-        	<classes>
-            	<class name ="com.cit.ie.storagegroups.Test012"/>
         	</classes>
     </test>
 </suite>

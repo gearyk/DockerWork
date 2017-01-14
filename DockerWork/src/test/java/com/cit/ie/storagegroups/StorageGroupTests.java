@@ -2264,8 +2264,9 @@ public class StorageGroupTests extends WebDriverManager{
 	 * @author gearyk2
 	 * @param srp
 	 * @throws InterruptedException
+	 * @throws IOException 
 	 */
-	private void changeSRPInformation(String srp) throws InterruptedException {
+	private void changeSRPInformation(String srp) throws InterruptedException, IOException {
 		ChangeSrpPO cspo=new ChangeSrpPO(getDriver());
 		cspo.waitForElementToDisappear(Constants.RETRIEVING);
 		Thread.sleep(1500);
@@ -2416,8 +2417,9 @@ public class StorageGroupTests extends WebDriverManager{
 	 * @param sgpo
 	 * @param sgame
 	 * @throws InterruptedException
+	 * @throws IOException 
 	 */
-	private void deleteStorageGroup(StorageGroupsPO sgpo, String sgname) throws InterruptedException {
+	private void deleteStorageGroup(StorageGroupsPO sgpo, String sgname) throws InterruptedException, IOException {
 		Thread.sleep(5000);
 		System.out.println("DELETING : "+sgname);
 		sgpo.sgRow(sgname).click();

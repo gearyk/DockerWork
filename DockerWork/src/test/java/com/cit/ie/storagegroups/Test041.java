@@ -14,7 +14,6 @@ import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
 import com.cit.ie.pageobjects.ProvisionStorageWizardPO;
 import com.cit.ie.pageobjects.StorageGroupsPO;
-import com.cit.ie.rest.RESTClient;
 
 @SuppressWarnings("static-access")
 public class Test041 extends WebDriverManager{

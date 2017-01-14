@@ -331,7 +331,7 @@ public class RESTClient extends Constants
 		String rand=UUID.randomUUID().toString().replaceAll("-", "").substring(0, 6);
 		String json="{\"srpId\": \"None\",\"storageGroupId\": \"0madeup"+rand+"\",\"create_empty_storage_group\": true}";
 		POST(storageGroupurl,json);
-		//printResponses();
+		printResponses();
 		Assert.assertEquals(responseStatus,200);
 		DELETE(storageGroupurl+"0madeup"+rand);
 		//printResponses();

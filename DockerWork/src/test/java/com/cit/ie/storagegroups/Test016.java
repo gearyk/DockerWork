@@ -3,7 +3,6 @@ package com.cit.ie.storagegroups;
 import java.io.IOException;
 
 import org.json.JSONException;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.cit.ie.base.Constants;
@@ -12,7 +11,6 @@ import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
 import com.cit.ie.pageobjects.ProvisionStorageWizardPO;
 import com.cit.ie.pageobjects.StorageGroupsPO;
-import com.cit.ie.rest.RESTClient;
 
 @SuppressWarnings("static-access")
 public class Test016 extends WebDriverManager{

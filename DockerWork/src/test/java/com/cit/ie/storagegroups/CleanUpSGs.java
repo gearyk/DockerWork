@@ -20,6 +20,14 @@ public class CleanUpSGs extends RESTClient{
 			verifyAndCleanup(allStorageGroups[i].trim());
 			}
 		}
+		GET(baseURL);
+		allStorageGroups=getReadableString(responseOutput, "storageGroupId").split(",");
+		for(int i=0;i<allStorageGroups.length;i++){
+			if (allStorageGroups[i].trim().length()>8 && allStorageGroups[i].trim().substring(0, 7).contains("0madeup") ){
+			System.out.println("DELETING SG "+allStorageGroups[i].trim());
+			verifyAndCleanup(allStorageGroups[i].trim());
+			}
+		}
 		System.out.println("END SG DELETE");
 	}
 	
