@@ -30,13 +30,13 @@ public class LoginPagePO extends HelperMethods
 	}
 
 	//LOCATORS
-	public static final String LOGIN_PAGE_TITLE_XPATH = ".//*[@class='login_product_name layout-row']";
-	public static final String USERNAME_FIELD_XPATH = ".//input[@name='uName']";
-	public static final String PASSWORD_FIELD_XPATH = ".//input[@name='pWrd']";
-	public static final String LOGIN_BUTTON_XPATH = ".//*/button[@aria-label='Login']";
-	public static final String VERSION_NUMBER_XPATH = ".//*/div[text()[contains(.,'Version')]]";
-	public static final String LOGIN_LOGO_XPATH = ".//*[@id='login_logo']";
-	public static final String BAD_LOGIN_XPATH=".//*/span[text()='Error Logging In']";
+	public final String LOGIN_PAGE_TITLE_XPATH = ".//*[@class='login_product_name layout-row']";
+	public final String USERNAME_FIELD_XPATH = ".//input[@name='uName']";
+	public final String PASSWORD_FIELD_XPATH = ".//input[@name='pWrd']";
+	public final String LOGIN_BUTTON_XPATH = ".//*/button[@aria-label='Login']";
+	public final String VERSION_NUMBER_XPATH = ".//*/div[text()[contains(.,'Version')]]";
+	public final String LOGIN_LOGO_XPATH = ".//*[@id='login_logo']";
+	public final String BAD_LOGIN_XPATH=".//*/span[text()='Error Logging In']";
 
 	//WEB ELEMENTS
 	@FindBy(xpath=LOGIN_PAGE_TITLE_XPATH)

@@ -18,55 +18,55 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO {
 
 	private String childSGRow;
 	//LOCATORS
-	public static final String PROVISION_STORAGE_TITLE_XPATH = "//h2[text()='Provision Storage']";	
-	public static final String STORAGE_GROUP_NAME_LABEL_XPATH = ".//label[text()='Storage Group Name']";
-	public static final String STORAGE_GROUP_NAME_TF = ".//label[text()='Storage Group Name']/following-sibling::input";
+	public final String PROVISION_STORAGE_TITLE_XPATH = "//h2[text()='Provision Storage']";	
+	public final String STORAGE_GROUP_NAME_LABEL_XPATH = ".//label[text()='Storage Group Name']";
+	public final String STORAGE_GROUP_NAME_TF = ".//label[text()='Storage Group Name']/following-sibling::input";
 	//STORAGE RESOURCE POOL
-	public static final String SRP_LABEL_XPATH = ".//label[text()='Storage Resource Pool']";
-	public static final String SRP_LIST_BOX = ".//md-select[contains(@aria-label,'Storage Resource Pool')]";
-	public static final String DEFAULT_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='DEFAULT_SRP']";
-	public static final String NONE_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='None']";
-	public static final String SRP2_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='SRP_2']";
+	public final String SRP_LABEL_XPATH = ".//label[text()='Storage Resource Pool']";
+	public final String SRP_LIST_BOX = ".//md-select[contains(@aria-label,'Storage Resource Pool')]";
+	public final String DEFAULT_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='DEFAULT_SRP']";
+	public final String NONE_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='None']";
+	public final String SRP2_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='SRP_2']";
 	//STANDALONE STORAGE GROUPS
 	//SERVICE LEVEL
-	public static final String SERVICELEVEL_LIST_BOX_XPATH="//div[@ng-if='showColumnPolicy.showServiceLevel']/md-input-container";
-	public static final String SL_OPTIMIZED=".//md-option/div[text()='Optimized']";
-	public static final String SL_DIAMOND=".//md-option/div[text()='Diamond']";
-	public static final String SL_PLATINUM=".//md-option/div[text()='Platinum']";
-	public static final String SL_GOLD=".//md-option/div[text()='Gold']";
-	public static final String SL_SILVER=".//md-option/div[text()='Silver']";
-	public static final String SL_BRONZE=".//md-option/div[text()='Bronze']";
-	public static final String SL_NONE=".//*[@ng-value='selectedSloInfoObject']/div[text()='None']";
+	public final String SERVICELEVEL_LIST_BOX_XPATH="//div[@ng-if='showColumnPolicy.showServiceLevel']/md-input-container";
+	public final String SL_OPTIMIZED=".//md-option/div[text()='Optimized']";
+	public final String SL_DIAMOND=".//md-option/div[text()='Diamond']";
+	public final static String SL_PLATINUM=".//md-option/div[text()='Platinum']";
+	public final String SL_GOLD=".//md-option/div[text()='Gold']";
+	public final static String SL_SILVER=".//md-option/div[text()='Silver']";
+	public final String SL_BRONZE=".//md-option/div[text()='Bronze']";
+	public final String SL_NONE=".//*[@ng-value='selectedSloInfoObject']/div[text()='None']";
 	//WORKLOAD TYPE
-	public static final String WORKLOAD_LIST_BOX_XPATH="//div[@ng-if='showColumnPolicy.showWorkload']/md-input-container";
-	public static final String WL_OLTP=".//div[text()='OLTP']";
-	public static final String WL_OLTP_REP=".//div[text()='OLTP + Rep']";
-	public static final String WL_DSS=".//div[text()='DSS']";
-	public static final String WL_DSS_REP=".//div[text()='DSS + Rep']";
-	public static final String WL_NOT_SPECIFIED=".//md-option/div[text()='Not Specified']";
+	public final String WORKLOAD_LIST_BOX_XPATH="//div[@ng-if='showColumnPolicy.showWorkload']/md-input-container";
+	public final String WL_OLTP=".//div[text()='OLTP']";
+	public final String WL_OLTP_REP=".//div[text()='OLTP + Rep']";
+	public final static String WL_DSS=".//div[text()='DSS']";
+	public final String WL_DSS_REP=".//div[text()='DSS + Rep']";
+	public final String WL_NOT_SPECIFIED=".//md-option/div[text()='Not Specified']";
 	//NUMBER OF VOLUMES
-	public static final String VOLUMES_NUM_XPATH="//input[@aria-label='childSgVols']";
+	public final String VOLUMES_NUM_XPATH="//input[@aria-label='childSgVols']";
 	//VOLUME CAPACITY
-	public static final String VOLUMES_SIZE__XPATH="//input[@aria-label='sgCap']";
-	public static final String VOLUMES_CAPACITY_UNITS_XPATH="//div[@ng-if='showColumnPolicy.showVolsCap']/md-input-container";
-	public static final String UNIT_MB="//md-option[@ng-repeat='capUnit in sg.volumeCapacityUnits']/div[text()='MB']";
-	public static final String UNIT_GB="//md-option[@ng-repeat='capUnit in sg.volumeCapacityUnits']/div[text()='GB']";
-	public static final String UNIT_TB="//md-option[@ng-repeat='capUnit in sg.volumeCapacityUnits']/div[text()='TB']";
-	public static final String UNIT_CYL="//md-option[@ng-repeat='capUnit in sg.volumeCapacityUnits']/div[text()='Cyl']";
+	public final String VOLUMES_SIZE__XPATH="//input[@aria-label='sgCap']";
+	public final String VOLUMES_CAPACITY_UNITS_XPATH="//div[@ng-if='showColumnPolicy.showVolsCap']/md-input-container";
+	public final String UNIT_MB="//md-option[@ng-repeat='capUnit in sg.volumeCapacityUnits']/div[text()='MB']";
+	public final String UNIT_GB="//md-option[@ng-repeat='capUnit in sg.volumeCapacityUnits']/div[text()='GB']";
+	public final String UNIT_TB="//md-option[@ng-repeat='capUnit in sg.volumeCapacityUnits']/div[text()='TB']";
+	public final String UNIT_CYL="//md-option[@ng-repeat='capUnit in sg.volumeCapacityUnits']/div[text()='Cyl']";
 	//EDIT OPTIONS
-	public static final String EDIT_ICON_XPATH="//button[@aria-label='editSgByName']";
-	public static final String ALLOC_CAPACITY="//md-checkbox[@aria-label='allocCapForVol']";
+	public final String EDIT_ICON_XPATH="//button[@aria-label='editSgByName']";
+	public final String ALLOC_CAPACITY="//md-checkbox[@aria-label='allocCapForVol']";
 		//	+ "/div[1]/div[@class='md-icon']";
-	public static final String PERSIST_CAPACITY="//md-checkbox[@aria-label='persist']";
+	public final String PERSIST_CAPACITY="//md-checkbox[@aria-label='persist']";
 	//BUTTONS
-	public static final String CREATE_STORAGE_GROUP_RUN_NOW_BUTTON_XPATH="//section[@wz-title='Create Storage Group(s)']//button[text()='Run Now']";
-	public static final String CANCEL_STORAGE_GROUP_DIALOG_XPATH="//section[@wz-title='Create Storage Group(s)']//span[text()='CANCEL']";
-	public static final String NEXT_PAGE_BUTTON_XPATH="//section[@wz-title='Create Storage Group(s)']//button[@aria-label='NEXT']";
-	public static final String ADD_STORAGE_GROUP_BUTTON_XPATH="//button[@aria-label='Add Storage Group']";
-	public static final String SET_IO_HOST_LIMITS_BUTTON_XPATH=".//button[@aria-label='Set Host I/O Limits']/span[@class='ng-scope']";
+	public final String CREATE_STORAGE_GROUP_RUN_NOW_BUTTON_XPATH="//section[@wz-title='Create Storage Group(s)']//button[text()='Run Now']";
+	public final String CANCEL_STORAGE_GROUP_DIALOG_XPATH="//section[@wz-title='Create Storage Group(s)']//span[text()='CANCEL']";
+	public final String NEXT_PAGE_BUTTON_XPATH="//section[@wz-title='Create Storage Group(s)']//button[@aria-label='NEXT']";
+	public final String ADD_STORAGE_GROUP_BUTTON_XPATH="//button[@aria-label='Add Storage Group']";
+	public final String SET_IO_HOST_LIMITS_BUTTON_XPATH=".//button[@aria-label='Set Host I/O Limits']/span[@class='ng-scope']";
 	//ERRORS
-	public static final String SG_ALREADY_EXISTS="//p[text()=\"Error in Creating Storage Group '000DOCK23_1': Cannot use the specified name because it's already in use\"]";
-	public static final String RETRIEVING ="//div[@aria-hidden='false']//div[text()='Retrieving data']";
+	public final String SG_ALREADY_EXISTS="//p[text()=\"Error in Creating Storage Group '000DOCK23_1': Cannot use the specified name because it's already in use\"]";
+	public final String RETRIEVING ="//div[@aria-hidden='false']//div[text()='Retrieving data']";
 	
 	//WEB ELEMENTS
 	//BUTTONS/ICONS
@@ -161,31 +161,31 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO {
 		System.out.println("setting row. Thread id is: " + id);	
 		
 	}
-	public static String CSG_SERVICELEVEL_LIST_BOX_XPATH="//u4v-sg-step[]//div[@ng-if='showColumnPolicy.showServiceLevel']/md-input-container";
-	public static String CSG_SL_OPTIMIZED=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Optimized']";
-	public static String CSG_SL_DIAMOND=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Diamond']";
-	public static String CSG_SL_PLATINUM=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Platinum']";
-	public static String CSG_SL_GOLD=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Gold']";
-	public static String CSG_SL_SILVER=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Silver']";
-	public static String CSG_SL_BRONZE=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Bronze']";
-	public static String CSG_SL_NONE=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='None']";
+	public String CSG_SERVICELEVEL_LIST_BOX_XPATH="//u4v-sg-step[]//div[@ng-if='showColumnPolicy.showServiceLevel']/md-input-container";
+	public String CSG_SL_OPTIMIZED=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Optimized']";
+	public String CSG_SL_DIAMOND=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Diamond']";
+	public String CSG_SL_PLATINUM=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Platinum']";
+	public String CSG_SL_GOLD=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Gold']";
+	public String CSG_SL_SILVER=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Silver']";
+	public String CSG_SL_BRONZE=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Bronze']";
+	public String CSG_SL_NONE=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='None']";
 	//WORKLOAD TYPE
-	public static String CSG_WORKLOAD_LIST_BOX_XPATH="//u4v-sg-step[]//div[@ng-if='showColumnPolicy.showWorkload']/md-input-container";
-	public static String CSG_WL_OLTP=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='OLTP']";
-	public static String CSG_WL_OLTP_REP=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='OLTP + Rep']";
-	public static String CSG_WL_DSS=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='DSS']";
-	public static String CSG_WL_DSS_REP=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='DSS + Rep']";
-	public static String CSG_WL_NONE=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Not Specified']";
+	public String CSG_WORKLOAD_LIST_BOX_XPATH="//u4v-sg-step[]//div[@ng-if='showColumnPolicy.showWorkload']/md-input-container";
+	public String CSG_WL_OLTP=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='OLTP']";
+	public String CSG_WL_OLTP_REP=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='OLTP + Rep']";
+	public String CSG_WL_DSS=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='DSS']";
+	public String CSG_WL_DSS_REP=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='DSS + Rep']";
+	public String CSG_WL_NONE=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Not Specified']";
 	//NUMBER OF VOLUMES
-	public static String CSG_VOLUMES_NUM_XPATH="//u4v-sg-step[]//input[@aria-label='childSgVols']";
+	public String CSG_VOLUMES_NUM_XPATH="//u4v-sg-step[]//input[@aria-label='childSgVols']";
 	//VOLUME CAPACITY
-	public static String CSG_VOLUMES_CAPACITY_XPATH="//u4v-sg-step[]//input[@aria-label='sgCap']";
-	public static String CSG_VOLUMES_CAPACITY_UNITS_XPATH="//u4v-sg-step[]//div[@ng-if='showColumnPolicy.showVolsCap']/md-input-container";
-	public static String CSG_UNIT_MB="//div[@class='md-select-menu-container md-active md-clickable']//div[text()='MB']";
-	public static String CSG_UNIT_GB=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='GB']";
-	public static String CSG_UNIT_TB=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='TB']";
-	public static String CSG_UNIT_CYL=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Cyl']";	
-	public static String CSG_MB="test";
+	public String CSG_VOLUMES_CAPACITY_XPATH="//u4v-sg-step[]//input[@aria-label='sgCap']";
+	public String CSG_VOLUMES_CAPACITY_UNITS_XPATH="//u4v-sg-step[]//div[@ng-if='showColumnPolicy.showVolsCap']/md-input-container";
+	public String CSG_UNIT_MB="//div[@class='md-select-menu-container md-active md-clickable']//div[text()='MB']";
+	public String CSG_UNIT_GB=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='GB']";
+	public String CSG_UNIT_TB=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='TB']";
+	public String CSG_UNIT_CYL=".//div[@class='md-select-menu-container md-active md-clickable']//div[text()='Cyl']";	
+	public String CSG_MB="test";
 	
 	//WEB ELEMENTS
 	//BUTTONS/ICONS

@@ -13,7 +13,7 @@ import com.cit.ie.pageobjects.LoginPagePO;
 import com.cit.ie.pageobjects.ProvisionStorageWizardPO;
 import com.cit.ie.pageobjects.StorageGroupsPO;
 
-@SuppressWarnings("static-access")
+
 public class Test002 extends WebDriverManager{
 
 	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";

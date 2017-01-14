@@ -25,11 +25,11 @@ public class HomeDashboardPO extends HelperMethods {
 	}
 
 	//Object Locators
-	public static final String DELL_EMC_LOGO_XPATH = ".//*[@id='dell-emc-logo']";
-	public static final String U4V_LOGO_XPATH = "//span[text()[contains(.,'Unisphere for VMAX')]]";
+	public final String DELL_EMC_LOGO_XPATH = ".//*[@id='dell-emc-logo']";
+	public final String U4V_LOGO_XPATH = "//span[text()[contains(.,'Unisphere for VMAX')]]";
 	//SIDEMENUs
-	public static final String STORAGE_SIDEMENU_XPATH=".//a[@ng-if='item.items']/div[text()='STORAGE']";
-	public static final String STORAGE_GROUPS_SIDEMENU_XPATH="//nav[@class='ng-scope emc-framework-menu-secondary-sub sub-menu-display']/menu/ul/li[contains(@class,'emc-menu-subitem-storage_groups')]/a/div";
+	public final String STORAGE_SIDEMENU_XPATH=".//a[@ng-if='item.items']/div[text()='STORAGE']";
+	public final String STORAGE_GROUPS_SIDEMENU_XPATH="//nav[@class='ng-scope emc-framework-menu-secondary-sub sub-menu-display']/menu/ul/li[contains(@class,'emc-menu-subitem-storage_groups')]/a/div";
 															   
 	@FindBy(xpath=DELL_EMC_LOGO_XPATH)
 	public WebElement dellEmcLogo;

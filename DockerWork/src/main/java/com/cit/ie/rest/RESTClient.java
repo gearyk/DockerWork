@@ -65,8 +65,8 @@ public class RESTClient extends Constants
 		}
 		ssl();
 		if(username == null && password == null){
-			username = ADMIN;
-			password = ADMIN;
+			username = "smc";
+			password = "smc";
 		} 
         String authString = username+":"+password;
         String authStringEnc = Base64.getEncoder().encodeToString(authString.getBytes());
@@ -110,8 +110,8 @@ public class RESTClient extends Constants
 		previousCall = DELETE;
 		ssl();
 		if(username == null && password == null){
-			username = ADMIN;
-			password = ADMIN;
+			username = "smc";
+			password = "smc";
 		}
         String authString = username+":"+password;
         String authStringEnc = Base64.getEncoder().encodeToString(authString.getBytes());
@@ -159,8 +159,8 @@ public class RESTClient extends Constants
 		previousCall = POST;
 		ssl();
 		if(username == null && password == null){
-			username = ADMIN;
-			password = ADMIN;
+			username = "smc";
+			password = "smc";
 		}
         String authString = username+":"+password;
         String authStringEnc = Base64.getEncoder().encodeToString(authString.getBytes());
@@ -206,8 +206,8 @@ public class RESTClient extends Constants
 		previousCall = PUT;
 		ssl();
 		if(username == null && password == null){
-			username = ADMIN;
-			password = ADMIN;
+			username = "smc";
+			password = "smc";
 		}
         String authString = username+":"+password;
         String authStringEnc = Base64.getEncoder().encodeToString(authString.getBytes());

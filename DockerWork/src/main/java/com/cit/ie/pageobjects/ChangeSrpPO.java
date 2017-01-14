@@ -16,16 +16,16 @@ public class ChangeSrpPO extends StorageGroupsPO {
 	}
 	
 	//LOCATORS
-	public static final String SRP_LISTBOX_XPATH="//md-select[@name='srp']";
-	public static final String SRP_2_XPATH="//md-option[@ng-value='selectedSrpInfoObject']/div[text()='SRP_2']";
-	public static final String DEFAULT_SRP_XPATH="//md-option[@ng-value='selectedSrpInfoObject']/div[text()='DEFAULT_SRP']";
-	public static final String NONE_SRP_XPATH="//md-option[@ng-value='selectedSrpInfoObject']/div[text()='None']";
-	public static final String RUN_NOW_BUTTON_XPATH="//md-menu-bar[@ok-click='okClick()']";
-	public static final String SUCCESS_MSG_XPATH=".//p[text()='Successfully Changed SRP']";
-	public static final String CSG_FIRST_ROW_LISTBOX_SRP_XPATH=".//u4v-sg-step[1]/div/div/div[2]/md-input-container/md-select";
-	public static final String CSG_SRP_2_XPATH="//div[@aria-hidden='false']//div[text()='SRP_2']";
-	public static final String CSG_DEFAULT_SRP_XPATH="//div[@aria-hidden='false']//div[text()='DEFAULT_SRP']";
-	public static final String CSG_NONE_SRP_XPATH="//div[@aria-hidden='false']//div[text()='None']";
+	public final String SRP_LISTBOX_XPATH="//md-select[@name='srp']";
+	public final String SRP_2_XPATH="//md-option[@ng-value='selectedSrpInfoObject']/div[text()='SRP_2']";
+	public final String DEFAULT_SRP_XPATH="//md-option[@ng-value='selectedSrpInfoObject']/div[text()='DEFAULT_SRP']";
+	public final String NONE_SRP_XPATH="//md-option[@ng-value='selectedSrpInfoObject']/div[text()='None']";
+	public final String RUN_NOW_BUTTON_XPATH="//md-menu-bar[@ok-click='okClick()']";
+	public final String SUCCESS_MSG_XPATH=".//p[text()='Successfully Changed SRP']";
+	public final String CSG_FIRST_ROW_LISTBOX_SRP_XPATH=".//u4v-sg-step[1]/div/div/div[2]/md-input-container/md-select";
+	public final String CSG_SRP_2_XPATH="//div[@aria-hidden='false']//div[text()='SRP_2']";
+	public final String CSG_DEFAULT_SRP_XPATH="//div[@aria-hidden='false']//div[text()='DEFAULT_SRP']";
+	public final String CSG_NONE_SRP_XPATH="//div[@aria-hidden='false']//div[text()='None']";
 	
 	//WEBELEMENTS
 	@FindBy(xpath=SRP_LISTBOX_XPATH)

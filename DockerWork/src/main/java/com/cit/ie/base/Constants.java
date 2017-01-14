@@ -9,13 +9,13 @@ import org.testng.Assert;
 public class Constants extends Assert
 {
 
-	public static final String V3_348 = "000196700348";
+	public final String V3_348 = "000196700348";
 
 	/**
 	 * USER CREDENTIALS
 	 */
-	public static String ADMIN = "smc";
-	public static String MONITOR = "monitor";
+	public String ADMIN = "smc";
+	public String MONITOR = "monitor";
 
 	/**
 	 * REST QUERY FILTERS

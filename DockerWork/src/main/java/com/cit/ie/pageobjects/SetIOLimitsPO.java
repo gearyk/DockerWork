@@ -17,10 +17,10 @@ public class SetIOLimitsPO extends StorageGroupsPO{
 	}
 	
 	//LOCATORS
-	public static final String HOST_MB_LIMIT_CB_XPATH="//md-checkbox[@aria-label='hostMbSec']//div[1]";
-	public static final String HOST_IO_LIMIT_CB_XPATH="//md-checkbox[@aria-label='hostIOSec']//div[1]";
-	public static final String HOST_IO_LABEL_XPATH="//label[text()='Set Host IO Limit (MB/Sec)']";
-	public static final String HOST_MB_LABEL_XPATH="//label[text()='Set Host IO Limit (IO/Sec)']";
+	public final String HOST_MB_LIMIT_CB_XPATH="//md-checkbox[@aria-label='hostMbSec']//div[1]";
+	public final String HOST_IO_LIMIT_CB_XPATH="//md-checkbox[@aria-label='hostIOSec']//div[1]";
+	public final String HOST_IO_LABEL_XPATH="//label[text()='Set Host IO Limit (MB/Sec)']";
+	public final String HOST_MB_LABEL_XPATH="//label[text()='Set Host IO Limit (IO/Sec)']";
 	
 	
 	@FindBy(xpath=HOST_MB_LIMIT_CB_XPATH)
