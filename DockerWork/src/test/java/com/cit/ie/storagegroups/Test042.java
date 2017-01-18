@@ -26,7 +26,7 @@ public class Test042 extends WebDriverManager{
 	@Test(groups = { "delete" })
 	private void _042_DELETE_EMPTY_SG_AND_VOLUME_DETAILS_DEFINED() throws JSONException, IOException, InterruptedException {
 
-		sgName="000DOCK42";
+		sgName="00DC42";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -62,7 +62,7 @@ public class Test042 extends WebDriverManager{
 			private void gotoStorageGroupsPage() throws InterruptedException {
 				LoginPagePO lppo=new LoginPagePO(getDriver());
 				lppo.waitForLoginPageObjects();
-				lppo.doLogin("smc","smc");
+				lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 				Thread.sleep(5000);
 				HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 				Thread.sleep(5000);

@@ -23,7 +23,7 @@ public class Test000 extends WebDriverManager{
 		}
 		LoginPagePO lppo=new LoginPagePO(getDriver());
 		lppo.waitForLoginPageObjects();
-		lppo.doLogin("smc","smc");
+		lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 		hdpo.waitForHomeDashboardPageObjects();
 		hdpo.navigateToStorageGroups();

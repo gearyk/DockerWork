@@ -24,7 +24,7 @@ public class Test053 extends WebDriverManager{
 
 	@Test
 	private void _053_DELETE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLOLTP_500POINT5MB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK53";
+		sgName="00DC53";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -64,7 +64,7 @@ public class Test053 extends WebDriverManager{
 			private void gotoStorageGroupsPage() throws InterruptedException {
 				LoginPagePO lppo=new LoginPagePO(getDriver());
 				lppo.waitForLoginPageObjects();
-				lppo.doLogin("smc","smc");
+				lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 				Thread.sleep(5000);
 				HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 				Thread.sleep(5000);

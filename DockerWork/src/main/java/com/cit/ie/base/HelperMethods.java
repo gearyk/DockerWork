@@ -55,22 +55,11 @@ public class HelperMethods extends WebDriverManager {
 		((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
 	}
 
-	public void waitForElementToDisappear(String text) {
-		try {
-			wait=new WebDriverWait(driver, 180, 4000);
+	public void waitForElementToDisappear(String text) throws InterruptedException {
+		
+			wait=new WebDriverWait(driver,600,4000);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(text)));
 			Thread.sleep(3500);
-		} catch (InterruptedException e) {
-			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE); 
-			try {
-				System.out.println("WRITING FILE:");
-				FileUtils.copyFile(scrFile, new File("/fail/testScreenShot.jpg"));
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			e.printStackTrace();
-		}
 	}
 
 	public void haltTest() throws InterruptedException{

@@ -21,7 +21,7 @@ public class Test032 extends WebDriverManager{
 
 	@Test
 	private void _032_CREATE_STORAGEGROUP_NEGATIVE_SRPNONE_SLOSILVER() throws Exception {
-		sgName="000DOCK32";
+		sgName="00DC32";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -51,7 +51,7 @@ public class Test032 extends WebDriverManager{
 			private void gotoStorageGroupsPage() throws InterruptedException {
 				LoginPagePO lppo=new LoginPagePO(getDriver());
 				lppo.waitForLoginPageObjects();
-				lppo.doLogin("smc","smc");
+				lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 				Thread.sleep(5000);
 				HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 				Thread.sleep(5000);

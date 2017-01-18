@@ -22,7 +22,7 @@ public class Test026 extends WebDriverManager{
 
 	@Test
 	private void _026_CREATE_STORAGEGROUP_SRPDEFAULT_4_DIFF_SLO_WL_COMBINATIONS() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK26";
+		sgName="00DC26";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -74,7 +74,7 @@ public class Test026 extends WebDriverManager{
 			private void gotoStorageGroupsPage() throws InterruptedException {
 				LoginPagePO lppo=new LoginPagePO(getDriver());
 				lppo.waitForLoginPageObjects();
-				lppo.doLogin("smc","smc");
+				lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 				Thread.sleep(5000);
 				HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 				Thread.sleep(5000);

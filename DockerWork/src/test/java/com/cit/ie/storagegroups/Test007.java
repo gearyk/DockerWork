@@ -24,7 +24,7 @@ public class Test007 extends WebDriverManager{
 	@Test(priority=2)
 	private void _007_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE_ALLOCTRUE_PERSISTRUE() throws JSONException, IOException, InterruptedException {
 		HelperMethods.printTimeStart("Test007");
-		sgName="000DOCK07";
+		sgName="00DC07";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -61,7 +61,7 @@ public class Test007 extends WebDriverManager{
 			private void gotoStorageGroupsPage() throws InterruptedException {
 				LoginPagePO lppo=new LoginPagePO(getDriver());
 				lppo.waitForLoginPageObjects();
-				lppo.doLogin("smc","smc");
+				lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 				Thread.sleep(5000);
 				HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 				Thread.sleep(5000);

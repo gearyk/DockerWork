@@ -27,7 +27,7 @@ public class Test039 extends WebDriverManager{
 	@Test
 	private void _039_SET_IOLIMITS_VALIDATE_DATA() throws JSONException, IOException, InterruptedException {
 		//THIS FUNCTIONALITY IS NOT YET DELIVERED SO I WILL JUST TEST THE BUTTONS EXISTANCE
-		sgName="000DOCK39";
+		sgName="00DC39";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -69,7 +69,7 @@ public class Test039 extends WebDriverManager{
 			private void gotoStorageGroupsPage() throws InterruptedException {
 				LoginPagePO lppo=new LoginPagePO(getDriver());
 				lppo.waitForLoginPageObjects();
-				lppo.doLogin("smc","smc");
+				lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 				Thread.sleep(5000);
 				HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 				Thread.sleep(5000);

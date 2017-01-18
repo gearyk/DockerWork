@@ -24,8 +24,8 @@ public class Test023 extends WebDriverManager{
 
 	@Test
 	private void _023_CREATE_CASCADED_STORAGEGROUP_CHILDSG_NAME_ALREADYTAKEN() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK23";
-		String sgNameTaken="000DOCK23_1";
+		sgName="00DC23";
+		String sgNameTaken="00DC23_1";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -73,7 +73,7 @@ public class Test023 extends WebDriverManager{
 			private void gotoStorageGroupsPage() throws InterruptedException {
 				LoginPagePO lppo=new LoginPagePO(getDriver());
 				lppo.waitForLoginPageObjects();
-				lppo.doLogin("smc","smc");
+				lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 				Thread.sleep(5000);
 				HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 				Thread.sleep(5000);

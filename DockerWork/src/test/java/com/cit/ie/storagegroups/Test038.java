@@ -26,7 +26,7 @@ public class Test038 extends WebDriverManager{
 	@Test
 	private void _038_EDIT_STORAGEGROUPSTANDALONE_CHANGESRP_ON_CHILD_SG() throws JSONException, IOException, InterruptedException {
 		//THIS FUNCTIONALITY IS NOT YET DELIVERED SO I WILL JUST TEST THE BUTTONS EXISTANCE
-		sgName="000DOCK38";
+		sgName="00DC38";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -75,7 +75,7 @@ public class Test038 extends WebDriverManager{
 			private void gotoStorageGroupsPage() throws InterruptedException {
 				LoginPagePO lppo=new LoginPagePO(getDriver());
 				lppo.waitForLoginPageObjects();
-				lppo.doLogin("smc","smc");
+				lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 				Thread.sleep(5000);
 				HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 				Thread.sleep(5000);

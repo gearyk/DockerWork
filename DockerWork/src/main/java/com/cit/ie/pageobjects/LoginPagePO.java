@@ -22,7 +22,7 @@ public class LoginPagePO extends HelperMethods
 		super(wdriver);
 		driver = wdriver;
 		wait = new WebDriverWait(driver, timeOut);
-		driver.manage().window().setSize(new Dimension(1920, 1080));
+		//driver.manage().window().setSize(new Dimension(1920, 1080));
 		System.out.println("Window size = "+driver.manage().window().getSize());
 		driver.get("https://10.73.28.71:8443/univmax/jsclient/#/login");
 		PageFactory.initElements(driver, this);

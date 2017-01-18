@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite verbose="1" name="SG Suite" parallel="tests" thread-count="10">
+
+<suite verbose="1" name="SG Suite" parallel="tests" thread-count="15">
 	<test name="TEST0">
    		<parameter name ="browser" value="firefox"/>
     	<parameter name ="hubIP" value="10.73.29.47"/>
@@ -71,4 +72,5 @@
             	<class name ="com.cit.ie.storagegroups.Test009"/>
         	</classes>
     </test>
+   
 </suite>

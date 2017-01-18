@@ -15,7 +15,7 @@ public class CleanUpSGs extends RESTClient{
 		GET(baseURL);
 		String[] allStorageGroups=getReadableString(responseOutput, "storageGroupId").split(",");
 		for(int i=0;i<allStorageGroups.length;i++){
-			if (allStorageGroups[i].trim().length()>8 && allStorageGroups[i].trim().substring(0, 7).contains("000DOCK") ){
+			if (allStorageGroups[i].trim().length()>8 && allStorageGroups[i].trim().substring(0, 7).contains("00DC") ){
 			System.out.println("DELETING SG "+allStorageGroups[i].trim());
 			verifyAndCleanup(allStorageGroups[i].trim());
 			}

@@ -21,7 +21,7 @@ public class Test033 extends WebDriverManager{
 
 	@Test
 	private void _033_CREATE_STORAGEGROUP_NEGATIVE_SLOOPTIMIZED_WLOLTP() throws Exception {
-		sgName="000DOCK33";
+		sgName="00DC33";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -53,7 +53,7 @@ public class Test033 extends WebDriverManager{
 			private void gotoStorageGroupsPage() throws InterruptedException {
 				LoginPagePO lppo=new LoginPagePO(getDriver());
 				lppo.waitForLoginPageObjects();
-				lppo.doLogin("smc","smc");
+				lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 				Thread.sleep(5000);
 				HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 				Thread.sleep(5000);

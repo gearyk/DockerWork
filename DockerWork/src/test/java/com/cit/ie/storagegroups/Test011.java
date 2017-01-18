@@ -23,7 +23,7 @@ public class Test011 extends WebDriverManager{
 	@Test
 	private void _011_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLDSS_200GB() throws JSONException, IOException, InterruptedException {
 		HelperMethods.printTimeStart("Test011");
-		sgName="000DOCK11";
+		sgName="00DC11";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -60,7 +60,7 @@ public class Test011 extends WebDriverManager{
 			private void gotoStorageGroupsPage() throws InterruptedException {
 				LoginPagePO lppo=new LoginPagePO(getDriver());
 				lppo.waitForLoginPageObjects();
-				lppo.doLogin("smc","smc");
+				lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 				Thread.sleep(5000);
 				HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 				Thread.sleep(5000);

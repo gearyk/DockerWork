@@ -41,6 +41,8 @@ public class StorageGroupTests extends WebDriverManager{
 		LoginPagePO lppo=new LoginPagePO(getDriver());
 		lppo.waitForLoginPageObjects();
 		lppo.doLogin("smc","smc");
+		lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);
+		Thread.sleep(5000);
 		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 		hdpo.waitForHomeDashboardPageObjects();
 		hdpo.navigateToStorageGroups();
@@ -71,7 +73,7 @@ public class StorageGroupTests extends WebDriverManager{
 		}
 		LoginPagePO lppo=new LoginPagePO(getDriver());
 		lppo.waitForLoginPageObjects();
-		lppo.doLogin("smc","smc");
+		lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 		hdpo.waitForHomeDashboardPageObjects();
 		hdpo.navigateToStorageGroups();
@@ -105,7 +107,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _002_CREATE_EMPTY_SG_WITH_SRP() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK02";
+		sgName="00DC02";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -127,7 +129,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _003_CREATE_EMPTY_SG_AND_VOLUME_DETAILS_DEFINED() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK03";
+		sgName="00DC03";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -152,7 +154,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _004_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK04";
+		sgName="00DC04";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -178,7 +180,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _005_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE_ALLOCFALSE() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK05";
+		sgName="00DC05";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -204,7 +206,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _006_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE_ALLOCTRUE() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK06";
+		sgName="00DC06";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -232,7 +234,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _007_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE_ALLOCTRUE_PERSISTRUE() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK07";
+		sgName="00DC07";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -260,7 +262,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _008_CREATE_STORAGEGROUP_SRPDEFAULT_SLONONE_WLNONE_1GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK08";
+		sgName="00DC08";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -290,7 +292,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _009_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID2_WLOLTP_1GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK09";
+		sgName="00DC09";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -319,7 +321,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _010_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID2_WLOLTP_0POINT5GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK10";
+		sgName="00DC10";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -347,7 +349,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _011_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLDSS_200GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK11";
+		sgName="00DC11";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -375,7 +377,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _012_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLDSS_0POINT5GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK12";
+		sgName="00DC12";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -403,7 +405,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _013_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLNONE_0POINT5GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK13";
+		sgName="00DC13";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -431,7 +433,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _014_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLOLTP_500POINT5MB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK14";
+		sgName="00DC14";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -459,7 +461,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _015_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID4_WLOLTP_20000MB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK15";
+		sgName="00DC15";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -487,7 +489,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _016_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID5_WLDSS_150CYL() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK16";
+		sgName="00DC16";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -515,7 +517,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _017_CREATE_STORAGEGROUP_SRPDEFAULT_SLOID6_WLDSS_MAXCYL() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK17";
+		sgName="00DC17";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -543,7 +545,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _018_CREATE_STANDALONE_STORAGEGROUP_SRPDEFAULT_SLOOPTIMIZED_WLNONE_1TB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK18";
+		sgName="00DC18";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -571,7 +573,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _019_CREATE_STANDALONE_STORAGEGROUP_SRPDEFAULT_SLOOPTIMIZED_WLNONE_0POINT5TB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK19";
+		sgName="00DC19";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -598,7 +600,7 @@ public class StorageGroupTests extends WebDriverManager{
 	}
 	@Test
 	private void _020_CREATE_STANDALONE_STORAGEGROUP_SRPDEFAULT_SLOOPTIMIZED_WLNONE_1GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK20";
+		sgName="00DC20";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -626,7 +628,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _021_CREATE_STANDALONE_STORAGEGROUP_SRPDEFAULT_SLOOPTIMIZED_WLNONE_1GB_ALLOCT() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK21";
+		sgName="00DC21";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -656,7 +658,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _022_CREATE_CASCADED_STORAGEGROUP_SRPDEFAULT_2SLOS_2WLS_1GB_ALLOCT() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK22";
+		sgName="00DC22";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -689,8 +691,8 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _023_CREATE_CASCADED_STORAGEGROUP_CHILDSG_NAME_ALREADYTAKEN() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK23";
-		String sgNameTaken="000DOCK23_1";
+		sgName="00DC23";
+		String sgNameTaken="00DC23_1";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -730,7 +732,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _024_CREATE_CASCADED_STORAGEGROUP_SRPDEFAULT_4SLOS_MULTIPLEVOLS() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK24";
+		sgName="00DC24";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -769,7 +771,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _025_CREATE_CASCADED_STORAGEGROUP_SRPDEFAULT_5WORKLOADS() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK25";
+		sgName="00DC25";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -813,7 +815,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _026_CREATE_STORAGEGROUP_SRPDEFAULT_4_DIFF_SLO_WL_COMBINATIONS() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK26";
+		sgName="00DC26";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -857,7 +859,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _027_CREATE_STORAGEGROUP_OVERPROVISION() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK28";
+		sgName="00DC28";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -885,7 +887,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _028_CREATE_STORAGEGROUP_NEGATIVE_VERIFY_RUN_NOW_IS_GREYED_OUT() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK28";
+		sgName="00DC28";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -902,7 +904,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _029_CREATE_STORAGEGROUP_NEGATIVE_CANNOT_MOVE_TO_NEXT_PAGE_WITH_INVALID_DATA() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK29";
+		sgName="00DC29";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -958,7 +960,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _038_CREATE_STORAGEGROUP_NEGATIVE_SRPNONE_SLOPLATINUM() throws Exception {
-		sgName="000DOCK38";
+		sgName="00DC38";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -981,7 +983,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _039_CREATE_STORAGEGROUP_NEGATIVE_SRPNONE_SLOSILVER() throws Exception {
-		sgName="000DOCK39";
+		sgName="00DC39";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1004,7 +1006,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _040_CREATE_STORAGEGROUP_NEGATIVE_SLOOPTIMIZED_WLOLTP() throws Exception {
-		sgName="000DOCK40";
+		sgName="00DC40";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1029,7 +1031,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _041_CREATE_STANDALONE_STORAGEGROUP_NEGATIVE_ALLOCFALSE_PERSISTTRUE() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK41";
+		sgName="00DC41";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1060,7 +1062,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _042_EDIT_STORAGEGROUPSTANDALONE_CHANGESRP() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK42";
+		sgName="00DC42";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1101,7 +1103,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _043_EDIT_STORAGEGROUPSTANDALONE_CHANGESRP_ON_EMPTYSG() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK43";
+		sgName="00DC43";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1135,7 +1137,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _044_EDIT_STORAGEGROUPSTANDALONE_CHANGESRP_FROM_DEFINED_TO_NONE() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK44";
+		sgName="00DC44";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1170,7 +1172,7 @@ public class StorageGroupTests extends WebDriverManager{
 	@Test
 	private void _045_EDIT_STORAGEGROUPSTANDALONE_CHANGESRP_ON_CHILD_SG() throws JSONException, IOException, InterruptedException {
 		//THIS FUNCTIONALITY IS NOT YET DELIVERED SO I WILL JUST TEST THE BUTTONS EXISTANCE
-		sgName="000DOCK45";
+		sgName="00DC45";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1213,7 +1215,7 @@ public class StorageGroupTests extends WebDriverManager{
 	@Test
 	private void _046_SET_IOLIMITS_VALIDATE_DATA() throws JSONException, IOException, InterruptedException {
 		//THIS FUNCTIONALITY IS NOT YET DELIVERED SO I WILL JUST TEST THE BUTTONS EXISTANCE
-		sgName="000DOCK46";
+		sgName="00DC46";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1249,7 +1251,7 @@ public class StorageGroupTests extends WebDriverManager{
 	@Test
 	private void _047_DELETE_SG_WITH_64CHARS() throws JSONException, IOException, InterruptedException {
 		//CREATE THE GROUP
-		sgName="0000DOCK047";
+		sgName="000DC047";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1273,7 +1275,7 @@ public class StorageGroupTests extends WebDriverManager{
 	@Test
 	private void _048_DELETE_EMPTY_SG_WITH_SRP() throws JSONException, IOException, InterruptedException {
 
-		sgName="000DOCK48";
+		sgName="00DC48";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1302,7 +1304,7 @@ public class StorageGroupTests extends WebDriverManager{
 	@Test(groups = { "delete" })
 	private void _049_DELETE_EMPTY_SG_AND_VOLUME_DETAILS_DEFINED() throws JSONException, IOException, InterruptedException {
 
-		sgName="000DOCK49";
+		sgName="00DC49";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1331,7 +1333,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _050_DELETE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK50";
+		sgName="00DC50";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1360,7 +1362,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _051_DELETE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE_ALLOCFALSE() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK51";
+		sgName="00DC51";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1390,7 +1392,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _052_DELETE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE_ALLOCTRUE() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK52";
+		sgName="00DC52";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1422,7 +1424,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _053_DELETE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE_ALLOCTRUE_PERSISTRUE() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK53";
+		sgName="00DC53";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1454,7 +1456,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _054_DELETE_STORAGEGROUP_SRPDEFAULT_SLONONE_WLNONE_1GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK54";
+		sgName="00DC54";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1488,7 +1490,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _055_DELETE_STORAGEGROUP_SRPDEFAULT_SLOID2_WLOLTP_1GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK55";
+		sgName="00DC55";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1521,7 +1523,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _056_DELETE_STORAGEGROUP_SRPDEFAULT_SLOID2_WLOLTP_0POINT5GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK56";
+		sgName="00DC56";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1553,7 +1555,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _057_DELETE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLDSS_200GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK57";
+		sgName="00DC57";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1585,7 +1587,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _058_DELETE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLDSS_0POINT5GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK58";
+		sgName="00DC58";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1618,7 +1620,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _059_DELETE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLNONE_0POINT5GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK59";
+		sgName="00DC59";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1650,7 +1652,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _060_DELETE_STORAGEGROUP_SRPDEFAULT_SLOID3_WLOLTP_500POINT5MB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK60";
+		sgName="00DC60";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1683,7 +1685,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _061_DELETE_STORAGEGROUP_SRPDEFAULT_SLOID4_WLOLTP_20000MB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK61";
+		sgName="00DC61";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1716,7 +1718,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _062_DELETE_STORAGEGROUP_SRPDEFAULT_SLOID5_WLDSS_150CYL() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK62";
+		sgName="00DC62";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1748,7 +1750,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _063_DELETE_STORAGEGROUP_SRPDEFAULT_SLOID6_WLDSS_MAXCYL() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK63";
+		sgName="00DC63";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1780,7 +1782,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _064_DELETE_STANDALONE_STORAGEGROUP_SRPDEFAULT_SLOOPTIMIZED_WLNONE_1TB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK64";
+		sgName="00DC64";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1812,7 +1814,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _065_DELETE_STANDALONE_STORAGEGROUP_SRPDEFAULT_SLOOPTIMIZED_WLNONE_0POINT5TB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK65";
+		sgName="00DC65";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1843,7 +1845,7 @@ public class StorageGroupTests extends WebDriverManager{
 	}
 	@Test
 	private void _066_DELETE_STANDALONE_STORAGEGROUP_SRPDEFAULT_SLOOPTIMIZED_WLNONE_1GB() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK66";
+		sgName="00DC66";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1875,7 +1877,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _067_DELETE_STANDALONE_STORAGEGROUP_SRPDEFAULT_SLOOPTIMIZED_WLNONE_1GB_ALLOCT() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK67";
+		sgName="00DC67";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1909,7 +1911,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _068_DELETE_CASCADED_STORAGEGROUP_SRPDEFAULT_2SLOS_2WLS_1GB_ALLOCT() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK68";
+		sgName="00DC68";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1947,7 +1949,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _070_DELETE_CASCADED_STORAGEGROUP_SRPDEFAULT_4SLOS_MULTIPLEVOLS() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK70";
+		sgName="00DC70";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -1993,7 +1995,7 @@ public class StorageGroupTests extends WebDriverManager{
 
 	@Test
 	private void _071_DELETE_CASCADED_STORAGEGROUP_SRPDEFAULT_5WORKLOADS() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK71";
+		sgName="00DC71";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -2045,7 +2047,7 @@ public class StorageGroupTests extends WebDriverManager{
 	
 	@Test
 	private void _072_DELETE_STORAGEGROUP_SRPDEFAULT_4_DIFF_SLO_WL_COMBINATIONS() throws JSONException, IOException, InterruptedException {
-		sgName="000DOCK72";
+		sgName="00DC72";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -2105,7 +2107,7 @@ public class StorageGroupTests extends WebDriverManager{
 	private void gotoStorageGroupsPage() throws InterruptedException {
 		LoginPagePO lppo=new LoginPagePO(getDriver());
 		lppo.waitForLoginPageObjects();
-		lppo.doLogin("smc","smc");
+		lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 		Thread.sleep(5000);
 		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 		Thread.sleep(5000);

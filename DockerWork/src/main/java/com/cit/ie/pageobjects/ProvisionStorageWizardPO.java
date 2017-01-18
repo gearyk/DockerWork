@@ -1,10 +1,17 @@
 package com.cit.ie.pageobjects;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProvisionStorageWizardPO extends StorageGroupsPO {
@@ -65,7 +72,7 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO {
 	public final String ADD_STORAGE_GROUP_BUTTON_XPATH="//button[@aria-label='Add Storage Group']";
 	public final String SET_IO_HOST_LIMITS_BUTTON_XPATH=".//button[@aria-label='Set Host I/O Limits']/span[@class='ng-scope']";
 	//ERRORS
-	public final String SG_ALREADY_EXISTS="//p[text()=\"Error in Creating Storage Group '000DOCK23_1': Cannot use the specified name because it's already in use\"]";
+	public final String SG_ALREADY_EXISTS="//p[text()=\"Error in Creating Storage Group '00DC23_1': Cannot use the specified name because it's already in use\"]";
 	public final String RETRIEVING ="//div[@aria-hidden='false']//div[text()='Retrieving data']";
 	
 	//WEB ELEMENTS
@@ -264,7 +271,21 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO {
 	 * @description specialized findByXpath for Child Storage Group rows
 	 */
 	public WebElement findByXPath(String xpath){
-		WebElement element = driver.findElement(By.xpath(xpath.replace("//u4v-sg-step[","//u4v-sg-step["+childSGRow)));
+		WebElement element=null;
+		try {
+			element = driver.findElement(By.xpath(xpath.replace("//u4v-sg-step[","//u4v-sg-step["+childSGRow)));		
+		} catch (Exception e) {
+			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE); 
+			try {
+				System.out.println("**************WRITING FILE:**********");
+				FileUtils.copyFile(scrFile, new File("/failXpath/testScreenShot.jpg"));
+				System.out.println("**************WRITTEN FILE:**********");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		}
 		return element;
 	}
 

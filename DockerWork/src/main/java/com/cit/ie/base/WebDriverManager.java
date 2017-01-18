@@ -1,9 +1,11 @@
 package com.cit.ie.base;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -11,6 +13,8 @@ import org.apache.http.message.BasicHttpEntityEnclosingRequest;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -87,10 +91,13 @@ public class WebDriverManager {
 //	        }
 	    }
 
-	 @AfterClass
-	    public void closeBrowser() {
+	@AfterClass
+	    public void closeBrowser() throws IOException {
 	        if(threadDriver!=null)
-	        {	
+	        {	File scrFile = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
+	        	String SessionID=threadDriver.get().getSessionId().toString();
+	        	FileUtils.copyFile(scrFile, new File("c:\\screenshot\\screenshot_"+SessionID+".png"));
+	        	
 	        	System.out.println("Entering close broswer: ");	
 	            getDriver().quit();
 	            long id = Thread.currentThread().getId();
