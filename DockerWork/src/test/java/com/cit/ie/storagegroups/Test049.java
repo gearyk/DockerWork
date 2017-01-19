@@ -22,8 +22,8 @@ public class Test049 extends WebDriverManager{
 	private String sgName;	
 
 	@Test
-	private void _056_DELETE_STORAGEGROUP_SRPDEFAULT_SLOID2_WLOLTP_0POINT5GB() throws JSONException, IOException, InterruptedException {
-		sgName="00DC56";
+	private void _049_DELETE_STORAGEGROUP_SRPDEFAULT_SLOID2_WLOLTP_0POINT5GB() throws JSONException, IOException, InterruptedException {
+		sgName="00DC49";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -33,7 +33,7 @@ public class Test049 extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP

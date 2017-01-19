@@ -91,10 +91,11 @@ public class WebDriverManager {
 //	        }
 	    }
 
-	@AfterClass
+	@AfterMethod
 	    public void closeBrowser() throws IOException {
 	        if(threadDriver!=null)
-	        {	File scrFile = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
+	        {	
+	        	File scrFile = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
 	        	String SessionID=threadDriver.get().getSessionId().toString();
 	        	FileUtils.copyFile(scrFile, new File("c:\\screenshot\\screenshot_"+SessionID+".png"));
 	        	

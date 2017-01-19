@@ -30,7 +30,7 @@ public class Test028 extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		//NO INFORMATION PASSED TO TEST
 		Assert.assertFalse(pswpo.createSgRunNow.isEnabled(), "Run Now Button is Greyed out");
 	}

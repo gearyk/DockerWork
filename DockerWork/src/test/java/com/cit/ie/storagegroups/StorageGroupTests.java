@@ -97,7 +97,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.createSgRunNow.click();
@@ -117,7 +117,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		setSrpInformation(pswpo,"default_srp");
@@ -139,7 +139,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		setSrpInformation(pswpo,"GOLD");
@@ -164,7 +164,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -190,7 +190,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP AND SLO
@@ -216,7 +216,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -244,7 +244,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -272,7 +272,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -302,7 +302,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -331,7 +331,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -359,7 +359,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -387,7 +387,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -415,7 +415,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -443,7 +443,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -471,7 +471,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -499,7 +499,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -527,7 +527,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -555,7 +555,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -583,7 +583,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -610,7 +610,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -638,7 +638,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -668,7 +668,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.addStorageGroupButton.click();
@@ -703,7 +703,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
 		//CREATE STANDALONE SG
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgNameTaken);
 		setSrpInformation(pswpo,"default_srp");
@@ -711,7 +711,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
 		//CREATE CASCADED SG WITH CHILD NAME TAKEN
 		sgpo.createStorageGroupButton.click();
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.addStorageGroupButton.click();
@@ -742,7 +742,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.addStorageGroupButton.click();
@@ -781,7 +781,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.addStorageGroupButton.click();
@@ -825,7 +825,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.addStorageGroupButton.click();
@@ -869,7 +869,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -897,7 +897,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		//NO INFORMATION PASSED TO TEST
 		Assert.assertFalse(pswpo.createSgRunNow.isEnabled(), "Run Now Button is Greyed out");
 	}
@@ -914,7 +914,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		//NO INFORMATION PASSED TO TEST
 		Assert.assertFalse(pswpo.nextPageButton.isEnabled(), "Next Page Button is Greyed out");
 	}
@@ -934,7 +934,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sg64);
 		Thread.sleep(2500);
@@ -970,7 +970,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -993,7 +993,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1016,7 +1016,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1041,7 +1041,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1072,7 +1072,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1113,7 +1113,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1147,7 +1147,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1182,7 +1182,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.addStorageGroupButton.click();
@@ -1225,7 +1225,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.createSgRunNow.click();
@@ -1261,7 +1261,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.createSgRunNow.click();
@@ -1285,7 +1285,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		setSrpInformation(pswpo,"default_srp");
@@ -1314,7 +1314,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		setSrpInformation(pswpo,"GOLD");
@@ -1343,7 +1343,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1372,7 +1372,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP AND SLO
@@ -1402,7 +1402,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1434,7 +1434,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1466,7 +1466,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1500,7 +1500,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1533,7 +1533,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1565,7 +1565,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1597,7 +1597,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1630,7 +1630,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1662,7 +1662,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1695,7 +1695,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1728,7 +1728,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1760,7 +1760,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1792,7 +1792,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1824,7 +1824,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1855,7 +1855,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1887,7 +1887,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		//SET SRP
@@ -1921,7 +1921,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.addStorageGroupButton.click();
@@ -1959,7 +1959,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.addStorageGroupButton.click();
@@ -2005,7 +2005,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.addStorageGroupButton.click();
@@ -2057,7 +2057,7 @@ public class StorageGroupTests extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.addStorageGroupButton.click();

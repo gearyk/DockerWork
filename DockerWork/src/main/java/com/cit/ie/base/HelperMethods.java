@@ -57,7 +57,7 @@ public class HelperMethods extends WebDriverManager {
 
 	public void waitForElementToDisappear(String text) throws InterruptedException {
 		
-			wait=new WebDriverWait(driver,600,4000);
+			wait=new WebDriverWait(driver,800,4000);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(text)));
 			Thread.sleep(3500);
 	}

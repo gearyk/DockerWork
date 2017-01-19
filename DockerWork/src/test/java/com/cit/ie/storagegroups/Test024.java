@@ -32,7 +32,7 @@ public class Test024 extends WebDriverManager{
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.addStorageGroupButton.click();

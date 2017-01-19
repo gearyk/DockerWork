@@ -34,6 +34,7 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO {
 	public final String DEFAULT_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='DEFAULT_SRP']";
 	public final String NONE_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='None']";
 	public final String SRP2_SRP_MENUITEM_XPATH=".//md-option[@ng-value='selectedSrp']/div[text()='SRP_2']";
+	public final String WAIT_FOR_PAGELOAD="//span/div[text()='DEFAULT_SRP']";
 	//STANDALONE STORAGE GROUPS
 	//SERVICE LEVEL
 	public final String SERVICELEVEL_LIST_BOX_XPATH="//div[@ng-if='showColumnPolicy.showServiceLevel']/md-input-container";

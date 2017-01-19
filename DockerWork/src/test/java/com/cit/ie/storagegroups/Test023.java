@@ -36,7 +36,7 @@ public class Test023 extends WebDriverManager{
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
 		//CREATE STANDALONE SG
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgNameTaken);
 		setSrpInformation(pswpo,"default_srp");
@@ -44,7 +44,7 @@ public class Test023 extends WebDriverManager{
 		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
 		//CREATE CASCADED SG WITH CHILD NAME TAKEN
 		sgpo.createStorageGroupButton.click();
-		pswpo.waitForElementVisiblity(pswpo.PROVISION_STORAGE_TITLE_XPATH);
+		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.addStorageGroupButton.click();
