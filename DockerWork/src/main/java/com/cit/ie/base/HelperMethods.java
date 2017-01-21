@@ -95,20 +95,13 @@ public class HelperMethods extends WebDriverManager {
 	 */
 	public void verifyAndCleanup(String sgName) throws InterruptedException {
 		//VERIFY THAT GROUP HAS BEEN CREATED
-		RESTClient.refreshRestDB(baseURL);
+		//RESTClient.refreshRestDB(baseURL);
 		RESTClient.GET(baseURL+sgName);
-		//RESTClient.printResponses();
 		Assert.assertEquals(RESTClient.responseStatus,200);
 		//CLEANUP
+		//RESTClient.DELETE(baseURL+sgName);
 		RESTClient.DELETE(baseURL+sgName);
-		//RESTClient.printResponses();
-		if(!(RESTClient.responseStatus==204)){
-			Thread.sleep(2000);
-			RESTClient.DELETE(baseURL+sgName);
-			Assert.assertEquals(RESTClient.responseStatus,204);
-		}
-		Assert.assertEquals(RESTClient.responseStatus,204);
-		Thread.sleep(2000);
+		    
 	}
 	
 	public void getScreenshot(){
