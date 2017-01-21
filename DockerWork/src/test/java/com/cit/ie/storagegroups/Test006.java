@@ -48,8 +48,10 @@ public class Test006 extends WebDriverManager{
 		pswpo.allocateCapacityCB.click();
 		pswpo.createSgRunNow.click();
 		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 		HelperMethods.printTimeFinish("TEST006");
+		
 	}
 	
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************

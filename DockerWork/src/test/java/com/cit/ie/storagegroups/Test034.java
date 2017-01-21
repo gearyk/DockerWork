@@ -50,6 +50,7 @@ public class Test034 extends WebDriverManager{
 		Assert.assertTrue(pswpo.persistCapacityCB.isEnabled());
 		pswpo.persistCapacityCB.click();
 		Thread.sleep(5000);
+		sgpo.quitWebDriver();
 	}
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 

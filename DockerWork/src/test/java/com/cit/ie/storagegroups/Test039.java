@@ -57,6 +57,7 @@ public class Test039 extends WebDriverManager{
 		Assert.assertTrue(siolpo.hostIOlabel.isDisplayed());
 		Assert.assertTrue(siolpo.hostMBlabel.isDisplayed());
 		Thread.sleep(5000);
+		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 	}
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************

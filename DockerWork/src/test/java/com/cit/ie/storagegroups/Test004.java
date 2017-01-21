@@ -44,9 +44,10 @@ public class Test004 extends WebDriverManager{
 		//Leave as Unspecified
 		pswpo.createSgRunNow.click();
 		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
-		Thread.sleep(3000);
+		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 		HelperMethods.printTimeFinish("TEST004");
+		
 	}
 	
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************

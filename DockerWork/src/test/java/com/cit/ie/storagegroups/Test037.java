@@ -54,6 +54,7 @@ public class Test037 extends WebDriverManager{
 		Thread.sleep(1500);
 		changeSRPInformation("None");
 		Thread.sleep(5000);
+		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 	}
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************

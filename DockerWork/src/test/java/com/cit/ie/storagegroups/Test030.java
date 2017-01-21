@@ -55,6 +55,7 @@ public class Test030 extends WebDriverManager{
 		pswpo.storageGroupNameTextField.sendKeys(sg64);
 		Thread.sleep(500);
 		Assert.assertTrue(pswpo.createSgRunNow.isEnabled(), "Run Now Button is Greyed in");
+		sgpo.quitWebDriver();
 	}
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 

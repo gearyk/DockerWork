@@ -34,6 +34,7 @@ public class Test029 extends WebDriverManager{
 		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		//NO INFORMATION PASSED TO TEST
 		Assert.assertFalse(pswpo.nextPageButton.isEnabled(), "Next Page Button is Greyed out");
+		sgpo.quitWebDriver();
 	}
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 

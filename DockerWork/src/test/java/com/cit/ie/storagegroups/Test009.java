@@ -47,8 +47,10 @@ public class Test009 extends WebDriverManager{
 		setVolumeInformation(pswpo,"1","1","GB");
 		pswpo.createSgRunNow.click();
 		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 		HelperMethods.printTimeFinish("TEST009");
+		
 	}
 	
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************

@@ -61,6 +61,7 @@ public class Test038 extends WebDriverManager{
 		Assert.assertTrue(cspo.csgSrp2Button.isDisplayed());
 		Assert.assertTrue(cspo.csgDeafultSRPButton.isDisplayed());
 		Thread.sleep(5000);
+		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 		pswpo.verifyAndCleanup(sgName+"_1");
 		pswpo.verifyAndCleanup(sgName+"_2");

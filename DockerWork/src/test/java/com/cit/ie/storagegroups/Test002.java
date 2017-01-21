@@ -40,7 +40,7 @@ public class Test002 extends WebDriverManager{
 		setSrpInformation(pswpo,"default_srp");
 		pswpo.createSgRunNow.click();
 		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
-		Thread.sleep(5000);
+		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 		HelperMethods.printTimeFinish("TEST002");
 	}

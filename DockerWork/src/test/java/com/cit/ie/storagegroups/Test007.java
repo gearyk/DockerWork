@@ -48,6 +48,7 @@ public class Test007 extends WebDriverManager{
 		pswpo.persistCapacityCB.click();
 		pswpo.createSgRunNow.click();
 		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 		HelperMethods.printTimeFinish("TEST007");
 	}

@@ -60,6 +60,7 @@ public class Test023 extends WebDriverManager{
 		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
 		Thread.sleep(3000);
 		Assert.assertTrue(pswpo.errorSGAlreadyExists.isDisplayed());
+		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgNameTaken);
 		pswpo.verifyAndCleanup(sgName);
 	}

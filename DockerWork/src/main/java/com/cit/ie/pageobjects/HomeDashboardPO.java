@@ -59,6 +59,17 @@ public class HomeDashboardPO extends HelperMethods {
 		Thread.sleep(5000);
 	}
 	
+	//Quit the webdriver
+	public void quitWebDriver() throws InterruptedException{
+			Thread.sleep(1500);	
+			driver.quit();
+			Thread.sleep(3500);		
+		}
+	
+	
+	
+	
+	
 	
 }
 

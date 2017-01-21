@@ -23,9 +23,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.HttpCommandExecutor;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
@@ -76,39 +74,41 @@ public class WebDriverManager {
 		}
 	}
 
-	 public WebDriver getDriver()
-	    {
-//	        System.out.println(threadDriver);
-//	        if(threadDriver==null)
-//	        {
-//	            System.out.println("returning driver");
-//	            //return driver.get();
-//	        }
-//	        else
-//	        {
-	            //System.out.println("returning thread driver");
-	            return threadDriver.get();
-//	        }
-	    }
+	public WebDriver getDriver()
+	{
+		//	        System.out.println(threadDriver);
+		//	        if(threadDriver==null)
+		//	        {
+		//	            System.out.println("returning driver");
+		//	            //return driver.get();
+		//	        }
+		//	        else
+		//	        {
+		//System.out.println("returning thread driver");
+		return threadDriver.get();
+		//	        }
+	}
 
-	@AfterMethod
-	    public void closeBrowser() throws IOException {
-	        if(threadDriver!=null)
-	        {	
-	        	File scrFile = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
-	        	String SessionID=threadDriver.get().getSessionId().toString();
-	        	FileUtils.copyFile(scrFile, new File("c:\\screenshot\\screenshot_"+SessionID+".png"));
-	        	
-	        	System.out.println("Entering close broswer: ");	
-	            getDriver().quit();
-	            long id = Thread.currentThread().getId();
-	            System.out.println("Webdriver quit for thread: " + id);	
-	        }
-	        else
-	        {
-	           //driver.get().quit();
-	        }
-	 }
+	@AfterClass
+	public void closeBrowser() throws IOException {
+		// if(threadDriver!=null)
+		if(!getDriver().toString().contains("null"))
+		{   
+			System.out.println("Driver has not been closed. Take screenshot and close");
+			File scrFile = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
+			String SessionID=threadDriver.get().getSessionId().toString();
+			FileUtils.copyFile(scrFile, new File("c:\\screenshot\\screenshot_"+SessionID+".png"));
+
+			System.out.println("Browser Still Open: ");	
+			getDriver().quit();
+			long id = Thread.currentThread().getId();
+			System.out.println("Webdriver quit for thread: " + id);	
+		}
+		else
+		{
+			//driver.get().quit();
+		}
+	}
 
 	@SuppressWarnings("resource")
 	public void findRemote(RemoteWebDriver driver) throws IOException,JSONException {

@@ -21,7 +21,7 @@ public class Test027 extends WebDriverManager{
 
 	@Test
 	private void _027_CREATE_STORAGEGROUP_OVERPROVISION() throws JSONException, IOException, InterruptedException {
-		sgName="00DC28";
+		sgName="00DC27";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
@@ -45,6 +45,7 @@ public class Test027 extends WebDriverManager{
 		pswpo.createSgRunNow.click();
 		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
 		Thread.sleep(3000);
+		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 	}
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************

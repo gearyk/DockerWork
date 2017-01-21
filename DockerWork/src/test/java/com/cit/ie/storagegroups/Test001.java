@@ -37,6 +37,7 @@ public class Test001 extends WebDriverManager{
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		pswpo.createSgRunNow.click();
 		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 		HelperMethods.printTimeFinish("TEST001");
 	}

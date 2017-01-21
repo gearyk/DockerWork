@@ -40,6 +40,7 @@ public class Test032 extends WebDriverManager{
 		pswpo.sloListBox.click();
 		Thread.sleep(3000);
 		Assert.assertTrue(HelperMethods.assertElementNotPresent(threadDriver.get(), ProvisionStorageWizardPO.SL_SILVER));
+		sgpo.quitWebDriver();
 	}
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 

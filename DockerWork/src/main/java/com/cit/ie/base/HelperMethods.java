@@ -1,16 +1,12 @@
 package com.cit.ie.base;
 
-import java.io.File;
-import java.io.IOException;
+
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -106,6 +102,11 @@ public class HelperMethods extends WebDriverManager {
 		//CLEANUP
 		RESTClient.DELETE(baseURL+sgName);
 		//RESTClient.printResponses();
+		if(!(RESTClient.responseStatus==204)){
+			Thread.sleep(2000);
+			RESTClient.DELETE(baseURL+sgName);
+			Assert.assertEquals(RESTClient.responseStatus,204);
+		}
 		Assert.assertEquals(RESTClient.responseStatus,204);
 		Thread.sleep(2000);
 	}

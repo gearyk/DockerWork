@@ -48,7 +48,7 @@ public class Test021 extends WebDriverManager{
 		pswpo.allocateCapacityCB.click();
 		pswpo.createSgRunNow.click();
 		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
-		Thread.sleep(3000);
+		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 	}
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
