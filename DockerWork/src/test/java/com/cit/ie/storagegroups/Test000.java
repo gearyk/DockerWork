@@ -30,7 +30,7 @@ public class Test000 extends WebDriverManager{
 		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
 		sgpo.waitForStorageGroupsPageObjects();
 		Assert.assertTrue(sgpo.createStorageGroupButton.isDisplayed());
-		Assert.assertTrue(sgpo.deleteStorageGroupButton.isDisplayed());
+		//Assert.assertTrue(sgpo.deleteStorageGroupButton.isDisplayed());
 		Assert.assertTrue(sgpo.editStorageGroupButton.isDisplayed());
 		Assert.assertTrue(sgpo.storageGroupPageTitle.isDisplayed());
 		HelperMethods.printTimeFinish("TEST000");

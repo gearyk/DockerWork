@@ -42,9 +42,11 @@ public class Test005 extends WebDriverManager{
 		setSloInformation(pswpo,"None");
 		//SET WORKLOAD
 		//Leave as Unspecified
-		pswpo.editStorageGroupIcon.click();
+		//pswpo.editStorageGroupIcon.click();
+		pswpo.selectRunMethodMenu.click();
+		Thread.sleep(3000);
 		pswpo.createSgRunNow.click();
-		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+		sgpo.waitForElementToDisappear(pswpo.TASK_IN_PROCESS_XPATH);
 		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 		HelperMethods.printTimeFinish("TEST005");

@@ -1,6 +1,7 @@
 package com.cit.ie.pageobjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,9 +23,10 @@ public class LoginPagePO extends HelperMethods
 		driver = wdriver;
 		wait = new WebDriverWait(driver, timeOut);
 		driver.manage().window().maximize();
-		//driver.manage().window().setSize(new Dimension(1920, 1080));
+		driver.manage().window().setSize(new Dimension(1920, 1080));
 		System.out.println("Window size = "+driver.manage().window().getSize());
-		driver.get("https://10.73.28.70:8443/univmax/jsclient/#/login");
+		//driver.get("https://10.73.28.71:8443/univmax/jsclient/#/login");
+		driver.get("https://10.73.28.70:8443/univmax");
 		PageFactory.initElements(driver, this);
 		//System.out.println("Initialise LoginPO");
 	}

@@ -44,8 +44,10 @@ public class Test022 extends WebDriverManager{
 		setCSGRowInformation(pswpo,"Diamond","OLTP","MB","4","6");
 		pswpo.editStorageGroupIcon.click();
 		pswpo.allocateCapacityCB.click();
+		pswpo.selectRunMethodMenu.click();
+		Thread.sleep(3000);
 		pswpo.createSgRunNow.click();
-		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
+		sgpo.waitForElementToDisappear(pswpo.TASK_IN_PROCESS_XPATH);
 		Thread.sleep(3000);
 		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);

@@ -46,8 +46,12 @@ public class Test007 extends WebDriverManager{
 		pswpo.editStorageGroupIcon.click();
 		pswpo.allocateCapacityCB.click();
 		pswpo.persistCapacityCB.click();
+		pswpo.applyEditSGOptionsButton.click();
+		Thread.sleep(3000);
+		pswpo.selectRunMethodMenu.click();
+		Thread.sleep(3000);
 		pswpo.createSgRunNow.click();
-		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+		sgpo.waitForElementToDisappear(pswpo.TASK_IN_PROCESS_XPATH);
 		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 		HelperMethods.printTimeFinish("TEST007");

@@ -41,8 +41,10 @@ public class Test003 extends WebDriverManager{
 		pswpo.volumeSize.click();
 		pswpo.volumeSize.clear();
 		pswpo.volumeSize.sendKeys("12");
+		pswpo.selectRunMethodMenu.click();
+		Thread.sleep(3000);
 		pswpo.createSgRunNow.click();
-		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+		sgpo.waitForElementToDisappear(pswpo.TASK_IN_PROCESS_XPATH);
 		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 		HelperMethods.printTimeFinish("TEST003");

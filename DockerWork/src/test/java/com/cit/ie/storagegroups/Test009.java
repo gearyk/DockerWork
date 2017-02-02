@@ -45,8 +45,10 @@ public class Test009 extends WebDriverManager{
 		setWorkloadInformation(pswpo,"oltp");
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","1","GB");
+		pswpo.selectRunMethodMenu.click();
+		Thread.sleep(3000);
 		pswpo.createSgRunNow.click();
-		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+		sgpo.waitForElementToDisappear(pswpo.TASK_IN_PROCESS_XPATH);
 		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 		HelperMethods.printTimeFinish("TEST009");

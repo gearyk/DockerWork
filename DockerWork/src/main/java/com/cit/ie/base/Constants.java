@@ -62,6 +62,7 @@ public class Constants extends Assert
 	public static final int VOLUME_LENGTH = 5;
 	public static final String BASE_REST_URL="/univmax/restapi/sloprovisioning/symmetrix/";
 	public static final String RETRIEVING ="//div[@aria-hidden='false']//div[text()='Retrieving data']";
+	public static final String PAGE_LOADING=".//div[@id='loadingModal' and @class='loadingContainer layout-fill ng-scope layout-align-center-center layout-row']";
 	public static final String BAD_LOGIN_XPATH=".//*/span[text()='Error Logging In']";
 
 }

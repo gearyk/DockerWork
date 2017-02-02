@@ -31,12 +31,15 @@ public class Test001 extends WebDriverManager{
 		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
 		sgpo.waitForStorageGroupsPageObjects();
 		sgpo.createStorageGroupButton.click();
+		sgpo.waitForElementToDisappear(Constants.PAGE_LOADING);
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
 		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.storageGroupNameTextField.click();
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		pswpo.selectRunMethodMenu.click();
+		Thread.sleep(3000);
 		pswpo.createSgRunNow.click();
-		sgpo.waitForElementToDisappear(Constants.RETRIEVING);
+		sgpo.waitForElementToDisappear(pswpo.TASK_IN_PROCESS_XPATH);
 		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 		HelperMethods.printTimeFinish("TEST001");

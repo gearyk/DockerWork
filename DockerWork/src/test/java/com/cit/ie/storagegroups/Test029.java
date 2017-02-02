@@ -1,12 +1,12 @@
 package com.cit.ie.storagegroups;
 
-
 import java.io.IOException;
 
 import org.json.JSONException;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.cit.ie.base.Constants;
+import com.cit.ie.base.HelperMethods;
 import com.cit.ie.base.WebDriverManager;
 import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
@@ -17,10 +17,12 @@ import com.cit.ie.pageobjects.StorageGroupsPO;
 public class Test029 extends WebDriverManager{
 
 	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
-	protected String sgName;	
+	private String sgName;
+	
 
-	@Test
-	private void _029_CREATE_STORAGEGROUP_NEGATIVE_CANNOT_MOVE_TO_NEXT_PAGE_WITH_INVALID_DATA() throws JSONException, IOException, InterruptedException {
+	@Test(priority=2)
+	private void _029_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE_ALLOCTRUE() throws JSONException, IOException, InterruptedException {
+		HelperMethods.printTimeStart("Test029");
 		sgName="00DC29";
 		if(threadDriver!=null)
 		{
@@ -32,10 +34,30 @@ public class Test029 extends WebDriverManager{
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
 		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
-		//NO INFORMATION PASSED TO TEST
-		Assert.assertFalse(pswpo.nextPageButton.isEnabled(), "Next Page Button is Greyed out");
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		Thread.sleep(2000);
+		//SET SRP
+		pswpo.srpListBox.click();
+		Thread.sleep(2000);
+		pswpo.noneSRP.click();
+		setSloInformation(pswpo,"None");
+		//SET WORKLOAD
+		//Leave as Unspecified
+		pswpo.editStorageGroupIcon.click();
+		pswpo.allocateCapacityCB.click();
+		pswpo.applyEditSGOptionsButton.click();
+		Thread.sleep(3000);
+		pswpo.selectRunMethodMenu.click();
+		Thread.sleep(3000);
+		pswpo.createSgRunNow.click();
+		sgpo.waitForElementToDisappear(pswpo.TASK_IN_PROCESS_XPATH);
 		sgpo.quitWebDriver();
+		pswpo.verifyAndCleanup(sgName);
+		HelperMethods.printTimeFinish("TEST029");
+		
 	}
+	
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 
 			/**
@@ -80,7 +102,7 @@ public class Test029 extends WebDriverManager{
 				}
 				Thread.sleep(3000);
 			}
-			
+	
 			/**
 			 * @author gearyk2
 			 * @param pswpo
@@ -119,85 +141,5 @@ public class Test029 extends WebDriverManager{
 				Thread.sleep(1500);
 			}
 			
-			/**
-			 * @author gearyk2
-			 * @param pswpo
-			 * @param numberOfVolumes
-			 * @param volumeSize
-			 * @param volumeUnit
-			 * @throws InterruptedException
-			 */
-			private void setVolumeInformation(ProvisionStorageWizardPO pswpo,String numberOfVolumes, String volumeSize, String volumeUnit) throws InterruptedException {
-				pswpo.numberOfVolumes.click();
-				Thread.sleep(1500);
-				pswpo.numberOfVolumes.clear();
-				pswpo.numberOfVolumes.sendKeys(numberOfVolumes);
-				pswpo.volumeUnit.click();
-				Thread.sleep(1500);
-				switch(volumeUnit.toLowerCase()){
-				case "gb":
-					pswpo.GB.click();
-					break;
-				case "mb":
-					pswpo.MB.click();
-					break;
-				case "tb":
-					pswpo.TB.click();
-					break;
-				case "cyl":
-					pswpo.CYL.click();
-					break;
-				default:
-					pswpo.GB.click();
-					break;
-				}
-				Thread.sleep(1500);
-				pswpo.volumeSize.click();
-				Thread.sleep(1500);
-				pswpo.volumeSize.clear();
-				pswpo.volumeSize.sendKeys(volumeSize);
-				Thread.sleep(1500);
-			}
-			
-			/**
-			 * @author gearyk2
-			 * @param pswpo
-			 * @param workload
-			 * @throws InterruptedException
-			 */
-			private void setWorkloadInformation(ProvisionStorageWizardPO pswpo,String workload) throws InterruptedException {
-				pswpo.workloadListBox.click();
-				Thread.sleep(1500);
-				switch(workload.toLowerCase()){
-				case "oltp":
-					pswpo.oltp.click();
-					break;
-				case "oltp_rep":
-					pswpo.oltp_rep.click();
-					break;
-				case "dss":
-					pswpo.dss.click();
-					break;
-				case "dss_rep":
-					pswpo.dss_rep.click();
-					break;
-				case "none":
-					pswpo.no_workload.click();
-					break;
-				default:
-					break;
-				}
-				Thread.sleep(1500);
-			}
-			
 }
-
-
-
-
-
-
-
-
-
 

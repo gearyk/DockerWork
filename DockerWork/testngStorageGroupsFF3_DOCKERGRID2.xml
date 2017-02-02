@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite verbose="1" name="SG Suite" parallel="tests" thread-count="10">
+<suite verbose="1" name="Docker Small Suite" parallel="tests" thread-count="16">
 	<test name="TEST0">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.60.141.28"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test000"/>
         	</classes>
     </test>
     <test name="TEST1">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.60.141.28"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test001"/>
         	</classes>
@@ -60,59 +60,59 @@
     </test>
      <test name="TEST8">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.41"/>
+    	<parameter name ="hubIP" value="10.60.141.27"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test008"/>
         	</classes>
     </test>
     <test name="TEST9">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.41"/>
+    	<parameter name ="hubIP" value="10.60.141.27"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test009"/>
         	</classes>
     </test>
-    <!-- test name="TEST10">
+    <test name="TEST10">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.47"/>
+    	<parameter name ="hubIP" value="10.60.141.27"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test010"/>
         	</classes>
     </test>
     <test name="TEST11">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.47"/>
+    	<parameter name ="hubIP" value="10.60.141.27"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test011"/>
         	</classes>
     </test>
     <test name="TEST12">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.47"/>
+    	<parameter name ="hubIP" value="10.60.141.28"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test012"/>
         	</classes>
     </test>
     <test name="TEST13">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.47"/>
+    	<parameter name ="hubIP" value="10.60.141.28"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test013"/>
         	</classes>
     </test>
     <test name="TEST14">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.47"/>
+    	<parameter name ="hubIP" value="10.73.29.43"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test014"/>
         	</classes>
     </test>
     <test name="TEST15">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.47"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test015"/>
         	</classes>
-    </test-->
+    </test>
    
 </suite>

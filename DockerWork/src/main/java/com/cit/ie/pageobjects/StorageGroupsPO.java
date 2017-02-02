@@ -20,13 +20,13 @@ public class StorageGroupsPO extends HomeDashboardPO {
 
 	//LOCATORS
 	//BUTTONS
-	public final String STORAGE_GROUPS_PAGE_TITLE_XPATH = ".//div[@data-view-id='StorageGroupListView']/div/div[text()='Storage Groups']";
+	public final String STORAGE_GROUPS_PAGE_TITLE_XPATH = "//u4v-breadcrumbs/div/div[text()='Storage Groups']";
 	public final String CREATE_STORAGE_GROUP_BUTTON_XPATH = ".//button[@aria-label='create']";
 	public final String EDIT_STORAGE_GROUP_BUTTON_XPATH=".//button[@aria-label='edit']";
-	public final String DELETE_STORAGE_GROUP_BUTTON_XPATH=".//button[@aria-label='delete']";
-	public final String MOREACTIONS_STORAGE_GROUP_BUTTON_XPATH=".//button[@aria-label='more_vert']";
-	public final String SEARCH_STORAGE_GROUP_BUTTON_XPATH=".//button[@aria-label='search']";
-	public final String FILTER_STORAGE_GROUP_BUTTON_XPATH=".//button[@aria-label='filter']";
+	public final String DELETE_STORAGE_GROUP_BUTTON_XPATH="//button/span[text()='Delete']";
+	public final String MOREACTIONS_STORAGE_GROUP_BUTTON_XPATH=".//button/md-icon[text()='more_vert']";
+	public final String SEARCH_STORAGE_GROUP_BUTTON_XPATH=".//button/md-icon[text()='search']";
+	public final String FILTER_STORAGE_GROUP_BUTTON_XPATH=".//button/md-icon[text()='filter_list']";
 	public final String VIEWDETAILS_STORAGE_GROUP_BUTTON_XPATH=".//button[@aria-label='view details']";
 	//COLUMN HEADERS
 	public final String STORAGEGROUP_HEADER_XPATH=".//span[text()='Storage Group']";
@@ -40,12 +40,13 @@ public class StorageGroupsPO extends HomeDashboardPO {
 	public final String ROW_WITG_SG_NAME="//div[text()='']/child::div";
 	public final String ROW_WITG_SG_NAME_COMPLIANCE="//div[text()='']/child::div";
 	//MOREACTIONS
-	public final String CHANGE_SRP_XPATH=".//button[@aria-label='Change SRP']";
-	public final String SET_IO_HOST_LIMITS_XPATH=".//button[@aria-label='Set Host I/O Limits']";
+	public final String CHANGE_SRP_XPATH="//button/span[text()='Change SRP']";
+	public final String SET_IO_HOST_LIMITS_XPATH="//button/span[text()='Set Host I/O Limits']";
 	//POPUPS
 	public final String DELETE_STORAGE_GROUP_POPUP_OK_BUTTON_XPATH="//button[@aria-label='OK Button']";
-	public final String SUCCESS_STORAGE_GROUP_DELETED_XPATH="//p[text()='Storage Group(s) Successfully deleted']";
-	public final String ACKNOWLEDGE_SUCCESS_STORAGE_GROUP_DELETED_XPATH="//button[@aria-label='OK']";
+	public final String SUCCESS_STORAGE_GROUP_DELETED_XPATH="//label[text()='Success']";
+	public final String ACKNOWLEDGE_SUCCESS_STORAGE_GROUP_DELETED_XPATH="//button/span[text()='Close']";
+	public final String TASK_IN_PROCESS_XPATH="//label[text()='Task in process...']";
 	//WEB ELEMENTS
 	//BUTTONS/ICONS
 	@FindBy(xpath=STORAGE_GROUPS_PAGE_TITLE_XPATH)
@@ -89,6 +90,9 @@ public class StorageGroupsPO extends HomeDashboardPO {
 	public WebElement successStorageGroupDeleted;
 	@FindBy(xpath=ACKNOWLEDGE_SUCCESS_STORAGE_GROUP_DELETED_XPATH)
 	public WebElement acknowledgeSGDeletedButton;
+	@FindBy(xpath=TASK_IN_PROCESS_XPATH)
+	public WebElement taskInProgressIcon;
+	
 	
 	public WebElement sgRow(String sgname){
 		return findByXPath(ROW_WITG_SG_NAME,sgname);	
@@ -112,7 +116,7 @@ public class StorageGroupsPO extends HomeDashboardPO {
 	//Wait for this page to load
 	public void waitForStorageGroupsPageObjects() throws InterruptedException{
 		try {
-			waitForElementToDisappear(Constants.RETRIEVING);
+			waitForElementToDisappear(Constants.PAGE_LOADING);
 			waitForElementClickability(CREATE_STORAGE_GROUP_BUTTON_XPATH);
 			waitForLoad();
 		} catch (Exception e) {

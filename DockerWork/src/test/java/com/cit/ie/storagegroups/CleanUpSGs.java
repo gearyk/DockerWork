@@ -12,6 +12,7 @@ public class CleanUpSGs extends RESTClient{
 	
 	public static void main(String[] args) throws InterruptedException{
 		
+		System.out.println("Clean Up SGs");
 		GET(baseURL);
 		String[] allStorageGroups=getReadableString(responseOutput, "storageGroupId").split(",");
 		for(int i=0;i<allStorageGroups.length;i++){

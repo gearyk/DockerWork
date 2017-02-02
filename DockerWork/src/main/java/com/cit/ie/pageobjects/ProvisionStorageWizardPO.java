@@ -65,12 +65,16 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO {
 	public final String ALLOC_CAPACITY="//md-checkbox[@aria-label='allocCapForVol']";
 		//	+ "/div[1]/div[@class='md-icon']";
 	public final String PERSIST_CAPACITY="//md-checkbox[@aria-label='persist']";
+	public final String EDIT_STORAGE_GROUP_APPLY_XPATH="//button/span[text()='Apply']";
+	
 	//BUTTONS
-	public final String CREATE_STORAGE_GROUP_RUN_NOW_BUTTON_XPATH="//section[@wz-title='Create Storage Group(s)']//button[text()='Run Now']";
+	public final String CREATE_STORAGE_GROUP_RUN_NOW_BUTTON_XPATH="//button/span[text()='Run Now']";
 	public final String CANCEL_STORAGE_GROUP_DIALOG_XPATH="//section[@wz-title='Create Storage Group(s)']//span[text()='CANCEL']";
 	public final String NEXT_PAGE_BUTTON_XPATH="//section[@wz-title='Create Storage Group(s)']//button[@aria-label='NEXT']";
 	public final String ADD_STORAGE_GROUP_BUTTON_XPATH="//button[@aria-label='Add Storage Group']";
 	public final String SET_IO_HOST_LIMITS_BUTTON_XPATH=".//button[@aria-label='Set Host I/O Limits']/span[@class='ng-scope']";
+	public final String SET_RUNNOW_MENU_XPATH="//button[text()='Add to Job List']/following-sibling::button";
+
 	//ERRORS
 	public final String SG_ALREADY_EXISTS="//p[text()=\"Error in Creating Storage Group '00DC23_1': Cannot use the specified name because it's already in use\"]";
 	public final String RETRIEVING ="//div[@aria-hidden='false']//div[text()='Retrieving data']";
@@ -97,6 +101,9 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO {
 	public WebElement nextPageButton;
 	@FindBy(xpath=RETRIEVING)
 	public WebElement retrievingData;
+	@FindBy(xpath=SET_RUNNOW_MENU_XPATH)
+	public WebElement selectRunMethodMenu;
+	
 	//SRP
 	@FindBy(xpath=SRP_LIST_BOX)
 	public WebElement srpListBox;
@@ -155,7 +162,10 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO {
 	@FindBy(xpath=ALLOC_CAPACITY)
 	public WebElement allocateCapacityCB;
 	@FindBy(xpath=PERSIST_CAPACITY)
-	public WebElement persistCapacityCB;	
+	public WebElement persistCapacityCB;
+	@FindBy(xpath=EDIT_STORAGE_GROUP_APPLY_XPATH)
+	public WebElement applyEditSGOptionsButton;
+	
 	
 	//*******************************  CASCADED STORAGE GROUPS ***********************************
 	//SERVICE LEVEL

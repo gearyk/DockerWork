@@ -1,12 +1,12 @@
 package com.cit.ie.storagegroups;
 
-
 import java.io.IOException;
 
 import org.json.JSONException;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.cit.ie.base.Constants;
+import com.cit.ie.base.HelperMethods;
 import com.cit.ie.base.WebDriverManager;
 import com.cit.ie.pageobjects.HomeDashboardPO;
 import com.cit.ie.pageobjects.LoginPagePO;
@@ -15,11 +15,14 @@ import com.cit.ie.pageobjects.StorageGroupsPO;
 
 @SuppressWarnings("static-access")
 public class Test028 extends WebDriverManager{
-	
-	String sgName;	
 
-	@Test
-	private void _028_CREATE_STORAGEGROUP_NEGATIVE_VERIFY_RUN_NOW_IS_GREYED_OUT() throws JSONException, IOException, InterruptedException {
+	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
+	private String sgName;
+	
+
+	@Test(priority=1)
+	private void _028_CREATE_STORAGEGROUP_EMPTYSETTOTRUE_SRPNONE_SLONONE_WLNONE() throws JSONException, IOException, InterruptedException {
+		HelperMethods.printTimeStart("Test028");
 		sgName="00DC28";
 		if(threadDriver!=null)
 		{
@@ -31,10 +34,24 @@ public class Test028 extends WebDriverManager{
 		sgpo.createStorageGroupButton.click();
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
 		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
-		//NO INFORMATION PASSED TO TEST
-		Assert.assertFalse(pswpo.createSgRunNow.isEnabled(), "Run Now Button is Greyed out");
+		pswpo.storageGroupNameTextField.click();
+		pswpo.storageGroupNameTextField.sendKeys(sgName);
+		Thread.sleep(2000);
+		//SET SRP
+		setSrpInformation(pswpo,"None");
+		setSloInformation(pswpo, "None");
+		//SET WORKLOAD
+		//Leave as Unspecified
+		pswpo.selectRunMethodMenu.click();
+		Thread.sleep(3000);
+		pswpo.createSgRunNow.click();
+		sgpo.waitForElementToDisappear(pswpo.TASK_IN_PROCESS_XPATH);
 		sgpo.quitWebDriver();
+		pswpo.verifyAndCleanup(sgName);
+		HelperMethods.printTimeFinish("TEST028");
+		
 	}
+	
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 
 			/**
@@ -80,6 +97,8 @@ public class Test028 extends WebDriverManager{
 				Thread.sleep(3000);
 			}
 			
+
+			
 			/**
 			 * @author gearyk2
 			 * @param pswpo
@@ -118,85 +137,5 @@ public class Test028 extends WebDriverManager{
 				Thread.sleep(1500);
 			}
 			
-			/**
-			 * @author gearyk2
-			 * @param pswpo
-			 * @param numberOfVolumes
-			 * @param volumeSize
-			 * @param volumeUnit
-			 * @throws InterruptedException
-			 */
-			private void setVolumeInformation(ProvisionStorageWizardPO pswpo,String numberOfVolumes, String volumeSize, String volumeUnit) throws InterruptedException {
-				pswpo.numberOfVolumes.click();
-				Thread.sleep(1500);
-				pswpo.numberOfVolumes.clear();
-				pswpo.numberOfVolumes.sendKeys(numberOfVolumes);
-				pswpo.volumeUnit.click();
-				Thread.sleep(1500);
-				switch(volumeUnit.toLowerCase()){
-				case "gb":
-					pswpo.GB.click();
-					break;
-				case "mb":
-					pswpo.MB.click();
-					break;
-				case "tb":
-					pswpo.TB.click();
-					break;
-				case "cyl":
-					pswpo.CYL.click();
-					break;
-				default:
-					pswpo.GB.click();
-					break;
-				}
-				Thread.sleep(1500);
-				pswpo.volumeSize.click();
-				Thread.sleep(1500);
-				pswpo.volumeSize.clear();
-				pswpo.volumeSize.sendKeys(volumeSize);
-				Thread.sleep(1500);
-			}
-			
-			/**
-			 * @author gearyk2
-			 * @param pswpo
-			 * @param workload
-			 * @throws InterruptedException
-			 */
-			private void setWorkloadInformation(ProvisionStorageWizardPO pswpo,String workload) throws InterruptedException {
-				pswpo.workloadListBox.click();
-				Thread.sleep(1500);
-				switch(workload.toLowerCase()){
-				case "oltp":
-					pswpo.oltp.click();
-					break;
-				case "oltp_rep":
-					pswpo.oltp_rep.click();
-					break;
-				case "dss":
-					pswpo.dss.click();
-					break;
-				case "dss_rep":
-					pswpo.dss_rep.click();
-					break;
-				case "none":
-					pswpo.no_workload.click();
-					break;
-				default:
-					break;
-				}
-				Thread.sleep(1500);
-			}
-			
 }
-
-
-
-
-
-
-
-
-
 

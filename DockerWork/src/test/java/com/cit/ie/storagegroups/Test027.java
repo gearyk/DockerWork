@@ -42,8 +42,10 @@ public class Test027 extends WebDriverManager{
 		//Leave as Unspecified/NONE
 		//SET VOLUME INFO
 		setVolumeInformation(pswpo,"1","999999","MB");
+		pswpo.selectRunMethodMenu.click();
+		Thread.sleep(3000);
 		pswpo.createSgRunNow.click();
-		pswpo.waitForElementToDisappear(Constants.RETRIEVING);
+		sgpo.waitForElementToDisappear(pswpo.TASK_IN_PROCESS_XPATH);
 		Thread.sleep(3000);
 		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);

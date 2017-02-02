@@ -21,7 +21,7 @@ public class HelperMethods extends WebDriverManager {
 	public WebDriver driver;
 	protected int timeOut = 500;
 	public WebDriverWait wait;
-	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
+	private String baseURL="https://10.73.28.70:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
 
 	//@SuppressWarnings("static-access")
 	public HelperMethods(WebDriver adriver){
@@ -32,7 +32,7 @@ public class HelperMethods extends WebDriverManager {
 	}
 
 	public void waitForElementVisiblity(String xpath) throws InterruptedException{
-		wait=new WebDriverWait(driver, 120, 4000);
+		wait=new WebDriverWait(driver, 180, 4000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 		//System.out.println("Element is visible");
 		Thread.sleep(8000);
