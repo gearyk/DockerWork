@@ -72,7 +72,7 @@
             	<class name ="com.cit.ie.storagegroups.Test009"/>
         	</classes>
     </test>
-    <test name="TEST10">
+    <!-->test name="TEST10">
    		<parameter name ="browser" value="firefox"/>
     	<parameter name ="hubIP" value="10.73.29.47"/>
         	<classes>
@@ -113,6 +113,6 @@
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test015"/>
         	</classes>
-    </test>
+    </test-->
    
 </suite>

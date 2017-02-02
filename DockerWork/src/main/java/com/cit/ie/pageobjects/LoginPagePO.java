@@ -24,7 +24,7 @@ public class LoginPagePO extends HelperMethods
 		driver.manage().window().maximize();
 		//driver.manage().window().setSize(new Dimension(1920, 1080));
 		System.out.println("Window size = "+driver.manage().window().getSize());
-		driver.get("https://10.73.28.71:8443/univmax/jsclient/#/login");
+		driver.get("https://10.73.28.70:8443/univmax/jsclient/#/login");
 		PageFactory.initElements(driver, this);
 		//System.out.println("Initialise LoginPO");
 	}
