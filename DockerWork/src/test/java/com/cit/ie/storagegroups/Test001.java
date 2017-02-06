@@ -3,6 +3,7 @@ package com.cit.ie.storagegroups;
 import java.io.IOException;
 
 import org.json.JSONException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
 import com.cit.ie.base.Constants;
@@ -27,40 +28,23 @@ public class Test001 extends WebDriverManager{
 		{
 			findRemote(threadDriver.get());
 		}
-		gotoStorageGroupsPage();
+		LoginPagePO lppo=new LoginPagePO(getDriver());
+		lppo.gotoStorageGroupsPage(lppo);
 		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
 		sgpo.waitForStorageGroupsPageObjects();
-		sgpo.createStorageGroupButton.click();
-		sgpo.waitForElementToDisappear(Constants.PAGE_LOADING);
+		sgpo.jsClickElement(sgpo.createStorageGroupButton);
+		
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
 		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
-		pswpo.storageGroupNameTextField.click();
+		pswpo.jsClickElement(pswpo.storageGroupNameTextField);
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
-		pswpo.selectRunMethodMenu.click();
+		pswpo.jsClickElement(pswpo.selectRunMethodMenu);
 		Thread.sleep(3000);
-		pswpo.createSgRunNow.click();
+		pswpo.jsClickElement(pswpo.createSgRunNow);
 		sgpo.waitForElementToDisappear(pswpo.TASK_IN_PROCESS_XPATH);
 		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
 		HelperMethods.printTimeFinish("TEST001");
 	}
-	//********************************* HELPER METHODS FOR THIS CLASS *********************************
-
-		/**
-		 * @author gearyk2
-		 * @description Navigate to Storage Groups Page
-		 * @throws InterruptedException
-		 */
-		private void gotoStorageGroupsPage() throws InterruptedException {
-			LoginPagePO lppo=new LoginPagePO(getDriver());
-			lppo.waitForLoginPageObjects();
-			lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
-			Thread.sleep(5000);
-			HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
-			Thread.sleep(5000);
-			hdpo.waitForHomeDashboardPageObjects();
-			hdpo.navigateToStorageGroups();
-
-		}
 
 }

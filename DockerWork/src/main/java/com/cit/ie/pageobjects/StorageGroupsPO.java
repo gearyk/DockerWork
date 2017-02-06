@@ -1,6 +1,18 @@
 package com.cit.ie.pageobjects;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import javax.imageio.ImageIO;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,7 +33,7 @@ public class StorageGroupsPO extends HomeDashboardPO {
 	//LOCATORS
 	//BUTTONS
 	public final String STORAGE_GROUPS_PAGE_TITLE_XPATH = "//u4v-breadcrumbs/div/div[text()='Storage Groups']";
-	public final String CREATE_STORAGE_GROUP_BUTTON_XPATH = ".//button[@aria-label='create']";
+	public final String CREATE_STORAGE_GROUP_BUTTON_XPATH = "//span[text()='Provision']/parent::button/preceding-sibling::button[@aria-label='create']";
 	public final String EDIT_STORAGE_GROUP_BUTTON_XPATH=".//button[@aria-label='edit']";
 	public final String DELETE_STORAGE_GROUP_BUTTON_XPATH="//button/span[text()='Delete']";
 	public final String MOREACTIONS_STORAGE_GROUP_BUTTON_XPATH=".//button/md-icon[text()='more_vert']";
@@ -92,16 +104,16 @@ public class StorageGroupsPO extends HomeDashboardPO {
 	public WebElement acknowledgeSGDeletedButton;
 	@FindBy(xpath=TASK_IN_PROCESS_XPATH)
 	public WebElement taskInProgressIcon;
-	
-	
+
+
 	public WebElement sgRow(String sgname){
 		return findByXPath(ROW_WITG_SG_NAME,sgname);	
 	}
-	
+
 	public WebElement sgRowCompliance(String sgname){
 		return findByXPath(ROW_WITG_SG_NAME_COMPLIANCE,sgname);	
 	}
-	
+
 	/**
 	 * @author gearyk2
 	 * @param xpath
@@ -119,6 +131,55 @@ public class StorageGroupsPO extends HomeDashboardPO {
 			waitForElementToDisappear(Constants.PAGE_LOADING);
 			waitForElementClickability(CREATE_STORAGE_GROUP_BUTTON_XPATH);
 			waitForLoad();
+			int count=0;
+			if (driver.findElements( By.xpath("//div[@modal-animation='true' and @window-class='loading-window']") ).size() != 0)
+			{	
+				count++;
+				System.out.println("PAGE LOADING MODAL" +count);	
+				System.out.println("modal element size "+driver.findElements( By.xpath("//div[@modal-animation='true' and @window-class='loading-window']") ).size());
+				
+				List<WebElement> allLinks = driver.findElements(By.xpath("//div[@modal-animation='true' and @window-class='loading-window']"));
+				Iterator<WebElement> itr = allLinks.iterator();	
+				while(itr.hasNext()) {
+					WebElement w=itr.next();
+					System.out.println("location and size "+w.getRect());
+					Thread.sleep(1000);
+					System.out.println("location "+w.getLocation());
+					Thread.sleep(1000);
+					System.out.println("getText "+w.getText());
+					Thread.sleep(1000);
+					System.out.println("isDisplayed "+w.isDisplayed());
+					Thread.sleep(1000);
+					System.out.println("isEnabled "+w.isEnabled());
+					Thread.sleep(1000);
+					File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+					//Retrieve width of element.
+					int ImageWidth = w.getSize().getWidth();
+					//Retrieve height of element.
+					int ImageHeight = w.getSize().getHeight();  
+
+					//Used selenium Point class to get x y coordinates of Image element.
+					//get location(x y coordinates) of the element.
+					Point point = w.getLocation();
+					int xcord = point.getX();
+					int ycord = point.getY();
+
+					//Reading full image screenshot.
+					BufferedImage img = ImageIO.read(scrFile);
+
+					//cut Image using height, width and x y coordinates parameters.
+					BufferedImage dest = img.getSubimage(xcord, ycord, ImageWidth, ImageHeight);
+					ImageIO.write(dest, "png", scrFile);
+					//Used FileUtils class of apache.commons.io.
+
+					FileUtils.copyFile(scrFile, new File("c:\\screenshot\\screenshot_MODDAL"+count+".png"));
+				}
+				waitForElementToDisappear("//div[@modal-animation='true' and @window-class='loading-window']");
+				System.out.println("PAGE LOADING MODAL GONE");
+			}
+			
+			
+			Thread.sleep(5000);
 		} catch (Exception e) {
 			e.printStackTrace();
 			e.getMessage();

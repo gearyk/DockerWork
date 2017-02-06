@@ -36,9 +36,4 @@ public class Test000 extends WebDriverManager{
 		HelperMethods.printTimeFinish("TEST000");
 	}
 
-	//********************************* HELPER METHODS FOR THIS CLASS *********************************
-
-
-
-
 	}

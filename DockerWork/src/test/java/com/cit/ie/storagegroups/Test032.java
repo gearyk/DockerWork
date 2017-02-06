@@ -28,22 +28,23 @@ public class Test032 extends WebDriverManager{
 		{
 			findRemote(threadDriver.get());
 		}
-		gotoStorageGroupsPage();
+		LoginPagePO lppo=new LoginPagePO(getDriver());
+		lppo.gotoStorageGroupsPage(lppo);
 		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
 		sgpo.waitForStorageGroupsPageObjects();
-		sgpo.createStorageGroupButton.click();
+		sgpo.jsClickElement(sgpo.createStorageGroupButton);
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
 		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
-		pswpo.storageGroupNameTextField.click();
+		pswpo.jsClickElement(pswpo.storageGroupNameTextField);
 		pswpo.storageGroupNameTextField.sendKeys(sgName);
 		Thread.sleep(2000);
-		setSrpInformation(pswpo,"GOLD");
-		pswpo.volumeSize.click();
+		pswpo.setSrpInformation(pswpo,"GOLD");
+		pswpo.jsClickElement(pswpo.volumeSize);
 		pswpo.volumeSize.clear();
 		pswpo.volumeSize.sendKeys("12");
-		pswpo.selectRunMethodMenu.click();
+		pswpo.jsClickElement(pswpo.selectRunMethodMenu);
 		Thread.sleep(3000);
-		pswpo.createSgRunNow.click();
+		pswpo.jsClickElement(pswpo.createSgRunNow);
 		sgpo.waitForElementToDisappear(pswpo.TASK_IN_PROCESS_XPATH);
 		sgpo.quitWebDriver();
 		pswpo.verifyAndCleanup(sgName);
@@ -52,48 +53,5 @@ public class Test032 extends WebDriverManager{
 	
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 
-			/**
-			 * @author gearyk2
-			 * @description Navigate to Storage Groups Page
-			 * @throws InterruptedException
-			 */
-			private void gotoStorageGroupsPage() throws InterruptedException {
-				LoginPagePO lppo=new LoginPagePO(getDriver());
-				lppo.waitForLoginPageObjects();
-				lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
-				Thread.sleep(5000);
-				HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
-				Thread.sleep(5000);
-				hdpo.waitForHomeDashboardPageObjects();
-				hdpo.navigateToStorageGroups();
 
-			}
-			
-			/**
-			 * @author gearyk2
-			 * @param pswpo
-			 * @param srp
-			 * @throws InterruptedException
-			 */
-			private void setSrpInformation(ProvisionStorageWizardPO pswpo,String srp) throws InterruptedException {
-				pswpo.srpListBox.click();
-				Thread.sleep(2000);
-				switch(srp.toLowerCase()){
-				case "default_srp":
-					pswpo.defaultSRP.click();
-					break;
-				case "srp_2":
-					pswpo.srp2SRP.click();
-					break;
-				case "none":
-					pswpo.noneSRP.click();
-					break;
-				default:
-					pswpo.noneSRP.click();
-					break;
-				}
-				Thread.sleep(3000);
-			}
-			
-	
 }

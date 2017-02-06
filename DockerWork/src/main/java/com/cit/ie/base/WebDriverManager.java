@@ -15,6 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -60,6 +61,7 @@ public class WebDriverManager {
 			cap.setCapability("marionette", false); 
 			cap.setCapability(FirefoxDriver.PROFILE, new FirefoxProfile()); 
 			cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+			cap.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR,UnexpectedAlertBehaviour.ACCEPT);
 			String Node = "http://"+hubIP+":4444/wd/hub";
 			threadDriver = new ThreadLocal<RemoteWebDriver>();
 			threadDriver.set(new RemoteWebDriver(new URL(Node), cap));
