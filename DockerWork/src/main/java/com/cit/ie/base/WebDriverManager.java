@@ -39,10 +39,14 @@ public class WebDriverManager {
 
 	protected ThreadLocal<RemoteWebDriver> threadDriver = null;
 	//public ThreadLocal<WebDriver> driver=null;
+	public static String appURL;
 
-	@Parameters({"browser","hubIP"})
+	@Parameters({"browser","hubIP","applicationURL"})
 	@BeforeClass()
-	public void launchbrowser(@Optional("firefox")String browser,@Optional("10.73.28.229")String hubIP) throws MalformedURLException, InterruptedException {
+	public void launchbrowser(@Optional("firefox")String browser,@Optional("10.73.28.229")String hubIP,@Optional("https://10.73.28.70:8443/univmax") String applicationURL) throws MalformedURLException, InterruptedException {
+		
+		appURL=applicationURL;
+		System.out.println("Setting URL to : "+appURL);
 		if (browser.equalsIgnoreCase("chrome")) {
 			System.out.println(" Executing on CHROME");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
@@ -74,6 +78,10 @@ public class WebDriverManager {
 			//driver.set(new ChromeDriver());
 			System.out.println("in webdriver manager setup Chrome driver");
 		}
+	}
+	
+	public String getApplicationURL(){
+		return appURL;
 	}
 
 	public WebDriver getDriver()

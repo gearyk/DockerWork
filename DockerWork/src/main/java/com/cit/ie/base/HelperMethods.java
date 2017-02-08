@@ -36,6 +36,8 @@ public class HelperMethods extends WebDriverManager {
 			((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
 		} catch (UnhandledAlertException e) {
             System.err.println("Caught UnhandledAlertException in Helper Constructor: RETRYING");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
             driver=adriver;
             new WebDriverWait(driver, timeOut).until((ExpectedCondition<Boolean>) wd ->
 			((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
@@ -104,7 +106,7 @@ public class HelperMethods extends WebDriverManager {
 			Thread.sleep(3500);
 		} catch (UnhandledAlertException e) {
             System.err.println("Caught UnhandledAlertException in Wait for Element to disappear: RETRYING"); 
-            wait=new WebDriverWait(driver,800,4000);
+            wait=new WebDriverWait(driver,400,4000);
             driver.switchTo().alert().accept();
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(text)));
 			Thread.sleep(3500);

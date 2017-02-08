@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import com.cit.ie.base.HelperMethods;
 
@@ -18,7 +20,9 @@ import com.cit.ie.base.HelperMethods;
  */
 public class LoginPagePO extends HelperMethods
 {
+	
 	public LoginPagePO(WebDriver wdriver) throws InterruptedException {
+		
 		super(wdriver);
 		driver = wdriver;
 		wait = new WebDriverWait(driver, timeOut);
@@ -26,9 +30,9 @@ public class LoginPagePO extends HelperMethods
 		driver.manage().window().setSize(new Dimension(1920, 1080));
 		System.out.println("Window size = "+driver.manage().window().getSize());
 		//driver.get("https://10.73.28.71:8443/univmax/jsclient/#/login");
-		driver.get("https://10.73.28.70:8443/univmax");
+		//driver.get("https://10.73.28.70:8443/univmax");
+		driver.get(this.appURL);
 		PageFactory.initElements(driver, this);
-		//System.out.println("Initialise LoginPO");
 	}
 
 	//LOCATORS

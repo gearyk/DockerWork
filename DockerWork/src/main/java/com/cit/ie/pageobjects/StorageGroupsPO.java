@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
@@ -124,6 +125,10 @@ public class StorageGroupsPO extends HomeDashboardPO {
 		WebElement element = driver.findElement(By.xpath(xpath.replace("//div[text()='","//div[text()='"+sgname)));
 		return element;
 	}
+	
+	public String getElementXPath(WebDriver driver, WebElement element) {
+	    return (String)((JavascriptExecutor)driver).executeScript("gPt=function(c){if(c.id!==''){return'id(\"'+c.id+'\")'}if(c===document.body){return c.tagName}var a=0;var e=c.parentNode.childNodes;for(var b=0;b<e.length;b++){var d=e[b];if(d===c){return gPt(c.parentNode)+'/'+c.tagName+'['+(a+1)+']'}if(d.nodeType===1&&d.tagName===c.tagName){a++}}};return gPt(arguments[0]).toLowerCase();", element);
+	}
 
 	//Wait for this page to load
 	public void waitForStorageGroupsPageObjects() throws InterruptedException{
@@ -136,6 +141,7 @@ public class StorageGroupsPO extends HomeDashboardPO {
 			{	
 				count++;
 				System.out.println("PAGE LOADING MODAL" +count);	
+				
 				System.out.println("modal element size "+driver.findElements( By.xpath("//div[@modal-animation='true' and @window-class='loading-window']") ).size());
 				
 				List<WebElement> allLinks = driver.findElements(By.xpath("//div[@modal-animation='true' and @window-class='loading-window']"));
@@ -143,6 +149,8 @@ public class StorageGroupsPO extends HomeDashboardPO {
 				while(itr.hasNext()) {
 					WebElement w=itr.next();
 					System.out.println("location and size "+w.getRect());
+					Thread.sleep(1000);
+					System.out.println(getElementXPath(driver,w));
 					Thread.sleep(1000);
 					System.out.println("location "+w.getLocation());
 					Thread.sleep(1000);
