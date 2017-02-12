@@ -15,6 +15,7 @@ public class L3 extends WebDriverManager {
 	@SuppressWarnings("static-access")
 	@Test
 	private void _003LoginWithIncorrectCaseOnUsernameNEG() throws JSONException, IOException, InterruptedException {
+		String sgName="L03";
 		long id = Thread.currentThread().getId();
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Test3. Thread id is: " + id + " :: thread driver get = "+threadDriver.get());
@@ -27,7 +28,7 @@ public class L3 extends WebDriverManager {
 		Thread.sleep(5000);
 		LoginPagePO po=PageFactory.initElements(getDriver(),LoginPagePO.class);
 		po.waitForLoginPageObjects();
-		po.doLogin("smC","smc");
+		po.doLogin("smc","smc",sgName);
 		po.waitForElementVisiblity(po.BAD_LOGIN_XPATH);
 		Assert.assertTrue(po.errorLoggingIn.getText().contains("Error Logging In"));
 	}

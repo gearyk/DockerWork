@@ -18,6 +18,7 @@ public class LoginPageTests extends WebDriverManager {
 
 	@Test
 	private void _001VerifyExistanceOfPageElements() throws JSONException, IOException, InterruptedException {
+		String sgName="L01";
 		long id = Thread.currentThread().getId();
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Test1. Thread id is: " + id+ " :: thread driver get = "+threadDriver.get());
@@ -42,6 +43,7 @@ public class LoginPageTests extends WebDriverManager {
 
 	@Test
 	private void _002LoginWithDefaults() throws JSONException, IOException, InterruptedException {
+		String sgName="L02";
 		long id = Thread.currentThread().getId();
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Test2. Thread id is: " + id+ " :: thread driver get = "+threadDriver.get());
@@ -53,7 +55,7 @@ public class LoginPageTests extends WebDriverManager {
 		getDriver().get("https://10.73.28.71:8443/univmax/jsclient/#/login");
 		LoginPagePO po=PageFactory.initElements(getDriver(),LoginPagePO.class);
 		po.waitForLoginPageObjects();
-		po.doLogin("smc","smc");
+		po.doLogin("smc","smc",sgName);
 		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 		hdpo.waitForHomeDashboardPageObjects();
 		Assert.assertTrue(hdpo.u4vLogo.isDisplayed());
@@ -62,6 +64,7 @@ public class LoginPageTests extends WebDriverManager {
 	@SuppressWarnings("static-access")
 	@Test
 	private void _003LoginWithIncorrectCaseOnUsernameNEG() throws JSONException, IOException, InterruptedException {
+		String sgName="L03";
 		long id = Thread.currentThread().getId();
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Test3. Thread id is: " + id + " :: thread driver get = "+threadDriver.get());
@@ -73,7 +76,7 @@ public class LoginPageTests extends WebDriverManager {
 		getDriver().get("https://10.73.28.71:8443/univmax/jsclient/#/login");
 		LoginPagePO po=PageFactory.initElements(getDriver(),LoginPagePO.class);
 		po.waitForLoginPageObjects();
-		po.doLogin("smC","smc");
+		po.doLogin("smc","smc",sgName);
 		po.waitForElementVisiblity(po.BAD_LOGIN_XPATH);
 		Assert.assertTrue(po.errorLoggingIn.getText().contains("Error Logging In"));
 	}
@@ -83,13 +86,14 @@ public class LoginPageTests extends WebDriverManager {
 	@Test
 	@SuppressWarnings({ "static-access" })
 	private void _004LoginWithIncorrectCaseOnPasswordNEG() throws JSONException, IOException, InterruptedException {
+		String sgName="L04";
 		long id = Thread.currentThread().getId();
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Test4. Thread id is: " + id);
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		LoginPagePO po=PageFactory.initElements(getDriver(),LoginPagePO.class);
 		po.waitForLoginPageObjects();
-		po.doLogin("smc","smC");
+		po.doLogin("smc","smC",sgName);
 		po.waitForElementVisiblity(po.BAD_LOGIN_XPATH);
 		Assert.assertTrue(po.errorLoggingIn.getText().contains("Error Logging In"));
 	}
@@ -97,13 +101,14 @@ public class LoginPageTests extends WebDriverManager {
 	@Test
 	@SuppressWarnings({ "static-access" })
 	private void _005LoginWithIncorrectUsernameNEG() throws JSONException, IOException, InterruptedException {
+		String sgName="L05";
 		long id = Thread.currentThread().getId();
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Test5. Thread id is: " + id);
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		LoginPagePO po=PageFactory.initElements(getDriver(),LoginPagePO.class);
 		po.waitForLoginPageObjects();
-		po.doLogin("hello","smc");
+		po.doLogin("hello","smc",sgName);
 		po.waitForElementVisiblity(po.BAD_LOGIN_XPATH);
 		Assert.assertTrue(po.errorLoggingIn.getText().contains("Error Logging In"));
 	}
@@ -111,13 +116,14 @@ public class LoginPageTests extends WebDriverManager {
 	//@Test
 	@SuppressWarnings({ "static-access" })
 	private void _006LoginWithIncorrectPasswordNEG() throws JSONException, IOException, InterruptedException {	
+		String sgName="L06";
 		long id = Thread.currentThread().getId();
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Test6. Thread id is: " + id);
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		LoginPagePO po=PageFactory.initElements(getDriver(),LoginPagePO.class);
 		po.waitForLoginPageObjects();
-		po.doLogin("smc","hello");
+		po.doLogin("smc","hello",sgName);
 		po.waitForElementVisiblity(po.BAD_LOGIN_XPATH);
 		Assert.assertTrue(po.errorLoggingIn.getText().contains("Error Logging In"));
 	}

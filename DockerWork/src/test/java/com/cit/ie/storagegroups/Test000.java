@@ -17,13 +17,16 @@ public class Test000 extends WebDriverManager{
 	@Test(priority=1)
 	private void _000_A_VERIFY_WIZARD_BUTTONS() throws JSONException, IOException, InterruptedException {
 		HelperMethods.printTimeStart("Test000");
+		String sgName="00DC03";
 		if(threadDriver!=null)
 		{
 			findRemote(threadDriver.get());
 		}
 		LoginPagePO lppo=new LoginPagePO(getDriver());
 		lppo.waitForLoginPageObjects();
-		lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
+		lppo.doLogin("smc","smc",sgName);
+		lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);
+		Thread.sleep(5000);
 		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 		hdpo.waitForHomeDashboardPageObjects();
 		hdpo.navigateToStorageGroups();
@@ -33,6 +36,7 @@ public class Test000 extends WebDriverManager{
 		//Assert.assertTrue(sgpo.deleteStorageGroupButton.isDisplayed());
 		Assert.assertTrue(sgpo.editStorageGroupButton.isDisplayed());
 		Assert.assertTrue(sgpo.storageGroupPageTitle.isDisplayed());
+		hdpo.doLogout();
 		HelperMethods.printTimeFinish("TEST000");
 	}
 

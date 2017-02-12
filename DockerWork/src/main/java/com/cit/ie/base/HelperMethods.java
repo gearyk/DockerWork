@@ -64,7 +64,7 @@ public class HelperMethods extends WebDriverManager {
 		
 		
 		try {
-			wait=new WebDriverWait(driver, 120, 4000);
+			wait=new WebDriverWait(driver, 180, 4000);
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 			Thread.sleep(8000);
 		} catch (UnhandledAlertException e) {
@@ -81,12 +81,18 @@ public class HelperMethods extends WebDriverManager {
 		executor.executeScript("arguments[0].click()",webEl);
 		Thread.sleep(3000);
 	}
+	
+	public void jsSendKeys(WebElement webEl) throws InterruptedException {
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("document.getElementById('email').valu‌​e='test';");
+		Thread.sleep(3000);
+	}
 
 
 	public void waitForLoad() {
 	
 		try {
-			new WebDriverWait(driver, 120).until((ExpectedCondition<Boolean>) wd ->
+			new WebDriverWait(driver, 180).until((ExpectedCondition<Boolean>) wd ->
 			((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
 		} catch (UnhandledAlertException e) {
             System.err.println("Caught UnhandledAlertException in Wait for Page Load: RETRYING"); 
@@ -101,12 +107,12 @@ public class HelperMethods extends WebDriverManager {
 		
 		try {
 			Thread.sleep(1500);
-			wait=new WebDriverWait(driver,800,4000);
+			wait=new WebDriverWait(driver,500,4000);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(text)));
 			Thread.sleep(3500);
 		} catch (UnhandledAlertException e) {
             System.err.println("Caught UnhandledAlertException in Wait for Element to disappear: RETRYING"); 
-            wait=new WebDriverWait(driver,400,4000);
+            wait=new WebDriverWait(driver,500,4000);
             driver.switchTo().alert().accept();
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(text)));
 			Thread.sleep(3500);
@@ -327,12 +333,12 @@ public class HelperMethods extends WebDriverManager {
 	 * @description Navigate to Storage Groups Page
 	 * @throws InterruptedException
 	 */
-	public void gotoStorageGroupsPage(LoginPagePO lppo) throws InterruptedException {
+	public void gotoStorageGroupsPage(LoginPagePO lppo, String sgName) throws InterruptedException {
 		
 		lppo.waitForLoginPageObjects();
-		lppo.doLogin("smc","smc");
-		lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);
 		Thread.sleep(5000);
+		lppo.doLogin("smc","smc",sgName);
+		//lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);
 		Thread.sleep(5000);
 		HomeDashboardPO hdpo=new HomeDashboardPO(driver);
 		Thread.sleep(5000);

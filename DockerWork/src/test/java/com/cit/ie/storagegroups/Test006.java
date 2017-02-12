@@ -30,12 +30,10 @@ public class Test006 extends WebDriverManager{
 			findRemote(threadDriver.get());
 		}
 		LoginPagePO lppo=new LoginPagePO(getDriver());
-		lppo.gotoStorageGroupsPage(lppo);
+		lppo.gotoStorageGroupsPage(lppo,sgName);
 		StorageGroupsPO sgpo=new StorageGroupsPO(getDriver());
 		sgpo.waitForStorageGroupsPageObjects();
-		sgpo.jsClickElement(sgpo.createStorageGroupButton);
-	
-		
+		sgpo.jsClickElement(sgpo.createStorageGroupButton);	
 		ProvisionStorageWizardPO pswpo=new ProvisionStorageWizardPO(getDriver());
 		pswpo.waitForElementVisiblity(pswpo.WAIT_FOR_PAGELOAD);
 		pswpo.jsClickElement(pswpo.storageGroupNameTextField);

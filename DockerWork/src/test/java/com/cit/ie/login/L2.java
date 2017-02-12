@@ -15,6 +15,7 @@ public class L2 extends WebDriverManager {
 	
 	@Test
 	private void _002LoginWithDefaults() throws JSONException, IOException, InterruptedException {
+		String sgName="L02";
 		long id = Thread.currentThread().getId();
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println("Test2. Thread id is: " + id+ " :: thread driver get = "+threadDriver.get());
@@ -27,7 +28,7 @@ public class L2 extends WebDriverManager {
 		Thread.sleep(5000);
 		LoginPagePO po=PageFactory.initElements(getDriver(),LoginPagePO.class);
 		po.waitForLoginPageObjects();
-		po.doLogin("smc","smc");
+		po.doLogin("smc","smc",sgName);
 		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 		hdpo.waitForHomeDashboardPageObjects();
 		Assert.assertTrue(hdpo.u4vLogo.isDisplayed());

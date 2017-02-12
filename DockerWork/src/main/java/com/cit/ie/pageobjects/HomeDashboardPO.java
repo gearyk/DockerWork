@@ -30,7 +30,21 @@ public class HomeDashboardPO extends HelperMethods {
 	//SIDEMENUs
 	public final String STORAGE_SIDEMENU_XPATH=".//a[@ng-if='item.items']/div[text()='STORAGE']";
 	public final String STORAGE_GROUPS_SIDEMENU_XPATH="//nav[@class='ng-scope emc-framework-menu-secondary-sub sub-menu-display']/menu/ul/li[contains(@class,'emc-menu-subitem-storage_groups')]/a/div";
-															   
+	//TOP BUTTONS
+	public final String USER_PROFILE_XPATH="//button[@aria-label='User Profile']";
+	public final String LOGOUT_XPATH="//button[@aria-label='Logout']";
+	public final String LOGOUT_CONFIRM_XPATH="//button/span[text()='OK']";
+
+	
+	@FindBy(xpath=USER_PROFILE_XPATH)
+	public WebElement userProfileButton;
+	@FindBy(xpath=LOGOUT_XPATH)
+	public WebElement logoutButton;
+	@FindBy(xpath=LOGOUT_CONFIRM_XPATH)
+	public WebElement logoutConfitmButton;
+	
+	
+	
 	@FindBy(xpath=DELL_EMC_LOGO_XPATH)
 	public WebElement dellEmcLogo;
 	@FindBy(xpath=U4V_LOGO_XPATH)
@@ -48,19 +62,33 @@ public class HomeDashboardPO extends HelperMethods {
 	//Navigate to this view
 	public void navigateToSideMenu() throws InterruptedException{
 		Thread.sleep(3000);
-		storageSideMenuItem.click();
+		jsClickElement(storageSideMenuItem);		
+		//storageSideMenuItem.click();
 	}
 
 	//Navigate to this view
 	public void navigateToStorageGroups() throws InterruptedException{
 		navigateToSideMenu();
 		Thread.sleep(1500);
-		storageGroupsSideMenuItem.click();	
+		jsClickElement(storageGroupsSideMenuItem);
+		//storageGroupsSideMenuItem.click();	
 		Thread.sleep(5000);
+	}
+	
+	public void doLogout() throws InterruptedException{
+	
+		jsClickElement(userProfileButton);
+		Thread.sleep(2000);
+		jsClickElement(logoutButton);
+		Thread.sleep(2000);
+		jsClickElement(logoutConfitmButton);
+		Thread.sleep(2000);
+		
 	}
 	
 	//Quit the webdriver
 	public void quitWebDriver() throws InterruptedException{
+			doLogout();
 			Thread.sleep(1500);	
 			driver.quit();
 			Thread.sleep(3500);		
