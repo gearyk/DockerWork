@@ -7,7 +7,7 @@ import com.cit.ie.rest.RESTClient;
 
 public class CleanUpSGs extends RESTClient{
 	
-	private static String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
+	private static String baseURL="https://10.73.28.70:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
 	private String sgName;
 	
 	public static void main(String[] args) throws InterruptedException{

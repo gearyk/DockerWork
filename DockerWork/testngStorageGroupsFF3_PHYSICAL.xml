@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite verbose="1" name="SG Suite" parallel="tests" thread-count="5">
+	<test name="TEST0">
+   		<parameter name ="browser" value="firefox"/>
+    	<parameter name ="hubIP" value="10.73.28.171"/>
+    	<parameter name ="applicationURL" value="https://10.73.28.71:8443/univmax"/>
+        	<classes>
+            	<class name ="com.cit.ie.storagegroups.Test000"/>
+            	
+        	</classes>
+    </test>
+    <test name="TEST1">
+   		<parameter name ="browser" value="firefox"/>
+    	<parameter name ="hubIP" value="10.73.28.171"/>
+    	<parameter name ="applicationURL" value="https://10.73.28.71:8443/univmax"/>
+        	<classes>
+            	<class name ="com.cit.ie.storagegroups.Test001"/>
+        	</classes>
+    </test>
+    <test name="TEST2">
+   		<parameter name ="browser" value="firefox"/>
+    	<parameter name ="hubIP" value="10.73.28.171"/>
+    	<parameter name ="applicationURL" value="https://10.73.28.71:8443/univmax"/>
+        	<classes>
+            	<class name ="com.cit.ie.storagegroups.Test002"/>
+        	</classes>
+    </test>
+    <test name="TEST3">
+   		<parameter name ="browser" value="firefox"/>
+    	<parameter name ="hubIP" value="10.73.28.171"/>
+    	<parameter name ="applicationURL" value="https://10.73.28.71:8443/univmax"/>
+        	<classes>
+            	<class name ="com.cit.ie.storagegroups.Test003"/>
+        	</classes>
+    </test>
+    <test name="TEST4">
+   		<parameter name ="browser" value="firefox"/>
+    	<parameter name ="hubIP" value="10.73.28.171"/>
+    	<parameter name ="applicationURL" value="https://10.73.28.71:8443/univmax"/>
+        	<classes>
+            	<class name ="com.cit.ie.storagegroups.Test004"/>
+        	</classes>
+    </test>
+   
+</suite>

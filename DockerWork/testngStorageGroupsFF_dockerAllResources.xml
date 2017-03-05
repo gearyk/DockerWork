@@ -11,7 +11,7 @@
     </test>
     <test name="TEST1">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test001"/>
@@ -19,7 +19,7 @@
     </test>
     <test name="TEST2">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     	<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test002"/>
@@ -27,7 +27,7 @@
     </test>
     <test name="TEST3">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     	<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test003"/>
@@ -43,7 +43,7 @@
     </test>
     <test name="TEST5">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test005"/>
@@ -51,7 +51,7 @@
     </test>
     <test name="TEST6">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test006"/>
@@ -59,7 +59,7 @@
     </test>
     <test name="TEST7">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test007"/>
@@ -75,7 +75,7 @@
     </test>
     <test name="TEST9">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test009"/>
@@ -83,7 +83,7 @@
     </test>
      <test name="TEST10">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test010"/>
@@ -91,7 +91,7 @@
     </test>
     <test name="TEST11">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test011"/>
@@ -107,7 +107,7 @@
     </test>
      <test name="TEST13">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test013"/>
@@ -115,7 +115,7 @@
     </test>
     <test name="TEST14">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test014"/>
@@ -123,7 +123,7 @@
     </test>
     	<test name="TEST15">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test015"/>
@@ -139,7 +139,7 @@
     </test>
     <test name="TEST17">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test017"/>
@@ -147,7 +147,7 @@
     </test>
     <test name="TEST18">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test018"/>
@@ -155,7 +155,7 @@
     </test>
     <test name="TEST19">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test019"/>
@@ -171,7 +171,7 @@
     </test>
     <test name="TEST21">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test021"/>
@@ -179,7 +179,7 @@
     </test>
     <test name="TEST22">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test022"/>
@@ -187,7 +187,7 @@
     </test>
      <test name="TEST23">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test023"/>
@@ -203,7 +203,7 @@
     </test>
      <test name="TEST25">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test025"/>
@@ -211,7 +211,7 @@
     </test>
     <test name="TEST26">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test026"/>
@@ -219,7 +219,7 @@
     </test>
     <test name="TEST27">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test027"/>
@@ -235,7 +235,7 @@
     </test>
     <test name="TEST29">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test029"/>
@@ -243,7 +243,7 @@
     </test>
     	<test name="TEST30">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test030"/>
@@ -251,7 +251,7 @@
     </test>
     <test name="TEST31">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test031"/>
@@ -267,7 +267,7 @@
     </test>
     <test name="TEST33">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test033"/>
@@ -275,7 +275,7 @@
     </test>
     <test name="TEST34">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test034"/>
@@ -283,7 +283,7 @@
     </test>
     <test name="TEST35">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test035"/>
@@ -299,7 +299,7 @@
     </test>
     <test name="TEST37">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test037"/>
@@ -307,7 +307,7 @@
     </test>
      <test name="TEST38">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test038"/>
@@ -315,7 +315,7 @@
     </test>
     <test name="TEST39">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test039"/>
@@ -323,7 +323,7 @@
     </test>
      <test name="TEST40">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test040"/>
@@ -331,7 +331,7 @@
     </test>
     <test name="TEST41">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test041"/>
@@ -339,7 +339,7 @@
     </test>
     <test name="TEST42">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test042"/>
@@ -347,7 +347,7 @@
     </test>
      <test name="TEST43">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test043"/>
@@ -363,7 +363,7 @@
     </test>
     	<test name="TEST45">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test045"/>
@@ -371,7 +371,7 @@
     </test>
     <test name="TEST46">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test046"/>
@@ -379,7 +379,7 @@
     </test>
     <test name="TEST47">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test047"/>
@@ -395,7 +395,7 @@
     </test>
     <test name="TEST49">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test049"/>
@@ -403,7 +403,7 @@
     </test>
     <test name="TEST50">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test050"/>
@@ -411,7 +411,7 @@
     </test>
     <test name="TEST51">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test051"/>
@@ -427,7 +427,7 @@
     </test>
      <test name="TEST53">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test053"/>
@@ -435,7 +435,7 @@
     </test>
     <test name="TEST54">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     	<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test054"/>
@@ -443,7 +443,7 @@
     </test>
      <test name="TEST55">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test055"/>
@@ -459,7 +459,7 @@
     </test>
     <test name="TEST57">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test057"/>
@@ -467,7 +467,7 @@
     </test>
      <test name="TEST58">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.28"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test058"/>
@@ -475,7 +475,7 @@
     </test>
     <test name="TEST59">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test059"/>
@@ -491,7 +491,7 @@
     </test>
     <test name="TEST61">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test061"/>
@@ -499,7 +499,7 @@
     </test>
      <test name="TEST62">
    		<parameter name ="browser" value="firefox"/>
- 		<parameter name ="hubIP" value="10.60.141.28"/>
+ 		<parameter name ="hubIP" value="10.73.29.41"/>
  			<parameter name ="applicationURL" value="https://10.60.141.19:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test062"/>
@@ -507,7 +507,7 @@
     </test>
     <test name="TEST63">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.60.141.27"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test063"/>
@@ -523,7 +523,7 @@
     </test>
      <test name="TEST65">
    		<parameter name ="browser" value="firefox"/>
-    	<parameter name ="hubIP" value="10.73.29.43"/>
+    	<parameter name ="hubIP" value="10.73.29.41"/>
     		<parameter name ="applicationURL" value="https://10.73.28.70:8443/univmax"/>
         	<classes>
             	<class name ="com.cit.ie.storagegroups.Test065"/>

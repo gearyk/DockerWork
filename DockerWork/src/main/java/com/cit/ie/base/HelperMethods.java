@@ -25,7 +25,7 @@ public class HelperMethods extends WebDriverManager {
 	public WebDriver driver;
 	protected int timeOut = 500;
 	public WebDriverWait wait;
-	private String baseURL="https://10.73.28.70:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
+	private String baseURL=appURL+"/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
 
 	//@SuppressWarnings("static-access")
 	public HelperMethods(WebDriver adriver){
@@ -53,7 +53,7 @@ public class HelperMethods extends WebDriverManager {
 			Thread.sleep(8000);
 		} catch (UnhandledAlertException e) {
             System.err.println("Caught UnhandledAlertException in Wait for Element Visability: RETRYING"); 
-            driver.switchTo().alert().accept();
+            //driver.switchTo().alert().accept();
             wait=new WebDriverWait(driver, 180, 4000);
     		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
     		Thread.sleep(8000);
@@ -107,12 +107,12 @@ public class HelperMethods extends WebDriverManager {
 		
 		try {
 			Thread.sleep(1500);
-			wait=new WebDriverWait(driver,500,4000);
+			wait=new WebDriverWait(driver,600,4000);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(text)));
 			Thread.sleep(3500);
 		} catch (UnhandledAlertException e) {
             System.err.println("Caught UnhandledAlertException in Wait for Element to disappear: RETRYING"); 
-            wait=new WebDriverWait(driver,500,4000);
+            wait=new WebDriverWait(driver,600,4000);
             driver.switchTo().alert().accept();
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(text)));
 			Thread.sleep(3500);
@@ -158,11 +158,22 @@ public class HelperMethods extends WebDriverManager {
 	public void verifyAndCleanup(String sgName) throws InterruptedException {
 		//VERIFY THAT GROUP HAS BEEN CREATED
 		//RESTClient.refreshRestDB(baseURL);
-		RESTClient.GET(baseURL+sgName);
-		Assert.assertEquals(RESTClient.responseStatus,200);
+//				RESTClient.GET(baseURL+sgName);
+//				if (RESTClient.responseStatus!=200)
+//				{
+//				RESTClient.printResponses();
+//				}
+//		Assert.assertEquals(RESTClient.responseStatus,200);
 		//CLEANUP
 		//RESTClient.DELETE(baseURL+sgName);
+		Thread.sleep(2000);
 		RESTClient.DELETE(baseURL+sgName);
+//		Thread.sleep(2000);
+//		if (RESTClient.responseStatus!=204)
+//				{
+//				RESTClient.printResponses();
+//				}
+//		Assert.assertEquals(RESTClient.responseStatus,204);
 		    
 	}
 	
