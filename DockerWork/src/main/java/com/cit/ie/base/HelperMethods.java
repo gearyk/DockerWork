@@ -48,13 +48,13 @@ public class HelperMethods extends WebDriverManager {
 		
 		
 		try {
-			wait=new WebDriverWait(driver, 180, 4000);
+			wait=new WebDriverWait(driver, 280, 4000);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 			Thread.sleep(8000);
 		} catch (UnhandledAlertException e) {
             System.err.println("Caught UnhandledAlertException in Wait for Element Visability: RETRYING"); 
             //driver.switchTo().alert().accept();
-            wait=new WebDriverWait(driver, 180, 4000);
+            wait=new WebDriverWait(driver, 280, 4000);
     		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
     		Thread.sleep(8000);
         }
@@ -107,12 +107,12 @@ public class HelperMethods extends WebDriverManager {
 		
 		try {
 			Thread.sleep(1500);
-			wait=new WebDriverWait(driver,600,4000);
+			wait=new WebDriverWait(driver,1200,4000);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(text)));
 			Thread.sleep(3500);
 		} catch (UnhandledAlertException e) {
             System.err.println("Caught UnhandledAlertException in Wait for Element to disappear: RETRYING"); 
-            wait=new WebDriverWait(driver,600,4000);
+            wait=new WebDriverWait(driver,1200,4000);
             driver.switchTo().alert().accept();
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(text)));
 			Thread.sleep(3500);

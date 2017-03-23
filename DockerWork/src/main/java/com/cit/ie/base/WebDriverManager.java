@@ -43,7 +43,7 @@ public class WebDriverManager {
 
 	@Parameters({"browser","hubIP","applicationURL"})
 	@BeforeClass()
-	public void launchbrowser(@Optional("firefox")String browser,@Optional("10.73.28.229")String hubIP,@Optional("https://10.73.28.70:8443/univmax") String applicationURL) throws MalformedURLException, InterruptedException {
+	public void launchbrowser(@Optional("firefox")String browser,@Optional("10.60.134.99")String hubIP,@Optional("https://10.73.28.70:8443/univmax") String applicationURL) throws MalformedURLException, InterruptedException {
 		
 		appURL=applicationURL;
 		System.out.println("Setting URL to : "+appURL);

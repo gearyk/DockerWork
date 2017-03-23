@@ -17,18 +17,19 @@ public class CleanUpSGs extends RESTClient{
 		String[] allStorageGroups=getReadableString(responseOutput, "storageGroupId").split(",");
 		for(int i=0;i<allStorageGroups.length;i++){
 			if (allStorageGroups[i].trim().length()>5 && allStorageGroups[i].trim().substring(0, 4).contains("00DC") ){
+			//if (allStorageGroups[i].trim().length()>5 && allStorageGroups[i].trim().substring(0, 4).contains("test") ){
 			System.out.println("DELETING SG "+allStorageGroups[i].trim());
-			verifyAndCleanup(allStorageGroups[i].trim());
+			deleteSG(allStorageGroups[i].trim());
 			}
 		}
-		GET(baseURL);
-		allStorageGroups=getReadableString(responseOutput, "storageGroupId").split(",");
-		for(int i=0;i<allStorageGroups.length;i++){
-			if (allStorageGroups[i].trim().length()>8 && allStorageGroups[i].trim().substring(0, 7).contains("0madeup") ){
-			System.out.println("DELETING SG "+allStorageGroups[i].trim());
-			verifyAndCleanup(allStorageGroups[i].trim());
-			}
-		}
+//		GET(baseURL);
+//		allStorageGroups=getReadableString(responseOutput, "storageGroupId").split(",");
+//		for(int i=0;i<allStorageGroups.length;i++){
+//			if (allStorageGroups[i].trim().length()>8 && allStorageGroups[i].trim().substring(0, 7).contains("0madeup") ){
+//			System.out.println("DELETING SG "+allStorageGroups[i].trim());
+//			verifyAndCleanup(allStorageGroups[i].trim());
+//			}
+//		}
 		System.out.println("END SG DELETE");
 	}
 	
@@ -49,6 +50,21 @@ public class CleanUpSGs extends RESTClient{
 		RESTClient.DELETE(baseURL+sgName);
 		RESTClient.printResponses();
 		Assert.assertEquals(RESTClient.responseStatus,204);
+		Thread.sleep(1000);
+	}
+	
+	/**
+	 * @author gearyk2
+	 * @param sgName
+	 * @throws InterruptedException
+	 * @description verify the response code of the RESTGET for this storage group
+	 * and then call a REST DELETE for the storage group
+	 */
+	private static void deleteSG(String sgName) throws InterruptedException {
+		//CLEANUP
+		RESTClient.DELETE(baseURL+sgName);
+		RESTClient.printResponses();
+		//Assert.assertEquals(RESTClient.responseStatus,204);
 		Thread.sleep(1000);
 	}
 
