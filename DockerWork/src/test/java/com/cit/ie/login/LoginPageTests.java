@@ -73,7 +73,7 @@ public class LoginPageTests extends WebDriverManager {
 			System.out.println("Test3 about to find remote");
 			findRemote(threadDriver.get());
 		}
-		getDriver().get("https://10.73.28.71:8443/univmax/jsclient/#/login");
+		getDriver().get("https://10.60.141.19:8443/univmax/");
 		LoginPagePO po=PageFactory.initElements(getDriver(),LoginPagePO.class);
 		po.waitForLoginPageObjects();
 		po.doLogin("smc","smc",sgName);
@@ -113,7 +113,7 @@ public class LoginPageTests extends WebDriverManager {
 		Assert.assertTrue(po.errorLoggingIn.getText().contains("Error Logging In"));
 	}
 
-	//@Test
+	@Test
 	@SuppressWarnings({ "static-access" })
 	private void _006LoginWithIncorrectPasswordNEG() throws JSONException, IOException, InterruptedException {	
 		String sgName="L06";
@@ -123,9 +123,18 @@ public class LoginPageTests extends WebDriverManager {
 		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		LoginPagePO po=PageFactory.initElements(getDriver(),LoginPagePO.class);
 		po.waitForLoginPageObjects();
-		po.doLogin("smc","hello",sgName);
+		po.usernameField.click();
+		po.usernameField.clear();
+		po.usernameField.sendKeys("smc");
+		po.passwordField.click();
+		po.passwordField.clear();
+		po.passwordField.sendKeys("hello");
+		po.loginButton.click();
+		Thread.sleep(3000);
 		po.waitForElementVisiblity(po.BAD_LOGIN_XPATH);
 		Assert.assertTrue(po.errorLoggingIn.getText().contains("Error Logging In"));
+		getDriver().quit();
+		
 	}
 
 

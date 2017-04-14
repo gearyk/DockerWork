@@ -58,7 +58,7 @@ public class LoginPagePO extends HelperMethods
 	public final String LOGIN_BUTTON_XPATH = ".//*/button[@aria-label='Login']";
 	public final String VERSION_NUMBER_XPATH = ".//*/div[text()[contains(.,'Version')]]";
 	public final String LOGIN_LOGO_XPATH = ".//*[@id='login_logo']";
-	public final String BAD_LOGIN_XPATH=".//*/span[text()='Error Logging In']";
+	public final String BAD_LOGIN_XPATH=".//span[text()='Error Logging In']";
 
 	//WEB ELEMENTS
 	@FindBy(xpath=LOGIN_PAGE_TITLE_XPATH)

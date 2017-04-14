@@ -50,7 +50,7 @@ public class HelperMethods extends WebDriverManager {
 		try {
 			wait=new WebDriverWait(driver, 280, 4000);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-			Thread.sleep(8000);
+			//Thread.sleep(8000);
 		} catch (UnhandledAlertException e) {
             System.err.println("Caught UnhandledAlertException in Wait for Element Visability: RETRYING"); 
             //driver.switchTo().alert().accept();
@@ -157,15 +157,15 @@ public class HelperMethods extends WebDriverManager {
 	 */
 	public void verifyAndCleanup(String sgName) throws InterruptedException {
 		//VERIFY THAT GROUP HAS BEEN CREATED
-		//RESTClient.refreshRestDB(baseURL);
-//				RESTClient.GET(baseURL+sgName);
-//				if (RESTClient.responseStatus!=200)
-//				{
-//				RESTClient.printResponses();
-//				}
-//		Assert.assertEquals(RESTClient.responseStatus,200);
+		RESTClient.refreshRestDB(baseURL);
+				RESTClient.GET(baseURL+sgName);
+				if (RESTClient.responseStatus!=200)
+				{
+				RESTClient.printResponses();
+				}
+		Assert.assertEquals(RESTClient.responseStatus,200);
 		//CLEANUP
-		//RESTClient.DELETE(baseURL+sgName);
+		RESTClient.DELETE(baseURL+sgName);
 		Thread.sleep(2000);
 		RESTClient.DELETE(baseURL+sgName);
 //		Thread.sleep(2000);
