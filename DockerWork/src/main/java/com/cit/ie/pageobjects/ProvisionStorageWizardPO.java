@@ -265,7 +265,6 @@ public class ProvisionStorageWizardPO extends StorageGroupsPO {
 	public WebElement errorSGAlreadyExists;
 	
 	/**
-	 * @author gearyk2
 	 * @param xpath
 	 * @return web element
 	 * @description specialized findByXpath for Child Storage Group rows
