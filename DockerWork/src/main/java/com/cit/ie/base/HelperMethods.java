@@ -21,7 +21,7 @@ public class HelperMethods extends WebDriverManager {
 	public WebDriver driver;
 	protected int timeOut = 500;
 	public WebDriverWait wait;
-	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
+	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/0001967XXXXX/storagegroup/";
 
 	//@SuppressWarnings("static-access")
 	public HelperMethods(WebDriver adriver){
