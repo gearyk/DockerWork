@@ -7,7 +7,7 @@ import com.cit.ie.rest.RESTClient;
 
 public class CleanUpSGs extends RESTClient{
 	
-	private static String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
+	private static String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/0001967XXXXX/storagegroup/";
 	private String sgName;
 	
 	public static void main(String[] args) throws InterruptedException{
@@ -32,7 +32,7 @@ public class CleanUpSGs extends RESTClient{
 	}
 	
 	/**
-	 * @author gearyk2
+	
 	 * @param sgName
 	 * @throws InterruptedException
 	 * @description verify the response code of the RESTGET for this storage group
