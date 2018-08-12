@@ -76,17 +76,9 @@ public class WebDriverManager {
 
 	public WebDriver getDriver()
 	{
-		//	        System.out.println(threadDriver);
-		//	        if(threadDriver==null)
-		//	        {
-		//	            System.out.println("returning driver");
-		//	            //return driver.get();
-		//	        }
-		//	        else
-		//	        {
-		//System.out.println("returning thread driver");
+	
 		return threadDriver.get();
-		//	        }
+		
 	}
 
 	@AfterClass
