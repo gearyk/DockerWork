@@ -20,7 +20,7 @@ import com.cit.ie.rest.RESTClient;
 @SuppressWarnings("static-access")
 public class StorageGroupTests extends WebDriverManager{
 
-	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/";
+	private String baseURL="https://10.73.28.71:8443/univmax/restapi/sloprovisioning/symmetrix/0001967XXXXX/storagegroup/";
 	private String sgName;
 	/*
 	 * SLO1=OPTIMIZED
@@ -40,7 +40,7 @@ public class StorageGroupTests extends WebDriverManager{
 		}
 		LoginPagePO lppo=new LoginPagePO(getDriver());
 		lppo.waitForLoginPageObjects();
-		lppo.doLogin("smc","smc");
+		lppo.doLogin("xxx","xxx");
 		lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);
 		Thread.sleep(5000);
 		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
@@ -73,7 +73,7 @@ public class StorageGroupTests extends WebDriverManager{
 		}
 		LoginPagePO lppo=new LoginPagePO(getDriver());
 		lppo.waitForLoginPageObjects();
-		lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
+		lppo.doLogin("xxx","xxx");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 		hdpo.waitForHomeDashboardPageObjects();
 		hdpo.navigateToStorageGroups();
@@ -2100,14 +2100,13 @@ public class StorageGroupTests extends WebDriverManager{
 	//********************************* HELPER METHODS FOR THIS CLASS *********************************
 
 	/**
-	 * @author gearyk2
 	 * @description Navigate to Storage Groups Page
 	 * @throws InterruptedException
 	 */
 	private void gotoStorageGroupsPage() throws InterruptedException {
 		LoginPagePO lppo=new LoginPagePO(getDriver());
 		lppo.waitForLoginPageObjects();
-		lppo.doLogin("smc","smc");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
+		lppo.doLogin("xxx","xxx");lppo.waitForElementToDisappear(lppo.USERNAME_FIELD_XPATH);Thread.sleep(5000);
 		Thread.sleep(5000);
 		HomeDashboardPO hdpo=new HomeDashboardPO(getDriver());
 		Thread.sleep(5000);
@@ -2117,7 +2116,7 @@ public class StorageGroupTests extends WebDriverManager{
 	}
 
 	/**
-	 * @author gearyk2
+	
 	 * @description Navigate to Storage Groups Page
 	 * @throws InterruptedException
 	 */
@@ -2128,7 +2127,7 @@ public class StorageGroupTests extends WebDriverManager{
 	}
 
 	/**
-	 * @author gearyk2
+	
 	 * @param pswpo
 	 * @param slo
 	 * @throws InterruptedException
@@ -2166,7 +2165,7 @@ public class StorageGroupTests extends WebDriverManager{
 	}
 
 	/**
-	 * @author gearyk2
+	
 	 * @param pswpo
 	 * @param srp
 	 * @throws InterruptedException
@@ -2192,7 +2191,7 @@ public class StorageGroupTests extends WebDriverManager{
 	}
 
 	/**
-	 * @author gearyk2
+	 
 	 * @param pswpo
 	 * @param numberOfVolumes
 	 * @param volumeSize
@@ -2232,7 +2231,7 @@ public class StorageGroupTests extends WebDriverManager{
 	}
 
 	/**
-	 * @author gearyk2
+	2
 	 * @param pswpo
 	 * @param workload
 	 * @throws InterruptedException
@@ -2263,7 +2262,7 @@ public class StorageGroupTests extends WebDriverManager{
 	}
 
 	/**
-	 * @author gearyk2
+	
 	 * @param srp
 	 * @throws InterruptedException
 	 * @throws IOException 
@@ -2299,7 +2298,7 @@ public class StorageGroupTests extends WebDriverManager{
 	}
 
 	/**
-	 * @author gearyk2
+	
 	 * @param pswpo
 	 * @param workload
 	 * @param volumeUnit
@@ -2395,7 +2394,7 @@ public class StorageGroupTests extends WebDriverManager{
 	}
 
 	/**
-	 * @author gearyk2
+	 
 	 * @param sgName
 	 * @throws InterruptedException
 	 * @description verify the response code of the RESTGET for this storage group
@@ -2415,7 +2414,7 @@ public class StorageGroupTests extends WebDriverManager{
 	}
 
 	/**
-	 * @author gearyk2
+	 
 	 * @param sgpo
 	 * @param sgame
 	 * @throws InterruptedException
