@@ -4,7 +4,6 @@ import javax.net.ssl.X509TrustManager;
 import java.security.cert.X509Certificate;
 
 /**
- * @author gearyk2
  * @name TrustAllX509TrustManager
  * @description Trust Manager needed for rest api calls to bypass SSL certs
  */
