@@ -24,7 +24,6 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
 /**
- * @author gearyk2
  */
 @SuppressWarnings("deprecation")
 public class RESTClient extends Constants
@@ -325,7 +324,6 @@ public class RESTClient extends Constants
 	 * @name refreshRestDB
 	 * @description A simple post to refresh the REST Database
 	 * @param url
-	 * @example https://10.73.28.231:8443/univmax/restapi/sloprovisioning/symmetrix/000196700348/storagegroup/
 	 */
 	public static void refreshRestDB(String storageGroupurl) {
 		String rand=UUID.randomUUID().toString().replaceAll("-", "").substring(0, 6);
